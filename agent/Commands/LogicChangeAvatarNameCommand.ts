@@ -5,14 +5,14 @@ import LogicPlayerData from "../Configuration/LogicPlayerData.js";
 import LogicClientAvatar from "../Packets/Server/Home/OwnHomeDataMessage/LogicClientAvatar/LogicClientAvatar.js";
 
 class LogicChangeAvatarNameCommand {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         Stream.WriteStringReference("");
         Stream.WriteVInt(0);
         Stream.WriteStringReference("");
 
-        LogicServerCommand.Encode(Stream);
+        LogicServerCommand.encode(Stream);
 
         return Stream.Payload;
     }

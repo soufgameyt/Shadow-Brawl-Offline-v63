@@ -34,7 +34,7 @@ class LogicLong {
 		this.MLowInteger = Stream.ReadInt();
 	}
 
-	Encode(Stream: ByteStream): void {
+	encode(Stream: ByteStream): void {
 		Stream.WriteInt(this.MHighInteger);
 		Stream.WriteInt(this.MLowInteger);
 	}

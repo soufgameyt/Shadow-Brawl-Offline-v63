@@ -1,7 +1,7 @@
 import LogicGemOffer from "./LogicGemOffer";
 
 class LogicPlayerContestEventData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(0);
         stream.WriteVInt(0);
 
@@ -18,7 +18,7 @@ class LogicPlayerContestEventData {
 
         stream.WriteBoolean(false);
         {
-            LogicGemOffer.Encode(stream, 57, 14888, 0, 0, 0);
+            LogicGemOffer.encode(stream, 57, 14888, 0, 0, 0);
         }
 
         stream.WriteVInt(0);

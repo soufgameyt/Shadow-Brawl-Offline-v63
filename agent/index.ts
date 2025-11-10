@@ -18,7 +18,7 @@ class ShadowBrawlOffline {
         Debugger.Debug("[+][ShadowBrawlOffline::Init] Loading Config");
         LogicPlayerData.Load();
         Debugger.Debug("[+][ShadowBrawlOffline::Init] Loaded Config!");
-        OfflineBattles.Init();
+        // OfflineBattles.Init();
         ResourceListener.AddFile("sc/debug.sc");
     }
 }

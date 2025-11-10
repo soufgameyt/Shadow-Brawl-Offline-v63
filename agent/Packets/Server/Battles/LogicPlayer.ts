@@ -4,7 +4,7 @@ class LogicPlayer {
     static IsSpectator: number = 0
     static ControlMode: number = 2
 
-    static Encode(Stream: any) {
+    static encode(Stream: any) {
         Stream.WriteLong(0, 256617006);
 
         Stream.WriteBoolean(true);

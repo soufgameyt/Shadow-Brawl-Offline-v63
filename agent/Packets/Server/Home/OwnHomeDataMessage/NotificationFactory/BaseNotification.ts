@@ -16,10 +16,10 @@ class BaseNotification {
         this.NotificationTime = NotificationTime;
         this.NotificationText = NotificationText;
 
-        this.Encode();
+        this.encode();
     }
 
-    public Encode(): void {
+    public encode(): void {
         this.stream.WriteVInt(this.NotificationID);
         this.stream.WriteInt(this.NotificationIndex);
         this.stream.WriteBoolean(this.IsNotificationRead);

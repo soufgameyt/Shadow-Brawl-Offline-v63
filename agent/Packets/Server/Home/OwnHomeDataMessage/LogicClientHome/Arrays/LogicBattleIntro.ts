@@ -1,5 +1,5 @@
 class LogicBattleIntro {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteDataReference(100, 1);
         stream.WriteDataReference(28, -1); // Icon 1
         stream.WriteDataReference(28, -1); // Icon 2

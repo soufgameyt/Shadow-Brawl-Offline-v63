@@ -1,5 +1,5 @@
 class ChronosTextEntry {
-    static Encode(stream: any, Str: string, Int: number) {
+    static encode(stream: any, Str: string, Int: number) {
         stream.WriteString(Str);
         stream.WriteVInt(Int);
     }

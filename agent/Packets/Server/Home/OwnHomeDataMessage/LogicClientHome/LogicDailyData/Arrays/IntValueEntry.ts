@@ -1,5 +1,5 @@
 class IntValueEntry {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(17);
         stream.WriteDataReference(2, 1); // Unknown
         stream.WriteDataReference(6, 0); // Demo Account

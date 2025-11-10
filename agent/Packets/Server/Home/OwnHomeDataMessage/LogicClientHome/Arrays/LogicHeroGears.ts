@@ -1,5 +1,5 @@
 class LogicHeroGears {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(0);
     }
 }

@@ -1,5 +1,5 @@
 class LogicPlayerCollabEventData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(67); // Event Currency
         stream.WriteVInt(0);
 

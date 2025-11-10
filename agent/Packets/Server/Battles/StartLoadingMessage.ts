@@ -4,7 +4,7 @@ import LogicPlayer from "./LogicPlayer.js";
 
 class StartLoadingMessage {
     static GameModeVariation = 13;
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
         
         Stream.WriteInt(LogicBattleModeServer.PlayerCount);
@@ -14,7 +14,7 @@ class StartLoadingMessage {
         Stream.WriteInt(LogicBattleModeServer.PlayerCount);
         for (let i = 0; i < LogicBattleModeServer.PlayerCount; i++) 
         {
-            LogicPlayer.Encode(Stream);
+            LogicPlayer.encode(Stream);
         }
 
         Stream.WriteInt(0); // LogicVector2::encode

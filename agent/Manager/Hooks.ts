@@ -66,7 +66,7 @@ class Hooks {
         /*Interceptor.attach(Environment.LaserBase.add(0x232658), { // MessageManager::sendMessage
             onEnter(args) {
                 // this.message = args[1];
-                // PiranhaMessage.Encode(args[1]);
+                // PiranhaMessage.encode(args[1]);
                 // this.messaging2 = args[0].add(72).readPointer();
                 // this.messaging2.add(24).writeU64(5); // Messaging State                
             }
@@ -110,14 +110,14 @@ class Hooks {
 
         // Misc Hooks
 
-        Interceptor.attach(Environment.LaserBase.add(0x325900), {
+        /*Interceptor.attach(Environment.LaserBase.add(0x325900), {
             onEnter: function (args) {
                 // Hooks.messstate.add(24).writeInt(2);
                 args[3] = ptr(3); // Offline Battles
                 // args[6] = ptr(1); // Maxed Brawlers
                 args[8] = ptr(1); // Accessorys enabled/disabled
             }
-        });
+        });*/
 
         /*Interceptor.attach(Environment.LaserBase.add(0x496B1C), {
             onEnter: function(args) {

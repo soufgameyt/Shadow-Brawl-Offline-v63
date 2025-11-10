@@ -50,10 +50,10 @@ class LogicClientAvatar {
 		this.OwnedBrawlers = LogicPlayerData.GetOwnedBrawlers();
 		this.OwnedBrawlersCount = Object.values(this.OwnedBrawlers).length;
 
-		this.Encode();
+		this.encode();
 	}
 
-	public Encode(): void {
+	public encode(): void {
 		this.stream.WriteVLong(this.AccountID[0], this.AccountID[1]);
 		this.stream.WriteVLong(this.AccountID[0], this.AccountID[1]);
 		this.stream.WriteVLong(0, 0);

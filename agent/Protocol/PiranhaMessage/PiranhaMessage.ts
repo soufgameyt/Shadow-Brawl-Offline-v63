@@ -1,7 +1,7 @@
 import LogicMath from "../../Utils/Math/LogicMath";
 
 class PiranhaMessage {
-    static Encode(Message: NativePointer): number { 
+    static encode(Message: NativePointer): number { 
         return (new NativeFunction(Message.readPointer().add(16).readPointer(), "int", ["pointer"]))(Message); 
     }
 

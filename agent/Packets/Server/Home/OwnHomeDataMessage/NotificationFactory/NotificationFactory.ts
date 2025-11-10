@@ -11,10 +11,10 @@ class NotificationFactory {
         this.stream = stream;
         this.NotificationConfig = new NotificationFactoryConfig(1, [28], [0], [false], [100000], ["hi"]);
 
-        this.Encode();
+        this.encode();
     }
 
-    public Encode(): void {
+    public encode(): void {
         this.stream.WriteVInt(this.NotificationConfig.NotificationCount);
 
         for (let i = 0; i < this.NotificationConfig.NotificationCount; i++) {
@@ -105,7 +105,7 @@ class NotificationFactory {
                     break;
                 case 70:
                     new BaseNotification(this.stream, this.NotificationConfig.NotificationID[i], this.NotificationConfig.NotificationIndex[i], this.NotificationConfig.IsRead[i], this.NotificationConfig.NotificationTime[i], this.NotificationConfig.NotificationMessage[i]);
-                    ChallengeRewardNotification.Encode(this.stream);
+                    ChallengeRewardNotification.encode(this.stream);
                     break;
                 case 71:
                     break;

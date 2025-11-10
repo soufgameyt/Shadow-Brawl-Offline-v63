@@ -16,12 +16,12 @@ class LogicGear {
                     console.log("fuck")
                     LogicGear.CalledLogs = true;
                 }
-                return LogicGear.Encode(a1, a2, a3);
+                return LogicGear.encode(a1, a2, a3);
             }, "void", ["pointer", "pointer", "pointer"])
         );
     }
 
-    static Encode(a1: NativePointer, a2: NativePointer, a3: NativePointer) {
+    static encode(a1: NativePointer, a2: NativePointer, a3: NativePointer) {
         const BitStream_writePositiveInt = new NativeFunction(Environment.LaserBase.add(0x4DD1B4), 'pointer', ['pointer', 'int', 'int']);
         const BitStream_writePositiveVInt = new NativeFunction(Environment.LaserBase.add(0x4DD444), 'pointer', ['pointer', 'int', 'int']);
 

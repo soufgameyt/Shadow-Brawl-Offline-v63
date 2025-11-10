@@ -1,5 +1,5 @@
 class LogicPlayerRecordsData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(0); // Array
         stream.WriteVInt(0); // Array
         stream.WriteVInt(0); // Records Points

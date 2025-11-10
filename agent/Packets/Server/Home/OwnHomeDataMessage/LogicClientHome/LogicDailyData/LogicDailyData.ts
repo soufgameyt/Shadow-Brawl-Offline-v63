@@ -11,7 +11,7 @@ import LogicPlayerRankedSeasonData from "./Arrays/LogicPlayerRankedSeasonData";
 import EsportsButtonStateData from "./Arrays/EsportsButtonStateData";
 
 class LogicDailyData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(2025257);
         stream.WriteVInt(40312);
 
@@ -54,7 +54,7 @@ class LogicDailyData {
         stream.WriteVInt(144); // Brawl Pass Season Timer
         stream.WriteVInt(1509112); // Brawl Pass Season Timer
 
-        ForcedDrops.Encode(stream);
+        ForcedDrops.encode(stream);
 
         stream.WriteBoolean(true);
         stream.WriteVInt(2); // Token Doubler New Tag State
@@ -64,7 +64,7 @@ class LogicDailyData {
         stream.WriteVInt(0); // Timer For the Next Name Change
         stream.WriteVInt(0); // ?
 
-        LogicOfferBundle.Encode(stream);
+        LogicOfferBundle.encode(stream);
 
         stream.WriteVInt(400); // Bp Battle XP
         stream.WriteVInt(500); // Time Left Until XP Reset
@@ -80,19 +80,19 @@ class LogicDailyData {
         stream.WriteString(LogicPlayerData.GetMiscData().Region);
         stream.WriteString(LogicPlayerData.GetMiscData().CreatorCode);
 
-        IntValueEntry.Encode(stream);
-        CooldownEntry.Encode(stream);
-        BrawlPassSeasonData.Encode(stream);
+        IntValueEntry.encode(stream);
+        CooldownEntry.encode(stream);
+        BrawlPassSeasonData.encode(stream);
 
         if (stream.WriteBoolean(true)) {
-            LogicQuests.Encode(stream);
+            LogicQuests.encode(stream);
         }
 
         stream.WriteBoolean(true); // Vanity items
         stream.WriteVInt(0)
 
         if (stream.WriteBoolean(true)) {
-            LogicPlayerRankedSeasonData.Encode(stream);
+            LogicPlayerRankedSeasonData.encode(stream);
         }
 
         stream.WriteInt(0);
@@ -106,7 +106,7 @@ class LogicDailyData {
         stream.WriteVInt(10659101);
         stream.WriteVInt(0);
 
-        CompetitivePassSeasonData.Encode(stream);
+        CompetitivePassSeasonData.encode(stream);
             
         stream.WriteVInt(6);
         {
@@ -124,7 +124,7 @@ class LogicDailyData {
         stream.WriteDataReference(2, 466);
 
         if (stream.WriteBoolean(true)) {
-            EsportsButtonStateData.Encode(stream);
+            EsportsButtonStateData.encode(stream);
         }
 
         stream.WriteDataReference(2, 473);

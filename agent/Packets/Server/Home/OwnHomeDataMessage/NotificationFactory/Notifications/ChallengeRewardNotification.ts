@@ -1,5 +1,5 @@
 class ChallengeRewardNotification {
-    static Encode(stream: any) {
+    static encode(stream: any) {
         stream.WriteVInt(0); // LogicRewards::encode
         stream.WriteVInt(0);
         stream.WriteVInt(0);

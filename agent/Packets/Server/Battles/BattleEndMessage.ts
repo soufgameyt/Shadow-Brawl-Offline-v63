@@ -1,5 +1,5 @@
 class BattleEndMessage { // kinda place holder but right struct i'll fix this later
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteLongLong(0, 0);
         stream.WriteLongLong(0, 0);
         stream.WriteVInt(0);

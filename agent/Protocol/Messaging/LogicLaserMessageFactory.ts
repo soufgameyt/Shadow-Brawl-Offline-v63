@@ -18,20 +18,20 @@ class LogicLaserMessageFactory {
     static CreateMessageByType(MessageType: number) {
         switch (MessageType) {
             case 10100:
-                Messaging.SendOfflineMessage(LoginOkMessage.GetMessageType(), LoginOkMessage.Encode());
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.Encode());
+                Messaging.SendOfflineMessage(LoginOkMessage.GetMessageType(), LoginOkMessage.encode());
+                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 10101:
-                Messaging.SendOfflineMessage(LoginOkMessage.GetMessageType(), LoginOkMessage.Encode());
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.Encode());
+                Messaging.SendOfflineMessage(LoginOkMessage.GetMessageType(), LoginOkMessage.encode());
+                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 12541:
-                Messaging.SendOfflineMessage(TeamMessage.GetMessageType(), TeamMessage.Encode());
+                Messaging.SendOfflineMessage(TeamMessage.GetMessageType(), TeamMessage.encode());
             case 14118:
                 StartGameMessage.Execute();
                 break;
             case 14109:
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.Encode());
+                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 15081:
                 LogicLaserMessageFactory.CreateMessageByType(PlayerProfileMessage.GetMessageType());
@@ -42,29 +42,29 @@ class LogicLaserMessageFactory {
                 LogicLaserMessageFactory.CreateMessageByType(OwnHomeDataMessage.GetMessageType());
                 break;
             case 24113:
-                Messaging.SendOfflineMessage(PlayerProfileMessage.GetMessageType(), PlayerProfileMessage.Encode());
+                Messaging.SendOfflineMessage(PlayerProfileMessage.GetMessageType(), PlayerProfileMessage.encode());
                 break;
             case 10177:
-                Messaging.SendOfflineMessage(ClientInfoMessage.GetMessageType(), ClientInfoMessage.Encode());
+                Messaging.SendOfflineMessage(ClientInfoMessage.GetMessageType(), ClientInfoMessage.encode());
                 LogicLaserMessageFactory.CreateMessageByType(UdpConnectionInfoMessage.GetMessageType());
                 break;
             case 20109:
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.Encode());
+                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 20405:
-                Messaging.SendOfflineMessage(MatchmakingStatusMessage.GetMessageType(), MatchmakingStatusMessage.Encode());
+                Messaging.SendOfflineMessage(MatchmakingStatusMessage.GetMessageType(), MatchmakingStatusMessage.encode());
                 break;
             case 20559:
-                Messaging.SendOfflineMessage(StartLoadingMessage.GetMessageType(), StartLoadingMessage.Encode());
+                Messaging.SendOfflineMessage(StartLoadingMessage.GetMessageType(), StartLoadingMessage.encode());
                 break;
             case 24101:
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.Encode());
+                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 24109:
-                Messaging.SendOfflineMessage(VisionUpdateMessage.GetMessageType(), VisionUpdateMessage.Encode());
+                Messaging.SendOfflineMessage(VisionUpdateMessage.GetMessageType(), VisionUpdateMessage.encode());
                 break;
             case 24112:
-                Messaging.SendOfflineMessage(UdpConnectionInfoMessage.GetMessageType(), UdpConnectionInfoMessage.Encode());
+                Messaging.SendOfflineMessage(UdpConnectionInfoMessage.GetMessageType(), UdpConnectionInfoMessage.encode());
                 break;
             case 10555:
                 const Interval = setInterval(() => {

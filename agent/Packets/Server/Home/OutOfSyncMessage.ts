@@ -1,7 +1,7 @@
 import ByteStream from "../../../DataStream/ByteStream.js"
 
 class OutOfSyncMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         Stream.WriteVInt(0);

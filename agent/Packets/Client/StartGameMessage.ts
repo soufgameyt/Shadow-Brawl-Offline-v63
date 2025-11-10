@@ -8,7 +8,7 @@ import ClientInfoMessage from "../Server/Battles/ClientInfoMessage.js";
 import UdpConnectionInfoMessage from "../Server/Battles/UdpConnectionInfoMessage.js";
 
 class StartGameMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
         Stream.WriteInt(0);
 

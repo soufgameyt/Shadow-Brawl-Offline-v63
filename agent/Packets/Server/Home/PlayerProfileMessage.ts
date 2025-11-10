@@ -2,7 +2,7 @@ import ByteStream from "../../../DataStream/ByteStream";
 import LogicPlayerData from "../../../Configuration/LogicPlayerData";
 
 class PlayerProfileMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         Stream.WriteVLong(0, 256617006);

@@ -1,7 +1,7 @@
 import ByteStream from "../../../DataStream/ByteStream.js"
 
 class TeamMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         Stream.WriteVInt(0); // Room Type

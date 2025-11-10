@@ -15,21 +15,20 @@ class ModMenu {
     static LoadModMenuButton(HomePage: NativePointer) {
         let HomePageMovieClip = HomePage.add(112).readPointer();
         let ddd = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(HomePage, StringHelper.ptr("mainscreen_hud_left"))
-        console.log(ddd);
 
         let TextPtr = Imports.Malloc(524);
-        let MovieClipInstance = ResourceManager.GetMovieClip(StringHelper.ptr("sc/ui.sc"), StringHelper.ptr("button_navi_news_custom")); // battle_card_titles_config_item
+        let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr("sc/ui.sc"), StringHelper.ptr("button_navi_news_custom")); // battle_card_titles_config_item
 
         GameButton.GameButton(TextPtr);
         new NativeFunction(TextPtr.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(TextPtr, MovieClipInstance, 1);
-        DisplayObject.SetXY(TextPtr, 970, 150);
+        DisplayObject.setXY(TextPtr, 970, 150);
 
         let NotificationChild = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(MovieClipInstance, StringHelper.ptr("notification"))
         Functions.MovieClip.GotoAndStopFrameIndex(NotificationChild, 2);
 
-        let ColorGradientByName2 = LogicDataTables.GetColorGradientByName(StringHelper.scptr(ColorGradients.Subwaysurfersrainbow.Name), 1);
-        let version = MovieClip.GetTextFieldByName(MovieClipInstance, StringHelper.ptr("txt"));
-        DecoratedTextField.SetupDecoratedText(version, StringHelper.scptr("Mod Menu"), ColorGradientByName2);
+        let ColorGradientByName2 = LogicDataTables.getColorGradientByName(StringHelper.scptr(ColorGradients.Subwaysurfersrainbow.Name), 1);
+        let version = MovieClip.getTextFieldByName(MovieClipInstance, StringHelper.ptr("txt"));
+        DecoratedTextField.setupDecoratedText(version, StringHelper.scptr("Mod Menu"), ColorGradientByName2);
 
         Sprite.AddChild(HomePageMovieClip, TextPtr)
 
@@ -59,19 +58,24 @@ class ModMenu {
 		let s3 = StringHelper.scptr("Mod Menu");
 
 		GenericPopup(ModMenuPopupInstance, s1, 0, 0, s2, s2, s2, s2); // adding the class later
-		DisplayObject.SetXY(ModMenuPopupInstance, 576, 450);
+		DisplayObject.setXY(ModMenuPopupInstance, 576, 450);
 		GenericPopup_setTitleTid(ModMenuPopupInstance, s3);
+
+        let NextPage = GenericPopup_addButton(ModMenuPopupInstance, StringHelper.scptr("accept_button"), 1);
+        new NativeFunction(NextPage.readPointer().add(424).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(NextPage, StringHelper.scptr("Next Page ->"), 1);
 
         let PreviousPage = GenericPopup_addButton(ModMenuPopupInstance, StringHelper.scptr("decline_button"), 1);
         new NativeFunction(PreviousPage.readPointer().add(424).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(PreviousPage, StringHelper.scptr("<- Previous Page"), 1);
 
-        let JoinTGButton = GenericPopup_addButton(ModMenuPopupInstance, StringHelper.scptr("accept_button"), 1);
-        new NativeFunction(JoinTGButton.readPointer().add(424).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(JoinTGButton, StringHelper.scptr("Next Page ->"), 1);
-
         Interceptor.attach(Addresses.CustomButton_buttonPressed, {
 		    onEnter(args) {
-			    if (JoinTGButton.toInt32() === (args[0] as NativePointer).toInt32()) {
-                    Application.OpenURL(StringHelper.scptr("https://t.me/laserx_framework"));
+			    if (NextPage.toInt32() === (args[0] as NativePointer).toInt32()) 
+                {
+                    // ModMenu.NextPage();
+                }
+                if (PreviousPage.toInt32() === (args[0] as NativePointer).toInt32()) 
+                {
+                    // ModMenu.PreviousPage();
                 }
 		    }
 		});
@@ -81,15 +85,8 @@ class ModMenu {
         ModMenu.ButtonCount = 0;
 
         ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Hello");
-        /*ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Toilet");
-        ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Sigma");
-        ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Skibidi");
 
-        ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Tung");
-        ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Sahar");
-        ModMenu.CreateModMenuItem(ModMenuPopupInstance, "TripiTropa");*/
-
-        // Functions.MovieClip.SetText(ModMenuPopupInstance, StringHelper.scptr("txt"), StringHelper.scptr("i love skibidi toilet sigma"));
+        // Functions.MovieClip.setText(ModMenuPopupInstance, StringHelper.scptr("txt"), StringHelper.scptr("i love skibidi toilet sigma"));
     }
 
     static CreateModMenuItem(ModMenuPopupInstance: NativePointer, Text: string) {
@@ -97,12 +94,12 @@ class ModMenu {
         if (!ModMenu.ButtonY) ModMenu.ButtonY = -100;
 
         let TextPtr = Imports.Malloc(524);
-        let MovieClipInstance = ResourceManager.GetMovieClip(StringHelper.ptr("sc/ui.sc"), StringHelper.ptr("battle_card_titles_config_item"));
+        let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr("sc/ui.sc"), StringHelper.ptr("battle_card_titles_config_item"));
 
         GameButton.GameButton(TextPtr);
         new NativeFunction(TextPtr.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(TextPtr, MovieClipInstance, 1);
         MovieClip.GotoAndStopFrameIndex(MovieClipInstance, 2);
-        DisplayObject.SetXY(TextPtr, 0, -80);
+        DisplayObject.setXY(TextPtr, 0, -80);
 
         ModMenu.ButtonX += 180;
         ModMenu.ButtonCount++;
@@ -117,15 +114,16 @@ class ModMenu {
 
         let TextMovieClip = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(MovieClipInstance, StringHelper.ptr("title"))
 
-        let ColorGradientByName2 = LogicDataTables.GetColorGradientByName(StringHelper.scptr(ColorGradients.Subwaysurfersrainbow.Name), 1);
-        let version = MovieClip.GetTextFieldByName(TextMovieClip, StringHelper.ptr("txt"));
-        DecoratedTextField.SetupDecoratedText(version, StringHelper.scptr(Text), ColorGradientByName2);
+        let ColorGradientByName2 = LogicDataTables.getColorGradientByName(StringHelper.scptr(ColorGradients.Subwaysurfersrainbow.Name), 1);
+        let version = MovieClip.getTextFieldByName(TextMovieClip, StringHelper.ptr("txt"));
+        DecoratedTextField.setupDecoratedText(version, StringHelper.scptr(Text), ColorGradientByName2);
 
         Sprite.AddChild(ModMenuPopupInstance, TextPtr);
 
         Interceptor.attach(Addresses.CustomButton_buttonPressed, {
 		    onEnter(args) {
-			    if (TextPtr.toInt32() === (args[0] as NativePointer).toInt32()) {
+			    if (TextPtr.toInt32() === (args[0] as NativePointer).toInt32()) 
+                {
                     MovieClip.GotoAndStopFrameIndex(MovieClipInstance, 3);
                 }
 		    }

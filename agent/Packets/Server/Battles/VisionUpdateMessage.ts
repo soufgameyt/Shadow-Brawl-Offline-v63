@@ -5,13 +5,7 @@ import LogicGameObjectManagerServer from "./LogicGameObjectManagerServer.js";
 import LogicPlayer from "./LogicPlayer.js";
 
 class VisionUpdateMessage {
-    static VisionUpdateMessage(Instance: NativePointer) {
-        return Instance
-    }
-    static SetVisionBitStream(a: NativePointer, b: NativePointer) {
-
-    }
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
                 
         Stream.WriteVInt(LogicBattleModeServer.Ticks);
@@ -29,7 +23,7 @@ class VisionUpdateMessage {
             Stream.WriteVInt(0);
         }
 
-        let GameObjectManager = LogicGameObjectManagerServer.Encode();
+        let GameObjectManager = LogicGameObjectManagerServer.encode();
 
         let ByteArray = GameObjectManager.GetByteArray()
         let Length = GameObjectManager.GetLength();

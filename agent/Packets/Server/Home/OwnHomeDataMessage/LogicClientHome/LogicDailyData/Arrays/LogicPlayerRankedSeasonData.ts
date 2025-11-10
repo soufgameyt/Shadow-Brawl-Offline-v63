@@ -1,5 +1,5 @@
 class LogicPlayerRankedSeasonData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(22) // Rank
         stream.WriteVInt(13000) // Rank Solo League (Tokens)
         stream.WriteVInt(22) // Rank

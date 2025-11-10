@@ -1,14 +1,14 @@
 import LogicGemOffer from "./LogicGemOffer";
 
 class LogicLoginCalendar {
-    static Encode(stream: any): void {
-        LogicLoginCalendarTrack.Encode(stream);
+    static encode(stream: any): void {
+        LogicLoginCalendarTrack.encode(stream);
 
         stream.WriteVInt(3); // LogicLoginCalendarTrack::encode
         {
-            LogicLoginCalendarTrack.Encode(stream);
-            LogicLoginCalendarTrack.Encode(stream);
-            LogicLoginCalendarTrack.Encode(stream);
+            LogicLoginCalendarTrack.encode(stream);
+            LogicLoginCalendarTrack.encode(stream);
+            LogicLoginCalendarTrack.encode(stream);
         }
         stream.WriteVInt(0);
         stream.WriteVInt(0);
@@ -31,29 +31,29 @@ class LogicLoginCalendar {
 }
 
 class LogicLoginCalendarTrack {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(1);
         stream.WriteVInt(1);
         {
-            LogicLoginCalendarDay.Encode(stream);
+            LogicLoginCalendarDay.encode(stream);
         }
     }
 }
 
 class LogicLoginCalendarDay {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(1);
         stream.WriteBoolean(true);
         stream.WriteVInt(1);
         {
-            LogicLoginCalendarRewardOption.Encode(stream);
+            LogicLoginCalendarRewardOption.encode(stream);
         }
     }
 }
 
 class LogicLoginCalendarRewardOption {
-    static Encode(stream: any): void {
-        LogicGemOffer.Encode(stream, 3, 1, 16, 76, 0);
+    static encode(stream: any): void {
+        LogicGemOffer.encode(stream, 3, 1, 16, 76, 0);
         stream.WriteBoolean(false);
     }
 }

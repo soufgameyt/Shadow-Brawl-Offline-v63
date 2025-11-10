@@ -2,7 +2,7 @@ import LogicChangeAvatarNameCommand from "../../Commands/LogicChangeAvatarNameCo
 import Messaging from "./Messaging";
 
 class LogicCommand {
-    static Encode(stream: any) {
+    static encode(stream: any) {
         stream.WriteVInt(0);
         stream.WriteVInt(0);
         stream.WriteVLong(0, 256617006);
@@ -11,7 +11,7 @@ class LogicCommand {
     static CreateCommandByType(CommandType: number) {
         switch(CommandType) {
             case 24111:
-                Messaging.SendOfflineMessage(LogicChangeAvatarNameCommand.GetCommandType(), LogicChangeAvatarNameCommand.Encode());
+                Messaging.SendOfflineMessage(LogicChangeAvatarNameCommand.GetCommandType(), LogicChangeAvatarNameCommand.encode());
                 LogicChangeAvatarNameCommand.Execute();
                 return 1
         }

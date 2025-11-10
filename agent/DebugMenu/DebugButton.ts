@@ -22,11 +22,11 @@ class DebugButton {
         DebugButton.DebugButtonInstance = Imports.Malloc(5200);
 
         GameButton.GameButton(DebugButton.DebugButtonInstance);
-        DebugButton.DebugButtonMovieClip = ResourceManager.GetMovieClip(StringHelper.ptr("sc/debug.sc"), StringHelper.ptr("debug_button"));
+        DebugButton.DebugButtonMovieClip = ResourceManager.getMovieClip(StringHelper.ptr("sc/debug.sc"), StringHelper.ptr("debug_button"));
         new NativeFunction(DebugButton.DebugButtonInstance.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(DebugButton.DebugButtonInstance, DebugButton.DebugButtonMovieClip, 1);
 
-        DisplayObject.SetXY(DebugButton.DebugButtonInstance, 5, 710);
-        MovieClip.SetText(DebugButton.DebugButtonMovieClip, StringHelper.ptr("Txt"), StringHelper.scptr("D"));
+        DisplayObject.setXY(DebugButton.DebugButtonInstance, 5, 710);
+        MovieClip.setText(DebugButton.DebugButtonMovieClip, StringHelper.ptr("Txt"), StringHelper.scptr("D"));
         Stage.AddChild(Stage.sm_instance.readPointer(), DebugButton.DebugButtonInstance);
         Debugger.Info("[DebugButton::LoadDebugButton] Loaded debug button!");
 

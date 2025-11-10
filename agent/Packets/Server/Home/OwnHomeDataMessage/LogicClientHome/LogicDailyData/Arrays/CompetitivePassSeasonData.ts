@@ -1,5 +1,5 @@
 class CompetitivePassSeasonData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(1); // Seasons Count
         {
             stream.WriteBoolean(true)

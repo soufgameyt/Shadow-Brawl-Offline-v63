@@ -2,7 +2,7 @@ import ByteStream from "../../../DataStream/ByteStream.js"
 import LogicBattleModeServer from "./LogicBattleModeServer.js";
 
 class MatchmakingStatusMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         LogicBattleModeServer.CurrentPlayersInMM = LogicBattleModeServer.CurrentPlayersInMM + 1

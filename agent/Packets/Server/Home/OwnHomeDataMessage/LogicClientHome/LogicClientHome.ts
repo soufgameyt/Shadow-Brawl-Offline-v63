@@ -28,12 +28,12 @@ class LogicClientHome {
     constructor(stream: any) {
         this.stream = stream
 
-        this.Encode();
+        this.encode();
     }
 
-    public Encode(): void {
-        LogicClientHome.LogicDailyData = LogicDailyData.Encode(this.stream);
-        LogicClientHome.LogicConfData = LogicConfData.Encode(this.stream);
+    public encode(): void {
+        LogicClientHome.LogicDailyData = LogicDailyData.encode(this.stream);
+        LogicClientHome.LogicConfData = LogicConfData.encode(this.stream);
 
         this.stream.WriteLong(0, 1);
 
@@ -45,7 +45,7 @@ class LogicClientHome {
         {
             this.stream.WriteVInt(1);
             {
-                LogicGatchaDrop.Encode(this.stream); // LogicGatchDrop::encode
+                LogicGatchaDrop.encode(this.stream); // LogicGatchDrop::encode
             }
         }
         else 
@@ -66,48 +66,48 @@ class LogicClientHome {
         }
         
         if (this.stream.WriteBoolean(true)) {
-            LogicLoginCalendar.Encode(this.stream);
+            LogicLoginCalendar.encode(this.stream);
         }
         if (this.stream.WriteBoolean(true)) {
-            LogicLoginCalendar.Encode(this.stream);
+            LogicLoginCalendar.encode(this.stream);
         }
         if (this.stream.WriteBoolean(true)) {
-            LogicLoginCalendar.Encode(this.stream);
+            LogicLoginCalendar.encode(this.stream);
         }
         if (this.stream.WriteBoolean(true)) {
-            LogicLoginCalendar.Encode(this.stream);
+            LogicLoginCalendar.encode(this.stream);
         }
 
-        LogicHeroGears.Encode(this.stream)
+        LogicHeroGears.encode(this.stream)
 
         if (this.stream.WriteBoolean(true)) {
-            LogicBrawlerRecruitRoad.Encode(this.stream);
+            LogicBrawlerRecruitRoad.encode(this.stream);
         }
 
-        LogicMastery.Encode(this.stream);
-        LogicBattleIntro.Encode(this.stream);
-        LogicRandomRewardManager.Encode(this.stream);
+        LogicMastery.encode(this.stream);
+        LogicBattleIntro.encode(this.stream);
+        LogicRandomRewardManager.encode(this.stream);
 
         if (this.stream.WriteBoolean(false)) {
-            LogicPlayerAlliancePiggyBankData.Encode(this.stream);
+            LogicPlayerAlliancePiggyBankData.encode(this.stream);
         }
         
         if (this.stream.WriteBoolean(true)) {
-            LogicPlayerCollabEventData.Encode(this.stream);
+            LogicPlayerCollabEventData.encode(this.stream);
         }
 
         if (this.stream.WriteBoolean(true)) {
-            LogicPlayerSpecialEventData.Encode(this.stream);
+            LogicPlayerSpecialEventData.encode(this.stream);
         }
 
-        LogicDataSeenStates.Encode(this.stream);
+        LogicDataSeenStates.encode(this.stream);
 
         if (this.stream.WriteBoolean(false)) {
-            LogicPlayerContestEventData.Encode(this.stream);
+            LogicPlayerContestEventData.encode(this.stream);
         }
 
         if (this.stream.WriteBoolean(true)) {
-            LogicPlayerRecordsData.Encode(this.stream);
+            LogicPlayerRecordsData.encode(this.stream);
         }
 
         this.stream.WriteBoolean(true);
@@ -123,7 +123,7 @@ class LogicClientHome {
             {
                 this.stream.WriteBoolean(true);
                 {
-                    LogicGemOffer.Encode(this.stream, 57, 14888, 0, 0, 0);
+                    LogicGemOffer.encode(this.stream, 57, 14888, 0, 0, 0);
                 }
             }
 
@@ -131,7 +131,7 @@ class LogicClientHome {
             {
                 this.stream.WriteBoolean(true);
                 {
-                    LogicGemOffer.Encode(this.stream, 57, 14888, 0, 0, 0);
+                    LogicGemOffer.encode(this.stream, 57, 14888, 0, 0, 0);
                 }
             }
             

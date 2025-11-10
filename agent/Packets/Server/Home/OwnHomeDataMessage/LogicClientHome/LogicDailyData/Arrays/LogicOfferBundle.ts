@@ -3,18 +3,18 @@ import CurrentShopOffers from "../../../../../../../Static/ShopOffers";
 import ChronosTextEntry from "../../../../../../../Utils/Chronos/ChronosTextEntry";
 
 class LogicOfferBundle {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(CurrentShopOffers.Offers.length); // Shop Offers Count
 
         for (const Offer of CurrentShopOffers.Offers) {
             stream.WriteVInt(Offer.Rewards.length) // Rewards Count
             for (const Rewards of Offer.Rewards) {
-                LogicGemOffer.Encode(stream, Rewards.ItemType, Rewards.Amount, Rewards.CsvID[0], Rewards.CsvID[1], Rewards.SkinID);
+                LogicGemOffer.encode(stream, Rewards.ItemType, Rewards.Amount, Rewards.CsvID[0], Rewards.CsvID[1], Rewards.SkinID);
             }
 
             stream.WriteVInt(Offer.Rewards.length) // Rewards Count
             for (const Rewards of Offer.Rewards) {
-                LogicGemOffer.Encode(stream, Rewards.ItemType, Rewards.Amount, Rewards.CsvID[0], Rewards.CsvID[1], Rewards.SkinID);
+                LogicGemOffer.encode(stream, Rewards.ItemType, Rewards.Amount, Rewards.CsvID[0], Rewards.CsvID[1], Rewards.SkinID);
             }
 
             stream.WriteVInt(Offer.Currency); // 0 => gems, 1 => gold
@@ -32,9 +32,9 @@ class LogicOfferBundle {
 			stream.WriteBoolean(Offer.DailyOffer);
 			stream.WriteVInt(Offer.OldPrice);
 
-            ChronosTextEntry.Encode(stream, Offer.Text, 0);
+            ChronosTextEntry.encode(stream, Offer.Text, 0);
 			stream.WriteBoolean(Offer.ShowAtLaunch);
-            ChronosTextEntry.Encode(stream, Offer.Background, 0);
+            ChronosTextEntry.encode(stream, Offer.Background, 0);
 
 			stream.WriteBoolean(Offer.Processed);
 			stream.WriteVInt(Offer.TypeBenefit);

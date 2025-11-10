@@ -4,8 +4,8 @@ import LogicStatusEffectControllerServer from "./LogicStatusEffectControllerServ
 import LogicSkillServer from "./LogicSkillServer";
 
 class LogicCharacterServer {
-    static Encode(Stream: any) {
-        LogicGameObjectServer.Encode(Stream);
+    static encode(Stream: any) {
+        LogicGameObjectServer.encode(Stream);
 
         Stream.WriteBoolean(false);
         Stream.WriteBoolean(false);
@@ -20,7 +20,9 @@ class LogicCharacterServer {
         Stream.WriteBoolean(false);
         Stream.WriteBoolean(false);
         Stream.WriteBoolean(false);
+        Stream.WriteBoolean(false);
         Stream.WritePositiveIntMax7(0);
+        Stream.WritePositiveIntMax511(0);
 
         Stream.WritePositiveVIntMax65535OftenZero(0);
         Stream.WritePositiveVIntMax65535OftenZero(0);
@@ -41,14 +43,21 @@ class LogicCharacterServer {
 
         Stream.WritePositiveVIntMax255OftenZero(0);
 
-        LogicStatusEffectControllerServer.Encode(Stream);
-        LogicCharacterComponentControllerServer.Encode(Stream);
+        LogicStatusEffectControllerServer.encode(Stream);
+        LogicCharacterComponentControllerServer.encode(Stream);
 
         Stream.WritePositiveVIntMax255OftenZero(0);
         Stream.WritePositiveVIntMax2147483647(0);
+        Stream.WritePositiveVIntMax2147483647(0);
 
         Stream.WriteBoolean(false);
+        Stream.WritePositiveVIntMax255OftenZero(0);
+        Stream.WritePositiveVIntMax255OftenZero(0);
         Stream.WriteBoolean(false);
+        Stream.WriteBoolean(false);
+        Stream.WritePositiveVIntMax255OftenZero(0);
+        Stream.WriteBoolean(false);
+
         Stream.WritePositiveIntMax3(0);
         Stream.WriteBoolean(false);
         Stream.WriteBoolean(false);

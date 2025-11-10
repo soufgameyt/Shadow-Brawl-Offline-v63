@@ -1,6 +1,6 @@
 
 class LogicAccessory {
-    static Encode(Stream: any) {
+    static encode(Stream: any) {
         let Boolean = Stream.WriteBoolean(true); // Owns Accessory
 
         if (Boolean) {

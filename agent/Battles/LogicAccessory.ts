@@ -39,7 +39,7 @@ class LogicAccessory {
                 if ((this.context as Arm64CpuContext).lr.equals(Environment.LaserBase.add(0x4507E0)))
                 {
                     console.log("Encode called");
-                    LogicAccessory.Encode(args[0], args[1], args[2].toInt32());
+                    LogicAccessory.encode(args[0], args[1], args[2].toInt32());
                 }
 
                 if ((this.context as Arm64CpuContext).lr.equals(Environment.LaserBase.add(0x4C3C74)))
@@ -138,7 +138,7 @@ class LogicAccessory {
         }
     }
     
-    static Encode(a1: NativePointer, a2: NativePointer, a3: number) {
+    static encode(a1: NativePointer, a2: NativePointer, a3: number) {
         const BitStream_writePositiveInt = new NativeFunction(Environment.LaserBase.add(0x4DD1B4), 'pointer', ['pointer', 'int', 'int']);
         const BitStream_writePositiveVInt = new NativeFunction(Environment.LaserBase.add(0x4DD444), 'pointer', ['pointer', 'int', 'int']);
 

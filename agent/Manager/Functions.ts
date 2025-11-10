@@ -9,34 +9,34 @@ class Functions {
     };
 
     static ResourceManager = class {
-        static GetMovieClip: any;
+        static getMovieClip: any;
     }
 
     static GUIContainer = class {
         static GUIContainer: any;
-        static SetMovieClip: any;
-        static CreateScrollArea: any;
+        static setMovieClip: any;
+        static createScrollArea: any;
     }
 
     static DisplayObject = class {
-        static SetPixelSnappedXY: any;
-        static SetXY: any;
+        static setPixelSnappedXY: any;
+        static setXY: any;
         static SetHeight: any
         static SetWidth: any
     }
 
     static LogicDataTables = class {
-        static GetColorGradientByName: any;
+        static getColorGradientByName: any;
     }
 
     static DecoratedTextField = class {
-        static SetupDecoratedText: any;
+        static setupDecoratedText: any;
     }
 
     static MovieClip = class {
-        static GetTextFieldByName: any;
-        static SetText: any;
-        static GetMovieClipByName: any;
+        static getTextFieldByName: any;
+        static setText: any;
+        static getMovieClipByName: any;
         static GotoAndStopFrameIndex: any;
     }
 
@@ -45,8 +45,8 @@ class Functions {
     }
 
     static MovieClipHelper = class {
-        static SetTextFieldVerticallyCentered: any;
-        static SetTextAndScaleIfNecessary: any;
+        static setTextFieldVerticallyCentered: any;
+        static setTextAndScaleIfNecessary: any;
     }
 
     static Sprite = class {
@@ -68,12 +68,12 @@ class Functions {
     }
 
     static ScrollArea = class {
-        static EnablePinching: any;
-        static EnableHorizontalDrag: any;
-        static EnableVerticalDrag: any;
-        static SetAlignment: any;
+        static enablePinching: any;
+        static enableHorizontalDrag: any;
+        static enableVerticalDrag: any;
+        static setAlignment: any;
         static Update: any;
-        static AddContent: any;
+        static addContent: any;
     }
 
     static Imports = class {
@@ -105,7 +105,7 @@ class Functions {
     }
 
     static Application = class {
-        static OpenURL: any
+        static openURL: any
     }
 
     static Init() {
@@ -114,35 +114,35 @@ class Functions {
         Functions.GUI.ShowFloaterTextAtDefaultPos = new NativeFunction(Addresses.GUI_ShowFloaterTextAtDefaultPos, 'void', ['pointer', 'pointer', 'float', 'int']);
         Functions.GUI.ShowPopup = new NativeFunction(Addresses.GUI_showPopup, 'void', ['pointer', 'pointer', 'int', 'int', 'int']);
         Functions.GUI.GetInstance = new NativeFunction(Addresses.GUIInstance, 'pointer', []);
-        Functions.ResourceManager.GetMovieClip = new NativeFunction(Addresses.ResourceManager_getMovieClip, 'pointer', ['pointer', 'pointer']);
+        Functions.ResourceManager.getMovieClip = new NativeFunction(Addresses.ResourceManager_getMovieClip, 'pointer', ['pointer', 'pointer']);
         Functions.GUIContainer.GUIContainer = new NativeFunction(Addresses.GUIContainer, 'void', ['pointer']);
-        Functions.GUIContainer.SetMovieClip = new NativeFunction(Addresses.GUIContainer_setMovieClip, 'void', ['pointer', 'pointer']);
-        Functions.GUIContainer.CreateScrollArea = new NativeFunction(Addresses.GUIContainer_createScrollArea, 'pointer', ['pointer', 'pointer', 'int']);
-        Functions.DisplayObject.SetPixelSnappedXY = new NativeFunction(Addresses.DisplayObject_setPixelSnappedXY, 'float', ['pointer', 'float', 'float']);
-        Functions.DisplayObject.SetXY = new NativeFunction(Addresses.DisplayObject_setXY, 'float', ['pointer', 'float', 'float']);
+        Functions.GUIContainer.setMovieClip = new NativeFunction(Addresses.GUIContainer_setMovieClip, 'void', ['pointer', 'pointer']);
+        Functions.GUIContainer.createScrollArea = new NativeFunction(Addresses.GUIContainer_createScrollArea, 'pointer', ['pointer', 'pointer', 'int']);
+        Functions.DisplayObject.setPixelSnappedXY = new NativeFunction(Addresses.DisplayObject_setPixelSnappedXY, 'float', ['pointer', 'float', 'float']);
+        Functions.DisplayObject.setXY = new NativeFunction(Addresses.DisplayObject_setXY, 'float', ['pointer', 'float', 'float']);
         Functions.DisplayObject.SetHeight = new NativeFunction(Addresses.DisplayObject_setHeight, 'float', ['pointer', 'float']);
         Functions.DisplayObject.SetWidth = new NativeFunction(Addresses.DisplayObject_setWidth, 'float', ['pointer', 'float']);
-        Functions.LogicDataTables.GetColorGradientByName = new NativeFunction(Addresses.LogicDataTables_getColorGradientByName, 'pointer', ['pointer', 'int']);
-        Functions.DecoratedTextField.SetupDecoratedText = new NativeFunction(Addresses.DecoratedTextField_setupDecoratedText, 'void', ['pointer', 'pointer', 'pointer']);
-        Functions.MovieClip.GetTextFieldByName = new NativeFunction(Addresses.MovieClip_getTextFieldByName, 'pointer', ['pointer', 'pointer']);
-        Functions.MovieClip.SetText = new NativeFunction(Addresses.MovieClip_setText, 'void', ['pointer', 'pointer', 'pointer']);
-        Functions.MovieClipHelper.SetTextFieldVerticallyCentered = new NativeFunction(Addresses.MovieClipHelper_setTextFieldVerticallyCentered, 'void', ['pointer']);
+        Functions.LogicDataTables.getColorGradientByName = new NativeFunction(Addresses.LogicDataTables_getColorGradientByName, 'pointer', ['pointer', 'int']);
+        Functions.DecoratedTextField.setupDecoratedText = new NativeFunction(Addresses.DecoratedTextField_setupDecoratedText, 'void', ['pointer', 'pointer', 'pointer']);
+        Functions.MovieClip.getTextFieldByName = new NativeFunction(Addresses.MovieClip_getTextFieldByName, 'pointer', ['pointer', 'pointer']);
+        Functions.MovieClip.setText = new NativeFunction(Addresses.MovieClip_setText, 'void', ['pointer', 'pointer', 'pointer']);
+        Functions.MovieClipHelper.setTextFieldVerticallyCentered = new NativeFunction(Addresses.MovieClipHelper_setTextFieldVerticallyCentered, 'void', ['pointer']);
         Functions.Sprite.Sprite = new NativeFunction(Addresses.SpriteCtor, 'void', ['pointer', 'int']);
         Functions.String.StringCtor = new NativeFunction(Addresses.StringCtor, 'void', ['pointer', 'pointer']);
         Functions.Sprite.AddChild = new NativeFunction(Addresses.Sprite_addChild, 'pointer', ['pointer', 'pointer']);
         Functions.ResourceListenner.AddFile = new NativeFunction(Addresses.AddFile, 'int', ['pointer', 'pointer', 'int', 'int', 'int', 'int', 'int']);
         Functions.Stage.AddChild = new NativeFunction(Addresses.StageAddChild, 'pointer', ['pointer', 'pointer']);
         Functions.Stage.sm_instance = Environment.LaserBase.add(0xF026A8);
-        Functions.ScrollArea.EnablePinching = new NativeFunction(Addresses.ScrollArea_enablePinching, 'void', ['pointer', 'int']);
-        Functions.ScrollArea.EnableHorizontalDrag = new NativeFunction(Addresses.ScrollArea_enableHorizontalDrag, 'void', ['pointer', 'int']);
-        Functions.ScrollArea.EnableVerticalDrag = new NativeFunction(Addresses.ScrollArea_enableVerticalDrag, 'void', ['pointer', 'int']);
-        Functions.ScrollArea.SetAlignment = new NativeFunction(Addresses.ScrollArea_setAlignment, 'void', ['pointer', 'int']);
+        Functions.ScrollArea.enablePinching = new NativeFunction(Addresses.ScrollArea_enablePinching, 'void', ['pointer', 'int']);
+        Functions.ScrollArea.enableHorizontalDrag = new NativeFunction(Addresses.ScrollArea_enableHorizontalDrag, 'void', ['pointer', 'int']);
+        Functions.ScrollArea.enableVerticalDrag = new NativeFunction(Addresses.ScrollArea_enableVerticalDrag, 'void', ['pointer', 'int']);
+        Functions.ScrollArea.setAlignment = new NativeFunction(Addresses.ScrollArea_setAlignment, 'void', ['pointer', 'int']);
         Functions.ScrollArea.Update = new NativeFunction(Addresses.ScrollArea_update, 'void', ['pointer', 'int']);
-        Functions.ScrollArea.AddContent = new NativeFunction(Addresses.ScrollArea_addContent, 'void', ['pointer', 'pointer'])
+        Functions.ScrollArea.addContent = new NativeFunction(Addresses.ScrollArea_addContent, 'void', ['pointer', 'pointer'])
         Functions.GameButton.GameButton = new NativeFunction(Addresses.GameButtonCtor, 'void', ['pointer'])
-        Functions.MovieClipHelper.SetTextAndScaleIfNecessary = new NativeFunction(Addresses.MovieClipHelper_setTextAndScaleIfNecessary, 'void', ['pointer', 'pointer', 'int', 'int']);
-        Functions.Application.OpenURL = new NativeFunction(Addresses.Application_openUrl, 'void', ['pointer']);
-        Functions.MovieClip.GetMovieClipByName = new NativeFunction(Addresses.MovieClip_getMovieClipByName, 'pointer', ['pointer', 'pointer']);
+        Functions.MovieClipHelper.setTextAndScaleIfNecessary = new NativeFunction(Addresses.MovieClipHelper_setTextAndScaleIfNecessary, 'void', ['pointer', 'pointer', 'int', 'int']);
+        Functions.Application.openURL = new NativeFunction(Addresses.Application_openUrl, 'void', ['pointer']);
+        Functions.MovieClip.getMovieClipByName = new NativeFunction(Addresses.MovieClip_getMovieClipByName, 'pointer', ['pointer', 'pointer']);
         Functions.MovieClip.GotoAndStopFrameIndex = new NativeFunction(Addresses.MovieClip_gotoAndStopFrameIndex, 'void', ['pointer', 'int']),
 
         Functions.Imports.Malloc = new NativeFunction(Addresses.Imports.Malloc, 'pointer', ["uint"]);

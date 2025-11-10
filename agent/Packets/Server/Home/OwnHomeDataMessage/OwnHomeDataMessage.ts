@@ -7,7 +7,7 @@ class OwnHomeDataMessage {
     public static ClientHome: any
     public static ClientAvatar: any
 
-    static Encode(): number[] {
+    static encode(): number[] {
         let stream = new ByteStream([]);
 
         stream.WriteVInt(1757882887);

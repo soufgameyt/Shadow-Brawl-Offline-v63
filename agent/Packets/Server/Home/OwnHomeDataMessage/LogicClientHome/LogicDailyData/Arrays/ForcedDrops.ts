@@ -1,5 +1,5 @@
 class ForcedDrops {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(200);
         stream.WriteVInt(200);
 

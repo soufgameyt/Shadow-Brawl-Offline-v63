@@ -1,5 +1,5 @@
 class LogicStatusEffectControllerServer {
-    static Encode(Stream: any) {
+    static encode(Stream: any) {
         Stream.WriteBoolean(false);
     }
 }

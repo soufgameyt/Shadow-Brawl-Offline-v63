@@ -1,5 +1,5 @@
 class BrawlPassSeasonData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(1); // Seasons Count
         {
             stream.WriteVInt(43 - 1) // Current Season

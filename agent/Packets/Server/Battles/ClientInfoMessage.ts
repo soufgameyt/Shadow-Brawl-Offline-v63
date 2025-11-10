@@ -1,7 +1,7 @@
 import ByteStream from "../../../DataStream/ByteStream.js"
 
 class ClientInfoMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         Stream.WriteString("");

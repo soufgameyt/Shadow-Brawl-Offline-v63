@@ -6,7 +6,7 @@ import TimedIntValueEntry from "./Arrays/TimedIntValueEntry";
 import NewsInboxLinkEntry from "./Arrays/NewsInboxLinkEntry";
 
 class LogicConfData {
-    static Encode(stream: any): void {
+    static encode(stream: any): void {
         stream.WriteVInt(2025074);
 
         stream.WriteVInt(52); // Event Slots
@@ -28,14 +28,14 @@ class LogicConfData {
 
         stream.WriteVInt(1); // ReleaseEntry::encode
         {
-            ReleaseEntry.Encode(stream, 0, 0, 0, 0, 0, false);
+            ReleaseEntry.encode(stream, 0, 0, 0, 0, 0, false);
         }
         
-        IntValueEntry.Encode(stream);
+        IntValueEntry.encode(stream);
 
         stream.WriteVInt(1); // TimedIntValueEntry::encode
         {
-            TimedIntValueEntry.Encode(stream, 0, 0, 0, 0);
+            TimedIntValueEntry.encode(stream, 0, 0, 0, 0);
         }
         stream.WriteVInt(0); // CustomEvent::encode
         stream.WriteVInt(0); // ShopChainOfferThemeEntry::encode
@@ -45,7 +45,7 @@ class LogicConfData {
         stream.WriteVInt(0); // DailyFortuneCookieEntry::encode
         stream.WriteVInt(1); // ChronosAssetListEvent::encode
         {
-            ChronosAssetListEvent.Encode(stream);
+            ChronosAssetListEvent.encode(stream);
         }
         stream.WriteVInt(0); // ShopVisualOfferGroupingEntry::encode
         stream.WriteVInt(0); // Array
@@ -53,7 +53,7 @@ class LogicConfData {
         LogicConfData.EncodeIntList(stream, [0]);
         stream.WriteVInt(1); // NewsInboxLinkEntry::encode
         {
-            NewsInboxLinkEntry.Encode(stream);
+            NewsInboxLinkEntry.encode(stream);
         }
         stream.WriteVInt(0); // Array
         stream.WriteVInt(0); // Array

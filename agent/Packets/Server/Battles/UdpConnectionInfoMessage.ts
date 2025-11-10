@@ -1,7 +1,7 @@
 import ByteStream from "../../../DataStream/ByteStream.js"
 
 class UdpConnectionInfoMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let Stream = new ByteStream([]);
 
         Stream.WriteVInt(9339);

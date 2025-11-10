@@ -177,7 +177,7 @@ class LogicVector2 {
 		this.Y = Stream.ReadVInt();
 	}
 
-	Encode(Stream: ByteStream): void {
+	encode(Stream: ByteStream): void {
 		Stream.WriteVInt(this.X);
 		Stream.WriteVInt(this.Y);
 	}

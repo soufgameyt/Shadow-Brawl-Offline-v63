@@ -1,9 +1,9 @@
 import LogicCommand from "../Protocol/Messaging/LogicCommand";
 
 class LogicServerCommand {
-    static Encode(stream: any) {
+    static encode(stream: any) {
         stream.WriteVInt(0);
-        LogicCommand.Encode(stream);
+        LogicCommand.encode(stream);
     }
 }
 

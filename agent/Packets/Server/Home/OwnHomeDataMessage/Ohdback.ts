@@ -4,7 +4,7 @@ import LogicClientAvatar from "./LogicClientAvatar/LogicClientAvatar.js";
 import player from "../../../../Configuration/LogicPlayerData.js";
 
 class OwnHomeDataMessage {
-    static Encode(): number[] {
+    static encode(): number[] {
         let stream = new ByteStream([]);
 
         stream.WriteVInt(1757882887);

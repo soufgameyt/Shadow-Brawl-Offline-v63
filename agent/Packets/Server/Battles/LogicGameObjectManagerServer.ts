@@ -6,7 +6,7 @@ import LogicPlayer from "./LogicPlayer.js";
 import LogicCharacterServer from "./LogicCharacterServer.js";
 
 class LogicGameObjectManagerServer {
-    static Encode() {
+    static encode() {
         let Stream = new BitStream();
 
         Stream.WritePositiveIntMax2097151(1000000); // Global ID
@@ -15,8 +15,9 @@ class LogicGameObjectManagerServer {
         Stream.WriteBoolean(false);
         Stream.WriteBoolean(false);
 
-        if (StartLoadingMessage.GameModeVariation == LogicGameModeUtil.GetGameModeVariation("GemGrab")) {
-            Stream.WritePositiveVInt(0, 4);
+        if (StartLoadingMessage.GameModeVariation == LogicGameModeUtil.GetGameModeVariation("GemGrab")) 
+        {
+            Stream.WritePositiveVIntMax65535(0);
         }
 
         Stream.WriteBoolean(false);
@@ -28,11 +29,11 @@ class LogicGameObjectManagerServer {
         Stream.WriteBoolean(false);
 
         Stream.WritePositiveIntMax31(0);
-        Stream.WritePositiveIntMax63(14);
-        Stream.WritePositiveIntMax31(16);
-        Stream.WritePositiveIntMax63(32);
+        Stream.WritePositiveIntMax63(0); // 14
+        Stream.WritePositiveIntMax31(0); // 16
+        Stream.WritePositiveIntMax63(0); // 32
 
-        LogicGameObjectManagerServer.EncodeTiles(Stream);
+        LogicGameObjectManagerServer.EncodeTiles(Stream, 0); // 0 = tiles count
         LogicGameObjectManagerServer.EncodeDynamicTiles(Stream);
 
         Stream.WritePositiveVIntMax65535OftenZero(0);
@@ -82,15 +83,18 @@ class LogicGameObjectManagerServer {
             Stream.WritePositiveVIntMax65535(1); // CSV ID : Colt
             Stream.WriteBoolean(true);
             
-            LogicCharacterServer.Encode(Stream);
+            LogicCharacterServer.encode(Stream);
         }
        
 
         return Stream 
     }
 
-    static EncodeTiles(Stream: any) {
-        Stream.WriteBoolean(false);
+    static EncodeTiles(Stream: any, TilesCount: number) {
+        for (let i = 0; i < TilesCount; i++) 
+        {
+            Stream.WriteBoolean(false);
+        }
     }
     
     static EncodeDynamicTiles(Stream: any) {

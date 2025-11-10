@@ -1,5 +1,5 @@
 class TimedIntValueEntry {
-    static Encode(stream: any, a1: number, a2: number, a3: number, a4: number): void {
+    static encode(stream: any, a1: number, a2: number, a3: number, a4: number): void {
         stream.WriteVInt(a1);
         stream.WriteVInt(a2);
         stream.WriteVInt(a3);

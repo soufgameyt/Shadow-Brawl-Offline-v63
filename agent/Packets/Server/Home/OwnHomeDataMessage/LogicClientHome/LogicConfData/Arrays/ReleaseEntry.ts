@@ -1,5 +1,5 @@
 class ReleaseEntry {
-    static Encode(stream: any, CSVId: number, CSVRow: number, Time: number, SecondTime: number, ThirdTime: number, IsNew: boolean): void {
+    static encode(stream: any, CSVId: number, CSVRow: number, Time: number, SecondTime: number, ThirdTime: number, IsNew: boolean): void {
         stream.WriteDataReference(CSVId, CSVRow);
         stream.WriteInt(Time);
         stream.WriteInt(SecondTime);
