@@ -97,7 +97,7 @@ class DebugMenuBase {
     }
 
     static update(ScrollAreaInstance: NativePointer, FramePer: number) {
-        ScrollArea.Update(ScrollAreaInstance, FramePer);
+        ScrollArea.update(ScrollAreaInstance, FramePer);
     }
     
     static updateLayout() {

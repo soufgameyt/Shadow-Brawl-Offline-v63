@@ -72,7 +72,7 @@ class Functions {
         static enableHorizontalDrag: any;
         static enableVerticalDrag: any;
         static setAlignment: any;
-        static Update: any;
+        static update: any;
         static addContent: any;
     }
 
@@ -137,7 +137,7 @@ class Functions {
         Functions.ScrollArea.enableHorizontalDrag = new NativeFunction(Addresses.ScrollArea_enableHorizontalDrag, 'void', ['pointer', 'int']);
         Functions.ScrollArea.enableVerticalDrag = new NativeFunction(Addresses.ScrollArea_enableVerticalDrag, 'void', ['pointer', 'int']);
         Functions.ScrollArea.setAlignment = new NativeFunction(Addresses.ScrollArea_setAlignment, 'void', ['pointer', 'int']);
-        Functions.ScrollArea.Update = new NativeFunction(Addresses.ScrollArea_update, 'void', ['pointer', 'int']);
+        Functions.ScrollArea.update = new NativeFunction(Addresses.ScrollArea_update, 'void', ['pointer', 'int']);
         Functions.ScrollArea.addContent = new NativeFunction(Addresses.ScrollArea_addContent, 'void', ['pointer', 'pointer'])
         Functions.GameButton.GameButton = new NativeFunction(Addresses.GameButtonCtor, 'void', ['pointer'])
         Functions.MovieClipHelper.setTextAndScaleIfNecessary = new NativeFunction(Addresses.MovieClipHelper_setTextAndScaleIfNecessary, 'void', ['pointer', 'pointer', 'int', 'int']);
