@@ -14,7 +14,7 @@ class Dumper {
 			onEnter: function(args) {
 				Dumper.StreamVInt = Interceptor.attach(Environment.LaserBase.add(0x9EE72C), {
 					onLeave: function(retval) {
-						let VInt = "ByteStream.WriteVInt(" + retval.toInt32() + ")\n";
+						let VInt = "ByteStream.writeVInt(" + retval.toInt32() + ")\n";
                         fs.appendFileSync(Dumper.OwnHomeDataMessageOutput, VInt, "utf8");
 					}
 				});

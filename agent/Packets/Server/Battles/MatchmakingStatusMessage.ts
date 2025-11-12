@@ -14,7 +14,7 @@ class MatchmakingStatusMessage {
         Stream.WriteInt(0);
         Stream.WriteInt(0);
 
-        Stream.WriteBoolean(true); // Show Timer
+        Stream.writeBoolean(true); // Show Timer
 
         return Stream.Payload
     }

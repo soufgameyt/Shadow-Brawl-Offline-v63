@@ -1,7 +1,7 @@
 class IntValueEntry {
     static ThemesID: number[] = [143, 144, 145, 146, 147, 148, 149, 150, 151];
     static encode(stream: any): void {
-        stream.WriteVInt(9);
+        stream.writeVInt(9);
         stream.WriteDataReference(41000000 + IntValueEntry.ThemesID[Math.floor(Math.random() * IntValueEntry.ThemesID.length)], 1); 
         stream.WriteDataReference(89, 6);
         stream.WriteDataReference(22, 0);

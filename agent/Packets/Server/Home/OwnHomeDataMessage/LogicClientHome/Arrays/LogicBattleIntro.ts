@@ -6,12 +6,12 @@ class LogicBattleIntro {
         stream.WriteDataReference(52, -1); // Pin
         stream.WriteDataReference(76, -1); // Title
         stream.WriteDataReference(0);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteVInt(0); // Count
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeVInt(0); // Count
     }
 }
 

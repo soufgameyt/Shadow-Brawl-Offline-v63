@@ -27,25 +27,25 @@ class StartLoadingMessage {
 
         Stream.WriteInt(0); // Unknown
 
-        Stream.WriteVInt(8); // GameType
-        Stream.WriteVInt(1); // Map Mode
-        Stream.WriteVInt(StartLoadingMessage.GameModeVariation); // Game Mode Variation
-        Stream.WriteVInt(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteVInt(LogicPlayer.IsSpectator);
-        Stream.WriteVInt(1);
+        Stream.writeVInt(8); // GameType
+        Stream.writeVInt(1); // Map Mode
+        Stream.writeVInt(StartLoadingMessage.GameModeVariation); // Game Mode Variation
+        Stream.writeVInt(0);
+        Stream.writeBoolean(false);
+        Stream.writeVInt(LogicPlayer.IsSpectator);
+        Stream.writeVInt(1);
         Stream.WriteDataReference(15, 121); // Map ID
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteBoolean(true); // Show Quit
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeBoolean(true); // Show Quit
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
 
         Stream.WriteDataReference(0); // ?
         Stream.WriteDataReference(0); // ?

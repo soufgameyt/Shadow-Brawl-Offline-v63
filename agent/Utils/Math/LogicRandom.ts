@@ -48,7 +48,7 @@ class LogicRandom {
 	}
 
 	encode(Stream: ByteStream): void {
-		Stream.WriteVInt(this.Seed);
+		Stream.writeVInt(this.Seed);
 	}
 }
 

@@ -1,37 +1,37 @@
 class LogicPlayerCollabEventData {
     static encode(stream: any): void {
-        stream.WriteVInt(67); // Event Currency
-        stream.WriteVInt(0);
+        stream.writeVInt(67); // Event Currency
+        stream.writeVInt(0);
 
-        stream.WriteBoolean(true);
+        stream.writeBoolean(true);
 
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteBoolean(true);
+        stream.writeBoolean(true);
 
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
         stream.WriteDataReference(83, 6);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
     }
 }
 

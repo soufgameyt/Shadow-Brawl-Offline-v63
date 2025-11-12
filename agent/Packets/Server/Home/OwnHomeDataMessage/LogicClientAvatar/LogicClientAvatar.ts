@@ -58,44 +58,44 @@ class LogicClientAvatar {
 		this.stream.WriteVLong(this.AccountID[0], this.AccountID[1]);
 		this.stream.WriteVLong(0, 0);
 
-		this.stream.WriteString(this.NameSetByUser);
-		this.stream.WriteBoolean(this.IsNameSetByUser);
+		this.stream.writeString(this.NameSetByUser);
+		this.stream.writeBoolean(this.IsNameSetByUser);
 		this.stream.WriteInt(-1);
 
-		this.stream.WriteVInt(this.CommodityCount);
+		this.stream.writeVInt(this.CommodityCount);
 		{
 			this.EncodeCommodity();
 		}
 
-		this.stream.WriteVInt(this.FreeDiamonds);
-		this.stream.WriteVInt(this.Diamonds);
-		this.stream.WriteVInt(10);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(this.CumulativePurchasedDiamonds);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(this.TutorialsCompletedCount);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteString("");
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteVInt(0);
-		this.stream.WriteBoolean(false);
+		this.stream.writeVInt(this.FreeDiamonds);
+		this.stream.writeVInt(this.Diamonds);
+		this.stream.writeVInt(10);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(this.CumulativePurchasedDiamonds);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(this.TutorialsCompletedCount);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeString("");
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeVInt(0);
+		this.stream.writeBoolean(false);
 	}
 
 	public EncodeCommodity() {
-		this.stream.WriteVInt(Object.values(this.OwnedBrawlers).map(brawler => brawler.CardID).length + 8);
+		this.stream.writeVInt(Object.values(this.OwnedBrawlers).map(brawler => brawler.CardID).length + 8);
 		for (const CardId of Object.values(this.OwnedBrawlers).map(brawler => brawler.CardID)) {
 			this.stream.WriteDataReference(23, CardId);
-			this.stream.WriteVInt(-1);
-			this.stream.WriteVInt(1);
+			this.stream.writeVInt(-1);
+			this.stream.writeVInt(1);
 		}
 
 		this.AddCommodityArrayValue(5, Resources.Upgradium.RowID + 1, this.Gold);
@@ -107,63 +107,63 @@ class LogicClientAvatar {
 		this.AddCommodityArrayValue(5, 24, 300000);
 		this.AddCommodityArrayValue(5, Resources.Dailystreak.RowID - 1, this.DailyStreak);
 
-		this.stream.WriteVInt(this.OwnedBrawlersCount);
+		this.stream.writeVInt(this.OwnedBrawlersCount);
 		for (const CardId of Object.keys(this.OwnedBrawlers).map(id => parseInt(id))) {
 			this.stream.WriteDataReference(16, CardId);
-			this.stream.WriteVInt(-1);
-			this.stream.WriteVInt(3000);
+			this.stream.writeVInt(-1);
+			this.stream.writeVInt(3000);
 		}
 
-		this.stream.WriteVInt(this.OwnedBrawlersCount);
+		this.stream.writeVInt(this.OwnedBrawlersCount);
 		for (const CardId of Object.keys(this.OwnedBrawlers).map(id => parseInt(id))) {
 			this.stream.WriteDataReference(16, CardId);
-			this.stream.WriteVInt(-1);
-			this.stream.WriteVInt(3000);
+			this.stream.writeVInt(-1);
+			this.stream.writeVInt(3000);
 		}
 
-		this.stream.WriteVInt(this.OwnedBrawlersCount);
+		this.stream.writeVInt(this.OwnedBrawlersCount);
 		for (const CardId of Object.keys(this.OwnedBrawlers).map(id => parseInt(id))) {
 			this.stream.WriteDataReference(16, CardId);
-			this.stream.WriteVInt(-1);
-			this.stream.WriteVInt(0);
+			this.stream.writeVInt(-1);
+			this.stream.writeVInt(0);
 		}
 
-		this.stream.WriteVInt(this.OwnedBrawlersCount);
+		this.stream.writeVInt(this.OwnedBrawlersCount);
 		for (const CardId of Object.keys(this.OwnedBrawlers).map(id => parseInt(id))) {
 			this.stream.WriteDataReference(16, CardId);
-			this.stream.WriteVInt(-1);
-			this.stream.WriteVInt(3000);
+			this.stream.writeVInt(-1);
+			this.stream.writeVInt(3000);
 		}
 
-		this.stream.WriteVInt(this.OwnedBrawlersCount); // Power Level
+		this.stream.writeVInt(this.OwnedBrawlersCount); // Power Level
 		for (const CardId of Object.keys(this.OwnedBrawlers).map(id => parseInt(id))) {
 			this.stream.WriteDataReference(16, CardId);
-			this.stream.WriteVInt(-1);
-			this.stream.WriteVInt(11 - 1);
+			this.stream.writeVInt(-1);
+			this.stream.writeVInt(11 - 1);
 		}
 
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
-		this.stream.WriteVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
+		this.stream.writeVInt(0); // Array
 	}
 
 	public SetCommodityCount(Value: number) {
@@ -172,8 +172,8 @@ class LogicClientAvatar {
 
 	public AddCommodityArrayValue(CsvID: number, RowID: number, Value: number) {
 		this.stream.WriteDataReference(CsvID, RowID);
-		this.stream.WriteVInt(-1);
-		this.stream.WriteVInt(Value);
+		this.stream.writeVInt(-1);
+		this.stream.writeVInt(Value);
 	}
 
 	public AddCumulativePurchasedDiamonds(Value: number) {
@@ -186,7 +186,7 @@ class LogicClientAvatar {
 		LogicPlayerData.Save();
 	}
 
-	static UseDiamonds(UsedDiamonds: number) {
+	static useDiamonds(UsedDiamonds: number) {
 		LogicPlayerData.GetCurrencys().Diamonds -= UsedDiamonds;
 		LogicPlayerData.GetCurrencys().FreeDiamonds -= UsedDiamonds;
 		LogicPlayerData.Save();

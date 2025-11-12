@@ -51,7 +51,7 @@ class Functions {
 
     static Sprite = class {
         static Sprite: any;
-        static AddChild: any;
+        static addChild: any;
     }
 
     static String = class {
@@ -63,7 +63,7 @@ class Functions {
     }
 
     static Stage = class {
-        static AddChild: any;
+        static addChild: any;
         static sm_instance: NativePointer;
     }
 
@@ -108,6 +108,13 @@ class Functions {
         static openURL: any
     }
 
+    static GenericPopup = class 
+    {
+        static GenericPopup: any
+        static setTitleTid: any
+        static addButton: any
+    }
+
     static Init() {
         const LibSystem = Process.getModuleByName("libSystem.B.dylib");
 
@@ -129,9 +136,9 @@ class Functions {
         Functions.MovieClipHelper.setTextFieldVerticallyCentered = new NativeFunction(Addresses.MovieClipHelper_setTextFieldVerticallyCentered, 'void', ['pointer']);
         Functions.Sprite.Sprite = new NativeFunction(Addresses.SpriteCtor, 'void', ['pointer', 'int']);
         Functions.String.StringCtor = new NativeFunction(Addresses.StringCtor, 'void', ['pointer', 'pointer']);
-        Functions.Sprite.AddChild = new NativeFunction(Addresses.Sprite_addChild, 'pointer', ['pointer', 'pointer']);
+        Functions.Sprite.addChild = new NativeFunction(Addresses.Sprite_addChild, 'pointer', ['pointer', 'pointer']);
         Functions.ResourceListenner.AddFile = new NativeFunction(Addresses.AddFile, 'int', ['pointer', 'pointer', 'int', 'int', 'int', 'int', 'int']);
-        Functions.Stage.AddChild = new NativeFunction(Addresses.StageAddChild, 'pointer', ['pointer', 'pointer']);
+        Functions.Stage.addChild = new NativeFunction(Addresses.StageAddChild, 'pointer', ['pointer', 'pointer']);
         Functions.Stage.sm_instance = Environment.LaserBase.add(0xF026A8);
         Functions.ScrollArea.enablePinching = new NativeFunction(Addresses.ScrollArea_enablePinching, 'void', ['pointer', 'int']);
         Functions.ScrollArea.enableHorizontalDrag = new NativeFunction(Addresses.ScrollArea_enableHorizontalDrag, 'void', ['pointer', 'int']);
@@ -144,6 +151,10 @@ class Functions {
         Functions.Application.openURL = new NativeFunction(Addresses.Application_openUrl, 'void', ['pointer']);
         Functions.MovieClip.getMovieClipByName = new NativeFunction(Addresses.MovieClip_getMovieClipByName, 'pointer', ['pointer', 'pointer']);
         Functions.MovieClip.GotoAndStopFrameIndex = new NativeFunction(Addresses.MovieClip_gotoAndStopFrameIndex, 'void', ['pointer', 'int']),
+
+        Functions.GenericPopup.GenericPopup = new NativeFunction(Addresses.GenericPopup_GenericPopup, 'void', ['pointer', 'pointer', 'int', 'int', 'pointer', 'pointer', 'pointer', 'pointer']);
+        Functions.GenericPopup.setTitleTid = new NativeFunction(Addresses.GenericPopup_setTitleTid, 'void', ['pointer', 'pointer']);
+        Functions.GenericPopup.addButton = new NativeFunction(Addresses.GenericPopup_addButton, 'pointer', ['pointer', 'pointer', 'bool']);
 
         Functions.Imports.Malloc = new NativeFunction(Addresses.Imports.Malloc, 'pointer', ["uint"]);
         Functions.Imports.Free = new NativeFunction(LibSystem.findExportByName("free")!, "int", ["pointer"]);
@@ -183,6 +194,7 @@ export const {
     Messaging,
     LogicGameModeUtil,
     LogicSkillServer,
+    GenericPopup,
     Application
 } = Functions;
 

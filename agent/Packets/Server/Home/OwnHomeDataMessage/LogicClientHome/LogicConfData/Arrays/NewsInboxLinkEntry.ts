@@ -1,10 +1,10 @@
 class NewsInboxLinkEntry {
     static encode(stream: any) {
-        stream.WriteVInt(0);
-        stream.WriteString("https://github.com/soufgameyt/Shadow-Brawl-Offline-v63/");
-        if (stream.WriteBoolean(true)) {
-            stream.WriteString("https://github.com/soufgameyt/Shadow-Brawl-Offline-v63/");
-            stream.WriteVInt(0);
+        stream.writeVInt(0);
+        stream.writeString("https://github.com/soufgameyt/Shadow-Brawl-Offline-v63/");
+        if (stream.writeBoolean(true)) {
+            stream.writeString("https://github.com/soufgameyt/Shadow-Brawl-Offline-v63/");
+            stream.writeVInt(0);
         }
     }
 }

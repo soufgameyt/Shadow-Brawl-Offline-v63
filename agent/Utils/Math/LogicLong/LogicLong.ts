@@ -29,7 +29,7 @@ class LogicLong {
 		return this.MLowInteger;
 	}
 
-	Decode(Stream: ByteStream): void {
+	decode(Stream: ByteStream): void {
 		this.MHighInteger = Stream.ReadInt();
 		this.MLowInteger = Stream.ReadInt();
 	}

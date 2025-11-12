@@ -11,10 +11,10 @@ class AvatarNameCheckRequestMessage {
     }
 
     static Execute(stream: any) {
-        // AvatarNameCheckRequestMessage.Decode(stream);
-        //let PlayerName = PiranhaMessage.Decode(Message);
-        // console.log(AvatarNameCheckRequestMessage.PlayerName);
-        //Messaging.SendOfflineMessage(20300, AvatarNameCheckResponseMessage.encode(player, name));
+        /*AvatarNameCheckRequestMessage.Decode(stream);
+        let PlayerName = PiranhaMessage.Decode(Message);
+        console.log(AvatarNameCheckRequestMessage.PlayerName);
+        Messaging.SendOfflineMessage(20300, AvatarNameCheckResponseMessage.encode(player, name));*/
     }
 
     static GetMessageType(): number {

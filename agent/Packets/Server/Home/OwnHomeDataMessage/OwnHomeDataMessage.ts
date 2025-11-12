@@ -10,8 +10,8 @@ class OwnHomeDataMessage {
     static encode(): number[] {
         let stream = new ByteStream([]);
 
-        stream.WriteVInt(1757882887);
-        stream.WriteVInt(-1230828389);
+        stream.writeVInt(1757882887);
+        stream.writeVInt(-1230828389);
 
         OwnHomeDataMessage.ClientHome = new LogicClientHome(stream);
         OwnHomeDataMessage.ClientAvatar = new LogicClientAvatar(stream);

@@ -219,7 +219,7 @@ export class ByteStream {
         this.WriteInt(Low);
     }
 
-    WriteString(Str: string) {
+    writeString(Str: string) {
         this.BitOffset = 0;
         let Bytes = ByteStreamHelper.StringToUtf8Array(Str);
         this.WriteInt(Bytes.length);
@@ -227,7 +227,7 @@ export class ByteStream {
             this.WriteByte(Bytes[i]);
     }
 
-    WriteStringReference(Str: string) {
+    writeStringReference(Str: string) {
         this.BitOffset = 0;
         const Bytes = ByteStreamHelper.StringToUtf8Array(Str);
         const StrLength = Bytes.length;
@@ -243,7 +243,7 @@ export class ByteStream {
         }
     }
 
-    WriteVInt(Value: number) {
+    writeVInt(Value: number) {
         this.BitOffset = 0;
         if (Value < 0) {
             if (Value >= -63) {
@@ -313,11 +313,11 @@ export class ByteStream {
 
     WriteVLong(High: number, Low: number) {
         this.BitOffset = 0;
-        this.WriteVInt(High);
-        this.WriteVInt(Low);
+        this.writeVInt(High);
+        this.writeVInt(Low);
     }
 
-    WriteBoolean(Value: boolean) {
+    writeBoolean(Value: boolean) {
         if (this.BitOffset == 0) {
             this.Payload.push(0)
             this.Offset++
@@ -333,8 +333,8 @@ export class ByteStream {
 
     WriteDataReference(High: number, Low = -1) {
         this.BitOffset = 0;
-        this.WriteVInt(High);
-        if (High != 0) this.WriteVInt(Low);
+        this.writeVInt(High);
+        if (High != 0) this.writeVInt(Low);
     }
 
     WriteHexa(data: string) {

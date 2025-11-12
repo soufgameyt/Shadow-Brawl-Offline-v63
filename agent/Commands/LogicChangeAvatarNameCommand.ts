@@ -8,9 +8,9 @@ class LogicChangeAvatarNameCommand {
     static encode(): number[] {
         let Stream = new ByteStream([]);
 
-        Stream.WriteStringReference("");
-        Stream.WriteVInt(0);
-        Stream.WriteStringReference("");
+        Stream.writeStringReference("hii");
+        Stream.writeVInt(0);
+        Stream.writeStringReference("hii");
 
         LogicServerCommand.encode(Stream);
 
@@ -18,7 +18,7 @@ class LogicChangeAvatarNameCommand {
     }
 
     static Execute() {
-        LogicClientAvatar.UseDiamonds(500); // why not
+        LogicClientAvatar.useDiamonds(500); // why not
     }
 
     static GetCommandType(): number {

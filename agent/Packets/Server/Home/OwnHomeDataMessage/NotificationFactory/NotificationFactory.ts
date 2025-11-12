@@ -15,7 +15,7 @@ class NotificationFactory {
     }
 
     public encode(): void {
-        this.stream.WriteVInt(this.NotificationConfig.NotificationCount);
+        this.stream.writeVInt(this.NotificationConfig.NotificationCount);
 
         for (let i = 0; i < this.NotificationConfig.NotificationCount; i++) {
             switch (this.NotificationConfig.NotificationID[i]) {

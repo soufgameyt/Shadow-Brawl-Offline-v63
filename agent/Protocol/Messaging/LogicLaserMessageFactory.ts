@@ -38,6 +38,7 @@ class LogicLaserMessageFactory {
                 break;
             case 14600:
                 // AvatarNameCheckRequestMessage.Execute();
+                break;
             case 17750:
                 LogicLaserMessageFactory.CreateMessageByType(OwnHomeDataMessage.GetMessageType());
                 break;

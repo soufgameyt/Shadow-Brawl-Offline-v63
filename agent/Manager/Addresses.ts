@@ -71,6 +71,10 @@ class Addresses {
     static sm_offlineLocation: NativePointer;
     static MovieClip_getMovieClipByName: NativePointer;
 
+    static GenericPopup_GenericPopup: NativePointer;
+    static GenericPopup_setTitleTid: NativePointer;
+    static GenericPopup_addButton: NativePointer;
+
     static LogicSkillServerCtor: NativePointer;
     static LogicSkillServerDtor: NativePointer;
 
@@ -110,6 +114,9 @@ class Addresses {
         Addresses.Application_openUrl = Environment.LaserBase.add(0xB78D80);
         Addresses.MovieClip_getMovieClipByName = Environment.LaserBase.add(0x9A7B8C);
         Addresses.MovieClip_gotoAndStopFrameIndex = Environment.LaserBase.add(0x9A6F60);
+        Addresses.GenericPopup_GenericPopup = Environment.LaserBase.add(0x184684);
+        Addresses.GenericPopup_setTitleTid = Environment.LaserBase.add(0x184A88);
+        Addresses.GenericPopup_addButton = Environment.LaserBase.add(0x184F2C);
 
         Addresses.ServerConnectionUpdate = Environment.LaserBase.add(0x23AE30);
         Addresses.State = ptr(Process.pointerSize * 4);

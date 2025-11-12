@@ -1,7 +1,7 @@
 
 class LogicAccessory {
     static encode(Stream: any) {
-        let Boolean = Stream.WriteBoolean(true); // Owns Accessory
+        let Boolean = Stream.writeBoolean(true); // Owns Accessory
 
         if (Boolean) {
             let PositiveVIntMax65535 = Stream.readPositiveVIntMax65535();

@@ -39,48 +39,48 @@ class LogicClientHome {
 
         LogicClientHome.NotificationFactory = new NotificationFactory(this.stream);
 
-        this.stream.WriteVInt(1337);
+        this.stream.writeVInt(1337);
 
-        if (this.stream.WriteBoolean(true)) 
+        if (this.stream.writeBoolean(true)) 
         {
-            this.stream.WriteVInt(1);
+            this.stream.writeVInt(1);
             {
                 LogicGatchaDrop.encode(this.stream); // LogicGatchDrop::encode
             }
         }
         else 
         {
-            this.stream.WriteVInt(0);
+            this.stream.writeVInt(0);
         }
 
-        this.stream.WriteVInt(1); // Array
+        this.stream.writeVInt(1); // Array
         {
             this.stream.WriteDataReference(0);
         }
 
-        this.stream.WriteVInt(1); // Array
+        this.stream.writeVInt(1); // Array
         {
             this.stream.WriteDataReference(0);
             this.stream.WriteDataReference(0);
             this.stream.WriteByte(0);
         }
         
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicLoginCalendar.encode(this.stream);
         }
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicLoginCalendar.encode(this.stream);
         }
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicLoginCalendar.encode(this.stream);
         }
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicLoginCalendar.encode(this.stream);
         }
 
         LogicHeroGears.encode(this.stream)
 
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicBrawlerRecruitRoad.encode(this.stream);
         }
 
@@ -88,85 +88,85 @@ class LogicClientHome {
         LogicBattleIntro.encode(this.stream);
         LogicRandomRewardManager.encode(this.stream);
 
-        if (this.stream.WriteBoolean(false)) {
+        if (this.stream.writeBoolean(false)) {
             LogicPlayerAlliancePiggyBankData.encode(this.stream);
         }
         
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicPlayerCollabEventData.encode(this.stream);
         }
 
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicPlayerSpecialEventData.encode(this.stream);
         }
 
         LogicDataSeenStates.encode(this.stream);
 
-        if (this.stream.WriteBoolean(false)) {
+        if (this.stream.writeBoolean(false)) {
             LogicPlayerContestEventData.encode(this.stream);
         }
 
-        if (this.stream.WriteBoolean(true)) {
+        if (this.stream.writeBoolean(true)) {
             LogicPlayerRecordsData.encode(this.stream);
         }
 
-        this.stream.WriteBoolean(true);
+        this.stream.writeBoolean(true);
         {
-            this.stream.WriteVInt(0);
-            this.stream.WriteVInt(0);
-            this.stream.WriteVInt(0);
-            this.stream.WriteVInt(0);
-            this.stream.WriteVInt(0);
-            this.stream.WriteVInt(0);
+            this.stream.writeVInt(0);
+            this.stream.writeVInt(0);
+            this.stream.writeVInt(0);
+            this.stream.writeVInt(0);
+            this.stream.writeVInt(0);
+            this.stream.writeVInt(0);
 
-            this.stream.WriteVInt(1);
+            this.stream.writeVInt(1);
             {
-                this.stream.WriteBoolean(true);
+                this.stream.writeBoolean(true);
                 {
                     LogicGemOffer.encode(this.stream, 57, 14888, 0, 0, 0);
                 }
             }
 
-            this.stream.WriteVInt(1);
+            this.stream.writeVInt(1);
             {
-                this.stream.WriteBoolean(true);
+                this.stream.writeBoolean(true);
                 {
                     LogicGemOffer.encode(this.stream, 57, 14888, 0, 0, 0);
                 }
             }
             
-            this.stream.WriteVInt(0);
-            this.stream.WriteVInt(0);
+            this.stream.writeVInt(0);
+            this.stream.writeVInt(0);
         }
 
-        this.stream.WriteBoolean(true);
+        this.stream.writeBoolean(true);
         {
-            this.stream.WriteVInt(1);
+            this.stream.writeVInt(1);
             {
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
             }
         }
 
-        this.stream.WriteVInt(1); // Array
+        this.stream.writeVInt(1); // Array
         {
-            this.stream.WriteBoolean(true);
+            this.stream.writeBoolean(true);
             {
-                this.stream.WriteVInt(0);
+                this.stream.writeVInt(0);
 
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
 
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
-                this.stream.WriteVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
+                this.stream.writeVInt(0);
             }
         }
     }

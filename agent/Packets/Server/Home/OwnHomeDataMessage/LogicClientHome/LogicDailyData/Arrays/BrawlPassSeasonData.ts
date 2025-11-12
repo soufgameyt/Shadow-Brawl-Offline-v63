@@ -1,27 +1,27 @@
 class BrawlPassSeasonData {
     static encode(stream: any): void {
-        stream.WriteVInt(1); // Seasons Count
+        stream.writeVInt(1); // Seasons Count
         {
-            stream.WriteVInt(43 - 1) // Current Season
-            stream.WriteVInt(100000) // BP Tokens
-            stream.WriteBoolean(true) // Brawl Pass State
-            stream.WriteVInt(0)
-            stream.WriteBoolean(false)
+            stream.writeVInt(43 - 1) // Current Season
+            stream.writeVInt(100000) // BP Tokens
+            stream.writeBoolean(true) // Brawl Pass State
+            stream.writeVInt(0)
+            stream.writeBoolean(false)
 
-            stream.WriteBoolean(true)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-
-            stream.WriteBoolean(true)
+            stream.writeBoolean(true)
             stream.WriteInt(0)
             stream.WriteInt(0)
             stream.WriteInt(0)
             stream.WriteInt(0)
 
-            stream.WriteBoolean(true) // Brawl Pass Plus State
-            stream.WriteBoolean(true)
+            stream.writeBoolean(true)
+            stream.WriteInt(0)
+            stream.WriteInt(0)
+            stream.WriteInt(0)
+            stream.WriteInt(0)
+
+            stream.writeBoolean(true) // Brawl Pass Plus State
+            stream.writeBoolean(true)
             stream.WriteInt(0)
             stream.WriteInt(0)
             stream.WriteInt(0)

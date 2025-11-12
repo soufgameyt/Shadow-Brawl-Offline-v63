@@ -1,8 +1,8 @@
 class EsportsButtonStateData {
     static encode(stream: any): void {
-        stream.WriteVInt(22);
-        stream.WriteVInt(22);
-        stream.WriteVInt(22);
+        stream.writeVInt(22);
+        stream.writeVInt(22);
+        stream.writeVInt(22);
     }
 }
 

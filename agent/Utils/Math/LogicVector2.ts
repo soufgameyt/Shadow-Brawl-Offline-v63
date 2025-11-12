@@ -178,8 +178,8 @@ class LogicVector2 {
 	}
 
 	encode(Stream: ByteStream): void {
-		Stream.WriteVInt(this.X);
-		Stream.WriteVInt(this.Y);
+		Stream.writeVInt(this.X);
+		Stream.writeVInt(this.Y);
 	}
 
 	ToString(): string {

@@ -4,7 +4,7 @@ class ReleaseEntry {
         stream.WriteInt(Time);
         stream.WriteInt(SecondTime);
         stream.WriteInt(ThirdTime);
-        stream.WriteBoolean(IsNew);
+        stream.writeBoolean(IsNew);
     }
 }
 

@@ -1,18 +1,18 @@
 class LogicRandomRewardManager {
     static encode(stream: any): void {
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
         stream.WriteInt(-1435281534)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(86400*24)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteBoolean(false)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(86400*24)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeBoolean(false)
     }
 }
 

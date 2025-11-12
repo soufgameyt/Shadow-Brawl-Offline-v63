@@ -4,8 +4,8 @@ class UdpConnectionInfoMessage {
     static encode(): number[] {
         let Stream = new ByteStream([]);
 
-        Stream.WriteVInt(9339);
-        Stream.WriteString("127.0.0.1");
+        Stream.writeVInt(9339);
+        Stream.writeString("127.0.0.1");
         Stream.WriteInt(0);
         Stream.WriteByte(0);
         Stream.WriteInt(0);

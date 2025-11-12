@@ -14,7 +14,7 @@ class LogicGameObjectServer {
 
 class LogicTraitController {
     static encode(Stream: any) {
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
     }
 }
 

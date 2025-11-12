@@ -7,79 +7,79 @@ class OwnHomeDataMessage {
     static encode(): number[] {
         let stream = new ByteStream([]);
 
-        stream.WriteVInt(1742083699); // Timestamp
-        stream.WriteVInt(684932114); // Timestamp
+        stream.writeVInt(1742083699); // Timestamp
+        stream.writeVInt(684932114); // Timestamp
 
         // LogicDailyData::encode
-        stream.WriteVInt(2025074); // Timestamp
-        stream.WriteVInt(28301); // Timer For Region Change
+        stream.writeVInt(2025074); // Timestamp
+        stream.writeVInt(28301); // Timer For Region Change
 
-        stream.WriteVInt(70000); // Highest Trophies
-        stream.WriteVInt(70000); // Highest Trophies
-        stream.WriteVInt(70000); // Highest Trophies
-        stream.WriteVInt(1); // Trophy Road Tier
-        stream.WriteVInt(1); // Experience Level
+        stream.writeVInt(70000); // Highest Trophies
+        stream.writeVInt(70000); // Highest Trophies
+        stream.writeVInt(70000); // Highest Trophies
+        stream.writeVInt(1); // Trophy Road Tier
+        stream.writeVInt(1); // Experience Level
         stream.WriteDataReference(28, 0); // Thumbnail
         stream.WriteDataReference(43, 0); // Name Changer
 
-        stream.WriteVInt(26);
+        stream.writeVInt(26);
         for (let x = 0; x < 26; x++) {
-            stream.WriteVInt(x);
+            stream.writeVInt(x);
         }
 
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0); // Leaderboard Region |
-        stream.WriteVInt(70000); // Trophy Road Highest Trophies
-        stream.WriteVInt(0); // Tokens Used in Battles
-        stream.WriteVInt(1); // Control Mode
-        stream.WriteBoolean(true); // Battle Hints
-        stream.WriteVInt(19500); // Tokens Doubler
-        stream.WriteVInt(111111); // Power Play Timer
-        stream.WriteVInt(1375134); // Trophies Season Reset Timer
-        stream.WriteVInt(0); // Pro Pass Season Timer
-        stream.WriteVInt(1375134); // Brawl Pass Season Timer
+        stream.writeVInt(0); // Leaderboard Region |
+        stream.writeVInt(70000); // Trophy Road Highest Trophies
+        stream.writeVInt(0); // Tokens Used in Battles
+        stream.writeVInt(1); // Control Mode
+        stream.writeBoolean(true); // Battle Hints
+        stream.writeVInt(19500); // Tokens Doubler
+        stream.writeVInt(111111); // Power Play Timer
+        stream.writeVInt(1375134); // Trophies Season Reset Timer
+        stream.writeVInt(0); // Pro Pass Season Timer
+        stream.writeVInt(1375134); // Brawl Pass Season Timer
 
-        stream.WriteVInt(200); // Starpower Drop
-        stream.WriteVInt(200); // Gadget Drop
-        stream.WriteVInt(0); // Rarity Count
+        stream.writeVInt(200); // Starpower Drop
+        stream.writeVInt(200); // Gadget Drop
+        stream.writeVInt(0); // Rarity Count
 
-        stream.WriteBoolean(true);
-        stream.WriteVInt(2); // Token Doubler New Tag State
-        stream.WriteVInt(2); // Event Tickets New Tag State
-        stream.WriteVInt(2); // Coin Packs New Tag State
-        stream.WriteVInt(0); // Change Name Cost
-        stream.WriteVInt(0); // Timer For the Next Name Change
-        stream.WriteVInt(0); // ?
+        stream.writeBoolean(true);
+        stream.writeVInt(2); // Token Doubler New Tag State
+        stream.writeVInt(2); // Event Tickets New Tag State
+        stream.writeVInt(2); // Coin Packs New Tag State
+        stream.writeVInt(0); // Change Name Cost
+        stream.writeVInt(0); // Timer For the Next Name Change
+        stream.writeVInt(0); // ?
 
         // LogicOfferBundle::encode
-        stream.WriteVInt(0); // Shop Offers Count
-        stream.WriteVInt(20);
-        stream.WriteVInt(1428);
+        stream.writeVInt(0); // Shop Offers Count
+        stream.writeVInt(20);
+        stream.writeVInt(1428);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(1);
-        stream.WriteVInt(30);
+        stream.writeVInt(1);
+        stream.writeVInt(30);
 
         stream.WriteByte(1); // Selected Brawler
         stream.WriteDataReference(16, 1);
 
-        stream.WriteString("EN"); // Location
-        stream.WriteString("haccysouf"); // Supported Content Creator
+        stream.writeString("EN"); // Location
+        stream.writeString("haccysouf"); // Supported Content Creator
 
         // IntValueEntry::encode
-        stream.WriteVInt(15);
+        stream.writeVInt(15);
         stream.WriteDataReference(2, 1); // Unknown
         stream.WriteDataReference(9, 1); // Show Star Points
         stream.WriteDataReference(10, 0); // Power Play Trophies Gained
@@ -98,74 +98,74 @@ class OwnHomeDataMessage {
         // Added IntValueEntry::encode
 
         // CooldownEntry::encode
-        stream.WriteVInt(0); // CooldownEntry::encode
+        stream.writeVInt(0); // CooldownEntry::encode
         // Added CooldownEntry::encode
 
         // BrawlPassSeasonData::encode
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
         // Added BrawlPassSeasonData::encode
 
         // LogicQuests::encode
-        stream.WriteBoolean(true);
-        stream.WriteVInt(0); // Quests Count
-        stream.WriteVInt(0); // ?
-        stream.WriteVInt(0); // ?
-        stream.WriteVInt(0); // ?
+        stream.writeBoolean(true);
+        stream.writeVInt(0); // Quests Count
+        stream.writeVInt(0); // ?
+        stream.writeVInt(0); // ?
+        stream.writeVInt(0); // ?
         // Added LogicQuests::encode
 
         // VanityItems::encode
-        stream.WriteBoolean(true); // Vanity items
-        stream.WriteVInt(0)
+        stream.writeBoolean(true); // Vanity items
+        stream.writeVInt(0)
         // Added VanityItems::encode
 
         // LogicPlayerRankedSeasonData::encode
-        stream.WriteBoolean(false); // LogicPlayerRankedSeasonData::encode
+        stream.writeBoolean(false); // LogicPlayerRankedSeasonData::encode
 
         stream.WriteInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
         stream.WriteDataReference(16, 1); // Favorite Brawler
-        stream.WriteBoolean(false); // LogicRewards::encode
-        stream.WriteVInt(-1);
-        stream.WriteVInt(0);
-        stream.WriteVInt(832099);
-        stream.WriteVInt(1616899);
-        stream.WriteVInt(10659101);
-        stream.WriteVInt(0);
+        stream.writeBoolean(false); // LogicRewards::encode
+        stream.writeVInt(-1);
+        stream.writeVInt(0);
+        stream.writeVInt(832099);
+        stream.writeVInt(1616899);
+        stream.writeVInt(10659101);
+        stream.writeVInt(0);
 
         // CompetitivePassSeasonData::encode
-        stream.WriteVInt(0);
-        stream.WriteVInt(0); // Pro Pass
+        stream.writeVInt(0);
+        stream.writeVInt(0); // Pro Pass
 
         stream.WriteDataReference(2, 333);
         stream.WriteDataReference(2, 347);
         stream.WriteDataReference(2, 334);
         stream.WriteDataReference(2, 335);
 
-        stream.WriteBoolean(false);
+        stream.writeBoolean(false);
 
         // Added EsportsButtonStateData::encode
         stream.WriteDataReference(2, 351);
-        stream.WriteVInt(770); // LogicDailyData::encode
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
+        stream.writeVInt(770); // LogicDailyData::encode
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
 
-        stream.WriteVInt(2025074);
+        stream.writeVInt(2025074);
 
-        stream.WriteVInt(40); // event slot id
+        stream.writeVInt(40); // event slot id
         for (let EventID = 0; EventID < 40; EventID++) {
-            stream.WriteVInt(EventID);
+            stream.writeVInt(EventID);
         }
 
-        stream.WriteVInt(0); // Added EventData array count (a1[9])
-        stream.WriteVInt(0); // Added EventData array count (a1[13])
-        stream.WriteVInt(0); // Added EventData array count (a1[17])
+        stream.writeVInt(0); // Added EventData array count (a1[9])
+        stream.writeVInt(0); // Added EventData array count (a1[13])
+        stream.writeVInt(0); // Added EventData array count (a1[17])
 
-        stream.WriteVInt(0); // Added EventData array count (a1[9])
-        stream.WriteVInt(0); // Added EventData array count (a1[13])
-        stream.WriteVInt(0); // Added EventData array count (a1[17])
+        stream.writeVInt(0); // Added EventData array count (a1[9])
+        stream.writeVInt(0); // Added EventData array count (a1[13])
+        stream.writeVInt(0); // Added EventData array count (a1[17])
 
-        stream.WriteVInt(0); // Added ReleaseEntry array count (a1[37])
-        stream.WriteVInt(6);
+        stream.writeVInt(0); // Added ReleaseEntry array count (a1[37])
+        stream.writeVInt(6);
         for (let i = 0; i < 1; i++) {
             stream.WriteDataReference(41000140, 1); // ThemeID
             stream.WriteDataReference(89, 6);
@@ -175,48 +175,48 @@ class OwnHomeDataMessage {
             stream.WriteDataReference(16, 5);
         }
 
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
 
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
 
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
 
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
         
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
-        stream.WriteVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
+        stream.writeVInt(0); // Added TimedIntValueEntry array count (a1[45])
 
         stream.WriteLong(0, 1);
-        stream.WriteVInt(0); // Array
+        stream.writeVInt(0); // Array
 
-        stream.WriteVInt(1);
-        stream.WriteBoolean(false); // LogicGatchaDrop::encode
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteBoolean(false); // LogicLoginCalendar::encode
-        stream.WriteBoolean(false); // Added LogicLoginCalendar::encode
-        stream.WriteBoolean(false); // Added LogicLoginCalendar::encode
-        stream.WriteBoolean(false); // Added LogicLoginCalendar::encode
+        stream.writeVInt(1);
+        stream.writeBoolean(false); // LogicGatchaDrop::encode
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeBoolean(false); // LogicLoginCalendar::encode
+        stream.writeBoolean(false); // Added LogicLoginCalendar::encode
+        stream.writeBoolean(false); // Added LogicLoginCalendar::encode
+        stream.writeBoolean(false); // Added LogicLoginCalendar::encode
 
         // LogicHeroGears::encode
-        stream.WriteVInt(0); // Count
+        stream.writeVInt(0); // Count
         // Added LogicHeroGears::encode
 
-        stream.WriteBoolean(false); // LogicBrawlerRecruitRoad::encode
+        stream.writeBoolean(false); // LogicBrawlerRecruitRoad::encode
         // Added LogicBrawlerRecruitRoad::encode
 
         // LogicMasteries::encode
-        stream.WriteVInt(0); // LogicMasteries::encode
+        stream.writeVInt(0); // LogicMasteries::encode
         // Added LogicMasteries::encode
 
         // LogicBattleIntro::encode
@@ -227,138 +227,138 @@ class OwnHomeDataMessage {
         stream.WriteDataReference(52, -1); // Pin
         stream.WriteDataReference(76, -1); // Title
         stream.WriteDataReference(0);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
-        stream.WriteVInt(0); // Count
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeVInt(0); // Count
         // Added LogicHeroBattleIntro::encode
         // Added LogicBattleIntro::encode
 
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
         stream.WriteInt(-1435281534)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(86400*24)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteVInt(0)
-        stream.WriteBoolean(false)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(86400*24)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeVInt(0)
+        stream.writeBoolean(false)
 
-        stream.WriteBoolean(false); // LogicPlayerAlliancePiggyBankData::encode
-        stream.WriteBoolean(false); // LogicPlayerCollabEventData::encode
-        stream.WriteBoolean(false); // LogicPlayerSpecialEventData::encode
+        stream.writeBoolean(false); // LogicPlayerAlliancePiggyBankData::encode
+        stream.writeBoolean(false); // LogicPlayerCollabEventData::encode
+        stream.writeBoolean(false); // LogicPlayerSpecialEventData::encode
 
         // LogicDataSeenStates::encode
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
         // Added LogicDataSeenStates::encode
 
-        stream.WriteBoolean(false); // LogicPlayerContestEventData::encode
-        stream.WriteBoolean(false); // LogicPlayerRecordsData::encode
-        stream.WriteBoolean(false); // LogicPlayerRecordsData::encode
-        stream.WriteBoolean(false); // LogicPlayerRecordsData::encode
+        stream.writeBoolean(false); // LogicPlayerContestEventData::encode
+        stream.writeBoolean(false); // LogicPlayerRecordsData::encode
+        stream.writeBoolean(false); // LogicPlayerRecordsData::encode
+        stream.writeBoolean(false); // LogicPlayerRecordsData::encode
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
         // LogicClientHome::encode
 
         // LogicClientAvatar::LogicClientAvatar
 
-        stream.WriteVInt(0);
-        stream.WriteVInt(254842734);
-        stream.WriteVInt(0);
-        stream.WriteVInt(254842734);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(254842734);
+        stream.writeVInt(0);
+        stream.writeVInt(254842734);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteString("@soufgamev2");
-        stream.WriteBoolean(true);
+        stream.writeString("@soufgamev2");
+        stream.writeBoolean(true);
         stream.WriteInt(-1);
 
-        stream.WriteVInt(28);
+        stream.writeVInt(28);
 
         const unlockedBrawler = Object.values(player.OwnedBrawlers).map(brawler => brawler.CardID);
 
-        stream.WriteVInt(unlockedBrawler.length + 3);
+        stream.writeVInt(unlockedBrawler.length + 3);
         for (const cardId of unlockedBrawler) {
             stream.WriteDataReference(23, cardId);
-            stream.WriteVInt(-1);
-            stream.WriteVInt(1);
+            stream.writeVInt(-1);
+            stream.writeVInt(1);
         }
 
         stream.WriteDataReference(5, 8);
-        stream.WriteVInt(-1);
-        stream.WriteVInt(300000);
+        stream.writeVInt(-1);
+        stream.writeVInt(300000);
 
         stream.WriteDataReference(5, 21);
-        stream.WriteVInt(-1);
-        stream.WriteVInt(0);
+        stream.writeVInt(-1);
+        stream.writeVInt(0);
 
         stream.WriteDataReference(5, 23);
-        stream.WriteVInt(-1);
-        stream.WriteVInt(0);
+        stream.writeVInt(-1);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
 
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
 
-        stream.WriteVInt(0); // Array
+        stream.writeVInt(0); // Array
 
-        stream.WriteVInt(0); // HeroPower
+        stream.writeVInt(0); // HeroPower
 
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
 
-        stream.WriteVInt(0); // hero star power gadget and hypercharge
+        stream.writeVInt(0); // hero star power gadget and hypercharge
 
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
 
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0); // Array
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0); // Array
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(1000000);
-        stream.WriteVInt(1000000);
-        stream.WriteVInt(10);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(2);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteString("");
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteVInt(0);
-        stream.WriteBoolean(false);
+        stream.writeVInt(1000000);
+        stream.writeVInt(1000000);
+        stream.writeVInt(10);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(2);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeString("");
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeBoolean(false);
 
         return stream.Payload;
     }

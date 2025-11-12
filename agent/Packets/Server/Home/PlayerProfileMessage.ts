@@ -9,18 +9,18 @@ class PlayerProfileMessage {
         Stream.WriteDataReference(16, 0);
         Stream.WriteDataReference(0);
 
-        Stream.WriteVInt(1);
+        Stream.writeVInt(1);
         {
             Stream.WriteDataReference(16, 1);
             Stream.WriteDataReference(0);
-            Stream.WriteVInt(1250);
-            Stream.WriteVInt(1250);
-            Stream.WriteVInt(11);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
+            Stream.writeVInt(1250);
+            Stream.writeVInt(1250);
+            Stream.writeVInt(11);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
         }
 
-        Stream.WriteVInt(27);
+        Stream.writeVInt(27);
         {
             Stream.WriteDataReference(1, 99) // 3v3 Wins
             Stream.WriteDataReference(3, LogicPlayerData.GetMiscData().Trophies) // Trophies
@@ -52,29 +52,29 @@ class PlayerProfileMessage {
         }
 
         {
-            Stream.WriteString(LogicPlayerData.GetPlayerName());
-            Stream.WriteVInt(LogicPlayerData.GetMiscData().ExperienceLevel);
-            Stream.WriteVInt(28000000 + LogicPlayerData.GetMiscData().Thumbnail);
-            Stream.WriteVInt(43000000 + LogicPlayerData.GetMiscData().NameColor);
-            Stream.WriteVInt(43000000 + LogicPlayerData.GetMiscData().NameColor);
+            Stream.writeString(LogicPlayerData.GetPlayerName());
+            Stream.writeVInt(LogicPlayerData.GetMiscData().ExperienceLevel);
+            Stream.writeVInt(28000000 + LogicPlayerData.GetMiscData().Thumbnail);
+            Stream.writeVInt(43000000 + LogicPlayerData.GetMiscData().NameColor);
+            Stream.writeVInt(43000000 + LogicPlayerData.GetMiscData().NameColor);
         }
 
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
 
-        Stream.WriteString("hello world");
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
+        Stream.writeString("hello world");
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
         Stream.WriteDataReference(29, 0);
         Stream.WriteDataReference(0);
         Stream.WriteDataReference(0);
         Stream.WriteDataReference(0);
         Stream.WriteDataReference(0);
 
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
 
         Stream.WriteDataReference(25, 0);
-        Stream.WriteVInt(0);
+        Stream.writeVInt(0);
 
         return Stream.Payload;
     }

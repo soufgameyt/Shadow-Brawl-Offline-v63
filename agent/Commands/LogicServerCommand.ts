@@ -2,7 +2,7 @@ import LogicCommand from "../Protocol/Messaging/LogicCommand";
 
 class LogicServerCommand {
     static encode(stream: any) {
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
         LogicCommand.encode(stream);
     }
 }

@@ -7,17 +7,17 @@ class LogicPlayer {
     static encode(Stream: any) {
         Stream.WriteLong(0, 256617006);
 
-        Stream.WriteBoolean(true);
+        Stream.writeBoolean(true);
         {
             {
-                Stream.WriteString("@soufgamev2");
-                Stream.WriteVInt(100); // Experience
-                Stream.WriteVInt(28000058); // Profile Icon
-                Stream.WriteVInt(43000006); // Name Color
-                Stream.WriteVInt(43000006); // Brawl Pass Name Color
+                Stream.writeString("@soufgamev2");
+                Stream.writeVInt(100); // Experience
+                Stream.writeVInt(28000058); // Profile Icon
+                Stream.writeVInt(43000006); // Name Color
+                Stream.writeVInt(43000006); // Brawl Pass Name Color
             }
             
-            Stream.WriteVInt(0);
+            Stream.writeVInt(0);
     
             Stream.WriteDataReference(100, 1);
             Stream.WriteDataReference(28, -1);
@@ -27,18 +27,18 @@ class LogicPlayer {
             Stream.WriteDataReference(0, 0);
         }
 
-        Stream.WriteVInt(0); // Player Index
-        Stream.WriteVInt(0); // Team Index
-        Stream.WriteVInt(0);
+        Stream.writeVInt(0); // Player Index
+        Stream.writeVInt(0); // Team Index
+        Stream.writeVInt(0);
 
         Stream.WriteInt(1000000); // Global ID
 
         Stream.WriteByte(1); // Selected Brawlers Count
         {
             Stream.WriteDataReference(16, 1); // Selected Brawler
-            Stream.WriteBoolean(true); // LogicHeroUpgrades::encode
+            Stream.writeBoolean(true); // LogicHeroUpgrades::encode
             {
-                Stream.WriteVInt(11);
+                Stream.writeVInt(11);
                 {
                     Stream.WriteDataReference(0, 0);
                     Stream.WriteDataReference(0, 0);
@@ -49,16 +49,16 @@ class LogicPlayer {
                     Stream.WriteDataReference(0, 0);
                 }
                 
-                Stream.WriteVInt(0);
-                Stream.WriteVInt(0);
+                Stream.writeVInt(0);
+                Stream.writeVInt(0);
 
                 Stream.WriteDataReference(0, 0);
                 
             }
             
-            Stream.WriteBoolean(true); // LogicBattleEmotes::encode
+            Stream.writeBoolean(true); // LogicBattleEmotes::encode
             {
-                Stream.WriteVInt(5);
+                Stream.writeVInt(5);
                 {
                     Stream.WriteDataReference(52, 210)
                     Stream.WriteDataReference(52, 154);
@@ -66,12 +66,12 @@ class LogicPlayer {
                     Stream.WriteDataReference(52, 175);
                     Stream.WriteDataReference(52, 687);                    
                 }
-                Stream.WriteVInt(0);
+                Stream.writeVInt(0);
             }
 
-            Stream.WriteBoolean(true); // LogicBattleSprays::encode
+            Stream.writeBoolean(true); // LogicBattleSprays::encode
             {
-                Stream.WriteVInt(5);
+                Stream.writeVInt(5);
                 {
                     Stream.WriteDataReference(68, 53);
                     Stream.WriteDataReference(68, 15);
@@ -86,21 +86,21 @@ class LogicPlayer {
             Stream.WriteDataReference(0, 0); // Unknown
         }
 
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         
         Stream.WriteByte(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
 
-        Stream.WriteBoolean(false);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
+        Stream.writeBoolean(false);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
     }
 
     static GetBonusSkillCooldown() {

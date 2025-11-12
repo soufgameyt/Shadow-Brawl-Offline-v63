@@ -20,12 +20,12 @@ class BaseNotification {
     }
 
     public encode(): void {
-        this.stream.WriteVInt(this.NotificationID);
+        this.stream.writeVInt(this.NotificationID);
         this.stream.WriteInt(this.NotificationIndex);
-        this.stream.WriteBoolean(this.IsNotificationRead);
+        this.stream.writeBoolean(this.IsNotificationRead);
         this.stream.WriteInt(this.NotificationTime);
-        this.stream.WriteString(this.NotificationText);
-        this.stream.WriteVInt(0);
+        this.stream.writeString(this.NotificationText);
+        this.stream.writeVInt(0);
     }
 }
 

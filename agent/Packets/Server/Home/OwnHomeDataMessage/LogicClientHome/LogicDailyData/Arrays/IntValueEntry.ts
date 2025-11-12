@@ -1,6 +1,6 @@
 class IntValueEntry {
     static encode(stream: any): void {
-        stream.WriteVInt(17);
+        stream.writeVInt(17);
         stream.WriteDataReference(2, 1); // Unknown
         stream.WriteDataReference(6, 0); // Demo Account
         stream.WriteDataReference(7, 0); // Is Invite Block On

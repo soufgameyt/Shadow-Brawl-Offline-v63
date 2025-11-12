@@ -4,9 +4,9 @@ class ClientInfoMessage {
     static encode(): number[] {
         let Stream = new ByteStream([]);
 
-        Stream.WriteString("");
-        Stream.WriteString("");
-        Stream.WriteVInt(0);
+        Stream.writeString("");
+        Stream.writeString("");
+        Stream.writeVInt(0);
 
         return Stream.Payload
     }

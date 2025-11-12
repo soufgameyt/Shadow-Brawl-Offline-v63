@@ -19,9 +19,9 @@ class DebugMenu {
         let SCImport = StringHelper.ptr("debug_menu");
 
         DebugMenuBase.NewDebugMenuBase(DebugMenu.DebugMenuInstance, SCFile, SCImport);
-        Stage.AddChild(Stage.sm_instance.readPointer(), DebugMenu.DebugMenuInstance);
-        Stage.AddChild(Stage.sm_instance.readPointer(), DebugMenuBase.TabScrollArea);
-        Stage.AddChild(Stage.sm_instance.readPointer(), DebugMenuBase.ScrollArea);
+        Stage.addChild(Stage.sm_instance.readPointer(), DebugMenu.DebugMenuInstance);
+        Stage.addChild(Stage.sm_instance.readPointer(), DebugMenuBase.TabScrollArea);
+        Stage.addChild(Stage.sm_instance.readPointer(), DebugMenuBase.ScrollArea);
 
         Interceptor.attach(Environment.LaserBase.add(0x0A40B4), { // GUI::update
             onLeave() {

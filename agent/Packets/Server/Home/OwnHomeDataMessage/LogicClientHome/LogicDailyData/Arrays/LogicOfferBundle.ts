@@ -4,73 +4,73 @@ import ChronosTextEntry from "../../../../../../../Utils/Chronos/ChronosTextEntr
 
 class LogicOfferBundle {
     static encode(stream: any): void {
-        stream.WriteVInt(CurrentShopOffers.Offers.length); // Shop Offers Count
+        stream.writeVInt(CurrentShopOffers.Offers.length); // Shop Offers Count
 
         for (const Offer of CurrentShopOffers.Offers) {
-            stream.WriteVInt(Offer.Rewards.length) // Rewards Count
+            stream.writeVInt(Offer.Rewards.length) // Rewards Count
             for (const Rewards of Offer.Rewards) {
                 LogicGemOffer.encode(stream, Rewards.ItemType, Rewards.Amount, Rewards.CsvID[0], Rewards.CsvID[1], Rewards.SkinID);
             }
 
-            stream.WriteVInt(Offer.Rewards.length) // Rewards Count
+            stream.writeVInt(Offer.Rewards.length) // Rewards Count
             for (const Rewards of Offer.Rewards) {
                 LogicGemOffer.encode(stream, Rewards.ItemType, Rewards.Amount, Rewards.CsvID[0], Rewards.CsvID[1], Rewards.SkinID);
             }
 
-            stream.WriteVInt(Offer.Currency); // 0 => gems, 1 => gold
-			stream.WriteVInt(Offer.Cost); // Price
-			stream.WriteVInt(Offer.Time); // Offer time
+            stream.writeVInt(Offer.Currency); // 0 => gems, 1 => gold
+			stream.writeVInt(Offer.Cost); // Price
+			stream.writeVInt(Offer.Time); // Offer time
 
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteBoolean(Offer.IsClaim);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeBoolean(Offer.IsClaim);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
 
-			stream.WriteBoolean(Offer.DailyOffer);
-			stream.WriteVInt(Offer.OldPrice);
+			stream.writeBoolean(Offer.DailyOffer);
+			stream.writeVInt(Offer.OldPrice);
 
             ChronosTextEntry.encode(stream, Offer.Text, 0);
-			stream.WriteBoolean(Offer.ShowAtLaunch);
+			stream.writeBoolean(Offer.ShowAtLaunch);
             ChronosTextEntry.encode(stream, Offer.Background, 0);
 
-			stream.WriteBoolean(Offer.Processed);
-			stream.WriteVInt(Offer.TypeBenefit);
-			stream.WriteVInt(Offer.Benefit);
+			stream.writeBoolean(Offer.Processed);
+			stream.writeVInt(Offer.TypeBenefit);
+			stream.writeVInt(Offer.Benefit);
 
-			stream.WriteString(Offer.Text);
-			stream.WriteBoolean(Offer.OneTimeOffer);
-			stream.WriteBoolean(Offer.IsClaimed);
+			stream.writeString(Offer.Text);
+			stream.writeBoolean(Offer.OneTimeOffer);
+			stream.writeBoolean(Offer.IsClaimed);
 
 			stream.WriteDataReference(Offer.ShopStyle[0], Offer.ShopStyle[1]);
 			stream.WriteDataReference(Offer.ShopStyle[0], Offer.ShopStyle[1]);
 			stream.WriteDataReference(Offer.ShopStyle[0], Offer.ShopStyle[1]);
             
-			stream.WriteBoolean(false);
-			stream.WriteBoolean(false);
-			stream.WriteBoolean(false);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteBoolean(false);
-			stream.WriteBoolean(false);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteBoolean(false);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteVInt(0);
-			stream.WriteBoolean(false);
-			stream.WriteBoolean(false);
-			stream.WriteBoolean(false);
-			stream.WriteVInt(0);
+			stream.writeBoolean(false);
+			stream.writeBoolean(false);
+			stream.writeBoolean(false);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeBoolean(false);
+			stream.writeBoolean(false);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeBoolean(false);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeVInt(0);
+			stream.writeBoolean(false);
+			stream.writeBoolean(false);
+			stream.writeBoolean(false);
+			stream.writeVInt(0);
 			stream.WriteDataReference(0, 0);
-			stream.WriteVInt(0);
-            stream.WriteBoolean(false);
+			stream.writeVInt(0);
+            stream.writeBoolean(false);
         }
     }
 }

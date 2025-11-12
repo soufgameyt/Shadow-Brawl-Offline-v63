@@ -27,7 +27,7 @@ class DebugButton {
 
         DisplayObject.setXY(DebugButton.DebugButtonInstance, 5, 710);
         MovieClip.setText(DebugButton.DebugButtonMovieClip, StringHelper.ptr("Txt"), StringHelper.scptr("D"));
-        Stage.AddChild(Stage.sm_instance.readPointer(), DebugButton.DebugButtonInstance);
+        Stage.addChild(Stage.sm_instance.readPointer(), DebugButton.DebugButtonInstance);
         Debugger.Info("[DebugButton::LoadDebugButton] Loaded debug button!");
 
         DebugButton.isDebugMenuLoaded = true;

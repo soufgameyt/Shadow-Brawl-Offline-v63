@@ -8,19 +8,19 @@ class VisionUpdateMessage {
     static encode(): number[] {
         let Stream = new ByteStream([]);
                 
-        Stream.WriteVInt(LogicBattleModeServer.Ticks);
-        Stream.WriteVInt(LogicBattleModeServer.HandledInputs);
-        Stream.WriteVInt(LogicPlayer.ControlMode);
-        Stream.WriteVInt(LogicBattleModeServer.Ticks);
-        Stream.WriteBoolean(LogicBattleModeServer.IsBrawlTV);
+        Stream.writeVInt(LogicBattleModeServer.Ticks);
+        Stream.writeVInt(LogicBattleModeServer.HandledInputs);
+        Stream.writeVInt(LogicPlayer.ControlMode);
+        Stream.writeVInt(LogicBattleModeServer.Ticks);
+        Stream.writeBoolean(LogicBattleModeServer.IsBrawlTV);
 
-        if (Stream.WriteBoolean(false)) {
-            Stream.WriteVInt(0);
+        if (Stream.writeBoolean(false)) {
+            Stream.writeVInt(0);
         }
 
-        if (Stream.WriteBoolean(false)) {
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
+        if (Stream.writeBoolean(false)) {
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
         }
 
         let GameObjectManager = LogicGameObjectManagerServer.encode();

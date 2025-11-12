@@ -4,45 +4,45 @@ class TeamMessage {
     static encode(): number[] {
         let Stream = new ByteStream([]);
 
-        Stream.WriteVInt(0); // Room Type
-        Stream.WriteBoolean(false);
-        Stream.WriteVInt(3);
+        Stream.writeVInt(0); // Room Type
+        Stream.writeBoolean(false);
+        Stream.writeVInt(3);
         Stream.WriteLong(0, 1); // Team ID
-        Stream.WriteVInt(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
-        Stream.WriteVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
+        Stream.writeVInt(0);
         Stream.WriteDataReference(15, 7); // Map ID
-        Stream.WriteBoolean(false); // Battle Player Map
+        Stream.writeBoolean(false); // Battle Player Map
 
-        Stream.WriteVInt(1); // TeamMemberEntry::encode
+        Stream.writeVInt(1); // TeamMemberEntry::encode
         {
-            Stream.WriteBoolean(true); // Is Owner
+            Stream.writeBoolean(true); // Is Owner
             Stream.WriteLong(0, 1); // Player ID
             Stream.WriteDataReference(16, 0); // Selected Brawler
             Stream.WriteDataReference(29, 0); // Selected Skin
-            Stream.WriteVInt(0); // ?
-            Stream.WriteVInt(1250); // Brawler Trophies
-            Stream.WriteVInt(1250); // Brawler Highest Trophies
-            Stream.WriteVInt(11); // Brawler Power Level
-            Stream.WriteVInt(3); // Player State
-            Stream.WriteVInt(0); // ?
-            Stream.WriteBoolean(true); // Is Ready
-            Stream.WriteVInt(0); // Team
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
+            Stream.writeVInt(0); // ?
+            Stream.writeVInt(1250); // Brawler Trophies
+            Stream.writeVInt(1250); // Brawler Highest Trophies
+            Stream.writeVInt(11); // Brawler Power Level
+            Stream.writeVInt(3); // Player State
+            Stream.writeVInt(0); // ?
+            Stream.writeBoolean(true); // Is Ready
+            Stream.writeVInt(0); // Team
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
             
-            Stream.WriteString("@soufgamev2"); // Player Name
-            Stream.WriteVInt(100); // Player Experience
-            Stream.WriteVInt(28000000); // Player Thumbnail
-            Stream.WriteVInt(43000006); // Player Name Color
-            Stream.WriteVInt(43000006); // Player BP Name Color
+            Stream.writeString("@soufgamev2"); // Player Name
+            Stream.writeVInt(100); // Player Experience
+            Stream.writeVInt(28000000); // Player Thumbnail
+            Stream.writeVInt(43000006); // Player Name Color
+            Stream.writeVInt(43000006); // Player BP Name Color
 
             Stream.WriteDataReference(0); // Star Power
             Stream.WriteDataReference(0); // Gadget
@@ -53,21 +53,21 @@ class TeamMessage {
             Stream.WriteDataReference(0);
             Stream.WriteDataReference(0);
 
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
-            Stream.WriteVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
+            Stream.writeVInt(0);
         }
 
-        Stream.WriteVInt(0); // Player Invite Entry
-        Stream.WriteVInt(0); // Team Join Request
-        Stream.WriteVInt(0); // Bot Slots
-        Stream.WriteVInt(0);
-        Stream.WriteBoolean(true); // Text Chat Enabled
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteVInt(0); // Modifiers
+        Stream.writeVInt(0); // Player Invite Entry
+        Stream.writeVInt(0); // Team Join Request
+        Stream.writeVInt(0); // Bot Slots
+        Stream.writeVInt(0);
+        Stream.writeBoolean(true); // Text Chat Enabled
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeVInt(0); // Modifiers
 
         return Stream.Payload;
     }

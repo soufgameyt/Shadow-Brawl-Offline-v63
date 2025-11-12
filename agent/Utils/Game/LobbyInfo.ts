@@ -25,7 +25,7 @@ class LobbyInfo {
         let version = MovieClip.getTextFieldByName(MovieClipInstance, StringHelper.ptr("Text"));
         DecoratedTextField.setupDecoratedText(version, StringHelper.scptr("Shadow Brawl Offline - v63.265\nBy @soufgamev2"), ColorGradientByName2);
 
-        Sprite.AddChild(HomePageInstance, TextPtr)
+        Sprite.addChild(HomePageInstance, TextPtr)
 
         Interceptor.attach(Addresses.CustomButton_buttonPressed, {
 		    onEnter(args) {

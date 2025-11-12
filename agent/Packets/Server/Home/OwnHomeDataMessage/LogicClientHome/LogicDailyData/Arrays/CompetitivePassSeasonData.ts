@@ -1,21 +1,21 @@
 class CompetitivePassSeasonData {
     static encode(stream: any): void {
-        stream.WriteVInt(1); // Seasons Count
+        stream.writeVInt(1); // Seasons Count
         {
-            stream.WriteBoolean(true)
-            stream.WriteVInt(100000)
-            stream.WriteVInt(2)
-            stream.WriteVInt(0)
-            stream.WriteBoolean(true)
-            stream.WriteVInt(100000000)
+            stream.writeBoolean(true)
+            stream.writeVInt(100000)
+            stream.writeVInt(2)
+            stream.writeVInt(0)
+            stream.writeBoolean(true)
+            stream.writeVInt(100000000)
 
-            stream.WriteBoolean(true)
+            stream.writeBoolean(true)
             stream.WriteInt(0)
             stream.WriteInt(0)
             stream.WriteInt(0)
             stream.WriteInt(0)
 
-            stream.WriteBoolean(true)
+            stream.writeBoolean(true)
             stream.WriteInt(0)
             stream.WriteInt(0)
             stream.WriteInt(0)

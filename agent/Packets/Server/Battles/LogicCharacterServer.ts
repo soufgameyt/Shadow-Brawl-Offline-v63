@@ -7,39 +7,39 @@ class LogicCharacterServer {
     static encode(Stream: any) {
         LogicGameObjectServer.encode(Stream);
 
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
 
         Stream.WritePositiveIntMax7(1); // Walk Animation??
-        Stream.WriteBoolean(false); // Damage Boost
+        Stream.writeBoolean(false); // Damage Boost
         Stream.WriteIntMax63(63);
 
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveIntMax7(0);
         Stream.WritePositiveIntMax511(0);
 
         Stream.WritePositiveVIntMax65535OftenZero(0);
         Stream.WritePositiveVIntMax65535OftenZero(0);
 
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
 
         Stream.WritePositiveVIntMax255OftenZero(0);
 
@@ -50,35 +50,35 @@ class LogicCharacterServer {
         Stream.WritePositiveVIntMax2147483647(0);
         Stream.WritePositiveVIntMax2147483647(0);
 
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveVIntMax255OftenZero(0);
         Stream.WritePositiveVIntMax255OftenZero(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveVIntMax255OftenZero(0);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
 
         Stream.WritePositiveIntMax3(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveIntMax3(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveIntMax511(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
 
         Stream.WritePositiveIntMax31(0);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
 
         Stream.WritePositiveIntMax3(0);
-        Stream.WriteBoolean(false);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveIntMax1023(0);
-        Stream.WriteBoolean(false);
+        Stream.writeBoolean(false);
         Stream.WritePositiveVIntMax65535OftenZero(0);
         Stream.WritePositiveVIntMax2147483647OftenZero(0);
     }

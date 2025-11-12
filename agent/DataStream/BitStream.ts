@@ -188,7 +188,7 @@ class BitStream {
         this.WriteBits(clampedValue, s);
     }
 
-    public WriteBoolean(value: boolean): boolean {
+    public writeBoolean(value: boolean): boolean {
         this.EnsureCapacity();
         this.WriteBits(value ? 1 : 0, 1);
         return value

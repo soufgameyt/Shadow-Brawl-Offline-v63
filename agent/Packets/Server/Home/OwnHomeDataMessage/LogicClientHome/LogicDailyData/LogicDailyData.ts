@@ -12,103 +12,103 @@ import EsportsButtonStateData from "./Arrays/EsportsButtonStateData";
 
 class LogicDailyData {
     static encode(stream: any): void {
-        stream.WriteVInt(2025257);
-        stream.WriteVInt(40312);
+        stream.writeVInt(2025257);
+        stream.writeVInt(40312);
 
-        stream.WriteVInt(LogicPlayerData.GetMiscData().Trophies);
-        stream.WriteVInt(LogicPlayerData.GetMiscData().HighestTrophies);
-        stream.WriteVInt(LogicPlayerData.GetMiscData().HighestTrophies);
-        stream.WriteVInt(LogicPlayerData.GetMiscData().TrophyRoadTier);
-        stream.WriteVInt(LogicPlayerData.GetMiscData().ExperienceLevel);
+        stream.writeVInt(LogicPlayerData.GetMiscData().Trophies);
+        stream.writeVInt(LogicPlayerData.GetMiscData().HighestTrophies);
+        stream.writeVInt(LogicPlayerData.GetMiscData().HighestTrophies);
+        stream.writeVInt(LogicPlayerData.GetMiscData().TrophyRoadTier);
+        stream.writeVInt(LogicPlayerData.GetMiscData().ExperienceLevel);
         stream.WriteDataReference(28, LogicPlayerData.GetMiscData().Thumbnail);
         stream.WriteDataReference(43, LogicPlayerData.GetMiscData().NameColor);
 
-        stream.WriteVInt(26);
+        stream.writeVInt(26);
         for (let x = 0; x < 26; x++) {
-            stream.WriteVInt(x);
+            stream.writeVInt(x);
         }
 
-        stream.WriteVInt(0)
+        stream.writeVInt(0)
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(1340); // Owned Skins
+        stream.writeVInt(1340); // Owned Skins
         for (let x = 0; x < 1340; x++) {
             stream.WriteDataReference(29, x);
         }
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
+        stream.writeVInt(0);
 
-        stream.WriteVInt(0);
-        stream.WriteVInt(LogicPlayerData.GetMiscData().HighestTrophies); // Trophy Road Highest Trophies
-        stream.WriteVInt(1337); // Tokens Used in Battles
-        stream.WriteVInt(LogicPlayer.ControlMode); // Control Mode
-        stream.WriteBoolean(true); // Battle Hints
-        stream.WriteVInt(LogicPlayerData.GetMiscData().TokenDoubler); // Tokens Doubler
-        stream.WriteVInt(144); // Brawl Pass Season Timer
-        stream.WriteVInt(1509112); // Brawl Pass Season Timer
-        stream.WriteVInt(144); // Brawl Pass Season Timer
-        stream.WriteVInt(1509112); // Brawl Pass Season Timer
+        stream.writeVInt(0);
+        stream.writeVInt(LogicPlayerData.GetMiscData().HighestTrophies); // Trophy Road Highest Trophies
+        stream.writeVInt(1337); // Tokens Used in Battles
+        stream.writeVInt(LogicPlayer.ControlMode); // Control Mode
+        stream.writeBoolean(true); // Battle Hints
+        stream.writeVInt(LogicPlayerData.GetMiscData().TokenDoubler); // Tokens Doubler
+        stream.writeVInt(144); // Brawl Pass Season Timer
+        stream.writeVInt(1509112); // Brawl Pass Season Timer
+        stream.writeVInt(144); // Brawl Pass Season Timer
+        stream.writeVInt(1509112); // Brawl Pass Season Timer
 
         ForcedDrops.encode(stream);
 
-        stream.WriteBoolean(true);
-        stream.WriteVInt(2); // Token Doubler New Tag State
-        stream.WriteVInt(2); // Event Tickets New Tag State
-        stream.WriteVInt(2); // Coin Packs New Tag State
-        stream.WriteVInt(0); // Change Name Cost
-        stream.WriteVInt(0); // Timer For the Next Name Change
-        stream.WriteVInt(0); // ?
+        stream.writeBoolean(true);
+        stream.writeVInt(2); // Token Doubler New Tag State
+        stream.writeVInt(2); // Event Tickets New Tag State
+        stream.writeVInt(2); // Coin Packs New Tag State
+        stream.writeVInt(0); // Change Name Cost
+        stream.writeVInt(0); // Timer For the Next Name Change
+        stream.writeVInt(0); // ?
 
         LogicOfferBundle.encode(stream);
 
-        stream.WriteVInt(400); // Bp Battle XP
-        stream.WriteVInt(500); // Time Left Until XP Reset
+        stream.writeVInt(400); // Bp Battle XP
+        stream.writeVInt(500); // Time Left Until XP Reset
 
-        stream.WriteVInt(-1);
+        stream.writeVInt(-1);
 
-        stream.WriteVInt(1);
-        stream.WriteVInt(30);
+        stream.writeVInt(1);
+        stream.writeVInt(30);
 
         stream.WriteByte(1); // Selected Brawler
         stream.WriteDataReference(16, 1);
 
-        stream.WriteString(LogicPlayerData.GetMiscData().Region);
-        stream.WriteString(LogicPlayerData.GetMiscData().CreatorCode);
+        stream.writeString(LogicPlayerData.GetMiscData().Region);
+        stream.writeString(LogicPlayerData.GetMiscData().CreatorCode);
 
         IntValueEntry.encode(stream);
         CooldownEntry.encode(stream);
         BrawlPassSeasonData.encode(stream);
 
-        if (stream.WriteBoolean(true)) {
+        if (stream.writeBoolean(true)) {
             LogicQuests.encode(stream);
         }
 
-        stream.WriteBoolean(true); // Vanity items
-        stream.WriteVInt(0)
+        stream.writeBoolean(true); // Vanity items
+        stream.writeVInt(0)
 
-        if (stream.WriteBoolean(true)) {
+        if (stream.writeBoolean(true)) {
             LogicPlayerRankedSeasonData.encode(stream);
         }
 
         stream.WriteInt(0);
-        stream.WriteVInt(1337);
+        stream.writeVInt(1337);
         stream.WriteDataReference(16, 1); // Favorite Brawler
-        stream.WriteBoolean(false); // LogicRewards::encode
-        stream.WriteVInt(-1);
-        stream.WriteVInt(1337);
-        stream.WriteVInt(832099);
-        stream.WriteVInt(1616899);
-        stream.WriteVInt(10659101);
-        stream.WriteVInt(0);
+        stream.writeBoolean(false); // LogicRewards::encode
+        stream.writeVInt(-1);
+        stream.writeVInt(1337);
+        stream.writeVInt(832099);
+        stream.writeVInt(1616899);
+        stream.writeVInt(10659101);
+        stream.writeVInt(0);
 
         CompetitivePassSeasonData.encode(stream);
             
-        stream.WriteVInt(6);
+        stream.writeVInt(6);
         {
             stream.WriteDataReference(2, 446);
             stream.WriteDataReference(2, 448);
@@ -123,14 +123,14 @@ class LogicDailyData {
         stream.WriteDataReference(2, 464);
         stream.WriteDataReference(2, 466);
 
-        if (stream.WriteBoolean(true)) {
+        if (stream.writeBoolean(true)) {
             EsportsButtonStateData.encode(stream);
         }
 
         stream.WriteDataReference(2, 473);
-        stream.WriteVInt(1337); // LogicDailyData::encode
-        stream.WriteBoolean(false);
-        stream.WriteBoolean(false);
+        stream.writeVInt(1337); // LogicDailyData::encode
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
     }
 }
 
