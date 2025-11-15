@@ -52,7 +52,7 @@ class PlayerProfileMessage {
         }
 
         {
-            Stream.writeString(LogicPlayerData.GetPlayerName());
+            Stream.writeString(LogicPlayerData.getPlayerName());
             Stream.writeVInt(LogicPlayerData.GetMiscData().ExperienceLevel);
             Stream.writeVInt(28000000 + LogicPlayerData.GetMiscData().Thumbnail);
             Stream.writeVInt(43000000 + LogicPlayerData.GetMiscData().NameColor);
@@ -79,7 +79,7 @@ class PlayerProfileMessage {
         return Stream.Payload;
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 24113;
     }
 }

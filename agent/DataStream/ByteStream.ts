@@ -337,7 +337,7 @@ export class ByteStream {
         if (High != 0) this.writeVInt(Low);
     }
 
-    WriteHexa(data: string) {
+    writeHexa(data: string) {
         this.BitOffset = 0;
         for (let i = 0; i < data.length; i += 2) {
             const byteString = data.substring(i, i + 2);

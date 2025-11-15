@@ -66,9 +66,9 @@ class BattleEndMessage { // kinda place holder but right struct i'll fix this la
         stream.writeVInt(0);
     }
 
-  static GetMessageType(): number {
-    return 1337 // i forgot i'll change later
-  }
+    static getMessageType(): number {
+        return 1337 // i forgot i'll change later
+    }
 }
 
 export default BattleEndMessage

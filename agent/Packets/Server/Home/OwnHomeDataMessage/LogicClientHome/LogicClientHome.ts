@@ -27,8 +27,6 @@ class LogicClientHome {
 
     constructor(stream: any) {
         this.stream = stream
-
-        this.encode();
     }
 
     public encode(): void {

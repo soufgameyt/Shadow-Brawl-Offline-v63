@@ -16,16 +16,16 @@ class StartGameMessage {
     }
 
     static Execute(): void {
-        //LogicLaserMessageFactory.CreateMessageByType(MatchmakingStatusMessage.GetMessageType());
+        //LogicLaserMessageFactory.createMessageByType(MatchmakingStatusMessage.getMessageType());
         
         LogicBattleModeServer.PlayerCount = 1;
-        LogicLaserMessageFactory.CreateMessageByType(StartLoadingMessage.GetMessageType());
+        LogicLaserMessageFactory.createMessageByType(StartLoadingMessage.getMessageType());
         console.log("done with the shit");
 
         //LogicBattleModeServer.CurrentPlayersInMM = 0;
     }
     
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 14118;
     }
 }

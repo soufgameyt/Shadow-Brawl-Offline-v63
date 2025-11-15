@@ -207,13 +207,13 @@ class LogicPlayerData {
 	public static GetOwnedBrawlers(): Record < number, Brawler > {
 		return this.Data.OwnedBrawlers;
 	}
-	public static GetCurrencys(): Currencys {
+	public static getCurrencys(): Currencys {
 		return this.Data.Currencys;
 	}
 	public static GetMiscData(): MiscData {
 		return this.Data.MiscData;
 	}
-	public static GetPlayerName(): string {
+	public static getPlayerName(): string {
 		return this.Data.PlayerName;
 	}
 

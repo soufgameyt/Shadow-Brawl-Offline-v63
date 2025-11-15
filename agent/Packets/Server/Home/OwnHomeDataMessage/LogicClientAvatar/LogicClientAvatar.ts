@@ -4,7 +4,7 @@ import Resources from "../../../../../Utils/CSV/csv_logic/Resources";
 
 class LogicClientAvatar {
 	private stream: any;
-    private CommodityCount: number
+    private CommodityCount!: number
 
 	private AccountID: number[];
 
@@ -13,44 +13,44 @@ class LogicClientAvatar {
 	private NameSetByUser: string;
 	private TutorialsCompletedCount: number;
 
-	private Gold: number;
-	private Diamonds: number;
-	private FreeDiamonds: number;
-    private Blings: number;
-    private ChromaticTokens: number;
-    private DailyStreak: number;
-	private Powerpoints: number;
+	private Gold!: number;
+	private Diamonds!: number;
+	private FreeDiamonds!: number;
+    private Blings!: number;
+    private ChromaticTokens!: number;
+    private DailyStreak!: number;
+	private Powerpoints!: number;
 
-	private CumulativePurchasedDiamonds: number;
+	private CumulativePurchasedDiamonds!: number;
 
 	private OwnedBrawlers: Record < number, Brawler > ;
 	private OwnedBrawlersCount: number;
 
 	public constructor(stream: any) {
 		this.stream = stream;
-        this.CommodityCount = 28;
+        this.setCommodityCount(28);
 
 		this.AccountID = [0, 256617006]; // LogicPlayerData.GetAccountID();
 
 		this.Name = "Brawler";
 		this.IsNameSetByUser = true;
-		this.NameSetByUser = LogicPlayerData.GetPlayerName();
+		this.NameSetByUser = LogicPlayerData.getPlayerName();
 		this.TutorialsCompletedCount = 2;
 
-		this.Gold = LogicPlayerData.GetCurrencys().Gold;
-		this.Diamonds = LogicPlayerData.GetCurrencys().Diamonds;
-		this.FreeDiamonds = LogicPlayerData.GetCurrencys().FreeDiamonds;
-        this.Blings = LogicPlayerData.GetCurrencys().Blings;
-        this.ChromaticTokens = LogicPlayerData.GetCurrencys().ChromaCredits;
-		this.Powerpoints = LogicPlayerData.GetCurrencys().PowerPoints;
-        this.DailyStreak = 67;
+		this.setCommodityCount(28);
+		let Currencies = LogicPlayerData.getCurrencys();
 
-		this.CumulativePurchasedDiamonds = 0;
-
+		this.setGold(Currencies.Gold);
+		this.setDiamonds(Currencies.Diamonds);
+		this.setFreeDiamonds(Currencies.FreeDiamonds);
+		this.setBlings(Currencies.Blings);
+		this.setChromaticTokens(Currencies.ChromaCredits);
+		this.setPowerPoints(Currencies.PowerPoints);
+		this.setDailyStreak(67);
+		this.setCumulativePurchasedDiamonds(0);
+		
 		this.OwnedBrawlers = LogicPlayerData.GetOwnedBrawlers();
 		this.OwnedBrawlersCount = Object.values(this.OwnedBrawlers).length;
-
-		this.encode();
 	}
 
 	public encode(): void {
@@ -64,7 +64,7 @@ class LogicClientAvatar {
 
 		this.stream.writeVInt(this.CommodityCount);
 		{
-			this.EncodeCommodity();
+			this.encodeCommodity();
 		}
 
 		this.stream.writeVInt(this.FreeDiamonds);
@@ -90,7 +90,7 @@ class LogicClientAvatar {
 		this.stream.writeBoolean(false);
 	}
 
-	public EncodeCommodity() {
+	public encodeCommodity() {
 		this.stream.writeVInt(Object.values(this.OwnedBrawlers).map(brawler => brawler.CardID).length + 8);
 		for (const CardId of Object.values(this.OwnedBrawlers).map(brawler => brawler.CardID)) {
 			this.stream.WriteDataReference(23, CardId);
@@ -98,14 +98,14 @@ class LogicClientAvatar {
 			this.stream.writeVInt(1);
 		}
 
-		this.AddCommodityArrayValue(5, Resources.Upgradium.RowID + 1, this.Gold);
-		this.AddCommodityArrayValue(5, Resources.Bling.RowID, this.Blings);
-		this.AddCommodityArrayValue(5, Resources.Legendarytrophies.RowID, 1000);
-		this.AddCommodityArrayValue(5, Resources.Chromatictokens.RowID + 1, this.ChromaticTokens);
-		this.AddCommodityArrayValue(5, Resources.Fame.RowID + 1, this.ChromaticTokens);
-		this.AddCommodityArrayValue(5, Resources.Powerpoints.RowID + 1, this.Powerpoints);
-		this.AddCommodityArrayValue(5, 24, 300000);
-		this.AddCommodityArrayValue(5, Resources.Dailystreak.RowID - 1, this.DailyStreak);
+		this.addCommodityArrayValue(5, Resources.Upgradium.RowID + 1, this.Gold);
+		this.addCommodityArrayValue(5, Resources.Bling.RowID, this.Blings);
+		this.addCommodityArrayValue(5, Resources.Legendarytrophies.RowID, 1000);
+		this.addCommodityArrayValue(5, Resources.Chromatictokens.RowID + 1, this.ChromaticTokens);
+		this.addCommodityArrayValue(5, Resources.Fame.RowID + 1, this.ChromaticTokens);
+		this.addCommodityArrayValue(5, Resources.Powerpoints.RowID + 1, this.Powerpoints);
+		this.addCommodityArrayValue(5, 24, 300000);
+		this.addCommodityArrayValue(5, Resources.Dailystreak.RowID - 1, this.DailyStreak);
 
 		this.stream.writeVInt(this.OwnedBrawlersCount);
 		for (const CardId of Object.keys(this.OwnedBrawlers).map(id => parseInt(id))) {
@@ -166,29 +166,61 @@ class LogicClientAvatar {
 		this.stream.writeVInt(0); // Array
 	}
 
-	public SetCommodityCount(Value: number) {
+	public setCommodityCount(Value: number) {
 		this.CommodityCount = Value;
 	}
 
-	public AddCommodityArrayValue(CsvID: number, RowID: number, Value: number) {
+	public setGold(value: number) {
+		this.Gold = value;
+	}
+
+	public setDiamonds(value: number) {
+		this.Diamonds = value;
+	}
+
+	public setFreeDiamonds(value: number) {
+		this.FreeDiamonds = value;
+	}
+
+	public setBlings(value: number) {
+		this.Blings = value;
+	}
+
+	public setChromaticTokens(value: number) {
+		this.ChromaticTokens = value;
+	}
+
+	public setDailyStreak(value: number) {
+		this.DailyStreak = value;
+	}
+
+	public setPowerPoints(value: number) {
+		this.Powerpoints = value;
+	}
+
+	public setCumulativePurchasedDiamonds(value: number) {
+		this.CumulativePurchasedDiamonds = value;
+	}
+
+	public addCommodityArrayValue(CsvID: number, RowID: number, Value: number) {
 		this.stream.WriteDataReference(CsvID, RowID);
 		this.stream.writeVInt(-1);
 		this.stream.writeVInt(Value);
 	}
 
-	public AddCumulativePurchasedDiamonds(Value: number) {
+	public addCumulativePurchasedDiamonds(Value: number) {
 		this.CumulativePurchasedDiamonds += Value;
 	}
 
-	public AddPaidDiamonds(Value: number) {
-		LogicPlayerData.GetCurrencys().Diamonds += Value;
+	public addPaidDiamonds(Value: number) {
+		LogicPlayerData.getCurrencys().Diamonds += Value;
 		this.CumulativePurchasedDiamonds += Value;
 		LogicPlayerData.Save();
 	}
 
 	static useDiamonds(UsedDiamonds: number) {
-		LogicPlayerData.GetCurrencys().Diamonds -= UsedDiamonds;
-		LogicPlayerData.GetCurrencys().FreeDiamonds -= UsedDiamonds;
+		LogicPlayerData.getCurrencys().Diamonds -= UsedDiamonds;
+		LogicPlayerData.getCurrencys().FreeDiamonds -= UsedDiamonds;
 		LogicPlayerData.Save();
 	}
 }

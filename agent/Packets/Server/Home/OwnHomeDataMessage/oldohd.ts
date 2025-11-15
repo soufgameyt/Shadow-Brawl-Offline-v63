@@ -363,7 +363,7 @@ class OwnHomeDataMessage {
         return stream.Payload;
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 24101;
     }
 }

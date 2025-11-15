@@ -8,10 +8,10 @@ class LogicCommand {
         stream.WriteVLong(0, 256617006);
     }
 
-    static CreateCommandByType(CommandType: number) {
+    static createCommandByType(CommandType: number) {
         switch(CommandType) {
             case 24111:
-                Messaging.SendOfflineMessage(LogicChangeAvatarNameCommand.GetCommandType(), LogicChangeAvatarNameCommand.encode());
+                Messaging.sendOfflineMessage(LogicChangeAvatarNameCommand.GetCommandType(), LogicChangeAvatarNameCommand.encode());
                 LogicChangeAvatarNameCommand.Execute();
                 return 1
         }

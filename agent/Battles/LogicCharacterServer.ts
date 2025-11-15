@@ -21,7 +21,7 @@ class LogicCharacterServer {
             return
         }
         let NewSkill: NativePointer = Imports.Malloc(72)
-        let result = LogicSkillServer.Constructor(NewSkill, a3);
+        let result = LogicSkillServer.LogicSkillServer(NewSkill, a3);
 
         let SkillContainer = a1.add(424).readPointer()
         let SkillCount = a1.add(436).readInt();

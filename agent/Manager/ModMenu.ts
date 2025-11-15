@@ -9,7 +9,7 @@ const {GUI, ResourceManager, GUIContainer, DisplayObject, LogicDataTables, Decor
 class ModMenu {
     static Buttons = [];
     static ButtonX = -280;
-    static ButtonY = -100;
+    static ButtonY = -110;
     static ButtonCount = 0;
 
     static LoadModMenuButton(HomePage: NativePointer) {
@@ -24,7 +24,7 @@ class ModMenu {
         DisplayObject.setXY(TextPtr, 970, 150);
 
         let NotificationChild = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(MovieClipInstance, StringHelper.ptr("notification"))
-        Functions.MovieClip.GotoAndStopFrameIndex(NotificationChild, 2);
+        Functions.MovieClip.gotoAndStopFrameIndex(NotificationChild, 2);
 
         let ColorGradientByName2 = LogicDataTables.getColorGradientByName(StringHelper.scptr(ColorGradients.Subwaysurfersrainbow.Name), 1);
         let version = MovieClip.getTextFieldByName(MovieClipInstance, StringHelper.ptr("txt"));
@@ -82,6 +82,7 @@ class ModMenu {
         ModMenu.ButtonCount = 0;
 
         ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Hello");
+        ModMenu.CreateModMenuItem(ModMenuPopupInstance, "Hi!");
 
         // Functions.MovieClip.setText(ModMenuPopupInstance, StringHelper.scptr("txt"), StringHelper.scptr("i love skibidi toilet sigma"));
     }
@@ -92,20 +93,14 @@ class ModMenu {
 
         GameButton.GameButton(TextPtr);
         new NativeFunction(TextPtr.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(TextPtr, MovieClipInstance, 1);
-        MovieClip.GotoAndStopFrameIndex(MovieClipInstance, 2);
-        DisplayObject.setXY(TextPtr, 0, -80);
+        MovieClip.gotoAndStopFrameIndex(MovieClipInstance, 2);
+        DisplayObject.setXY(TextPtr, -135, ModMenu.ButtonY);
 
-        ModMenu.ButtonX += 180;
+        ModMenu.ButtonY += 50;
         ModMenu.ButtonCount++;
 
-        if (ModMenu.ButtonCount % 4 === 0) 
-        {
-            ModMenu.ButtonX = -280;
-            ModMenu.ButtonY += 80;
-        }
-
         let NotificationChild = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(MovieClipInstance, StringHelper.ptr("notification"))
-        MovieClip.GotoAndStopFrameIndex(NotificationChild, 2);
+        MovieClip.gotoAndStopFrameIndex(NotificationChild, 2);
         // NotificationChild.add(8).writeU8(0);
 
         let TextMovieClip = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(MovieClipInstance, StringHelper.ptr("title"))
@@ -120,7 +115,7 @@ class ModMenu {
 		    onEnter(args) {
 			    if (TextPtr.toInt32() === (args[0] as NativePointer).toInt32()) 
                 {
-                    MovieClip.GotoAndStopFrameIndex(MovieClipInstance, 3);
+                    MovieClip.gotoAndStopFrameIndex(MovieClipInstance, 3);
                 }
 		    }
 		});

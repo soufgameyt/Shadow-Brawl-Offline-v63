@@ -1,5 +1,5 @@
 import Messaging from "./Messaging.js";
-import LoginOkMessage from "../../Packets/Server/LoginOkMessage.js";
+import LoginOkMessage from "../../Packets/Server/Authentification/LoginOkMessage.js";
 import OwnHomeDataMessage from "../../Packets/Server/Home/OwnHomeDataMessage/OwnHomeDataMessage.js";
 import StartLoadingMessage from "../../Packets/Server/Battles/StartLoadingMessage.js";
 import MatchmakingStatusMessage from "../../Packets/Server/Battles/MatchmakingStatusMessage.js";
@@ -15,57 +15,58 @@ import Debugger from "../../Utils/Debugger.js";
 import LogicBattleModeServer from "../../Packets/Server/Battles/LogicBattleModeServer.js";
 
 class LogicLaserMessageFactory {
-    static CreateMessageByType(MessageType: number) {
+    static createMessageByType(MessageType: number) {
         switch (MessageType) {
             case 10100:
-                Messaging.SendOfflineMessage(LoginOkMessage.GetMessageType(), LoginOkMessage.encode());
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
+                Messaging.sendOfflineMessage(LoginOkMessage.getMessageType(), LoginOkMessage.encode());
+                Messaging.sendOfflineMessage(OwnHomeDataMessage.getMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 10101:
-                Messaging.SendOfflineMessage(LoginOkMessage.GetMessageType(), LoginOkMessage.encode());
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
+                Messaging.sendOfflineMessage(LoginOkMessage.getMessageType(), LoginOkMessage.encode());
+                Messaging.sendOfflineMessage(OwnHomeDataMessage.getMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 12541:
-                Messaging.SendOfflineMessage(TeamMessage.GetMessageType(), TeamMessage.encode());
+                Messaging.sendOfflineMessage(TeamMessage.getMessageType(), TeamMessage.encode());
+                break;
             case 14118:
                 StartGameMessage.Execute();
                 break;
             case 14109:
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
+                Messaging.sendOfflineMessage(OwnHomeDataMessage.getMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 15081:
-                LogicLaserMessageFactory.CreateMessageByType(PlayerProfileMessage.GetMessageType());
+                LogicLaserMessageFactory.createMessageByType(PlayerProfileMessage.getMessageType());
                 break;
             case 14600:
                 // AvatarNameCheckRequestMessage.Execute();
                 break;
             case 17750:
-                LogicLaserMessageFactory.CreateMessageByType(OwnHomeDataMessage.GetMessageType());
+                LogicLaserMessageFactory.createMessageByType(OwnHomeDataMessage.getMessageType());
                 break;
             case 24113:
-                Messaging.SendOfflineMessage(PlayerProfileMessage.GetMessageType(), PlayerProfileMessage.encode());
+                Messaging.sendOfflineMessage(PlayerProfileMessage.getMessageType(), PlayerProfileMessage.encode());
                 break;
             case 10177:
-                Messaging.SendOfflineMessage(ClientInfoMessage.GetMessageType(), ClientInfoMessage.encode());
-                LogicLaserMessageFactory.CreateMessageByType(UdpConnectionInfoMessage.GetMessageType());
+                Messaging.sendOfflineMessage(ClientInfoMessage.getMessageType(), ClientInfoMessage.encode());
+                LogicLaserMessageFactory.createMessageByType(UdpConnectionInfoMessage.getMessageType());
                 break;
             case 20109:
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
+                Messaging.sendOfflineMessage(OwnHomeDataMessage.getMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 20405:
-                Messaging.SendOfflineMessage(MatchmakingStatusMessage.GetMessageType(), MatchmakingStatusMessage.encode());
+                Messaging.sendOfflineMessage(MatchmakingStatusMessage.getMessageType(), MatchmakingStatusMessage.encode());
                 break;
             case 20559:
-                Messaging.SendOfflineMessage(StartLoadingMessage.GetMessageType(), StartLoadingMessage.encode());
+                Messaging.sendOfflineMessage(StartLoadingMessage.getMessageType(), StartLoadingMessage.encode());
                 break;
             case 24101:
-                Messaging.SendOfflineMessage(OwnHomeDataMessage.GetMessageType(), OwnHomeDataMessage.encode());
+                Messaging.sendOfflineMessage(OwnHomeDataMessage.getMessageType(), OwnHomeDataMessage.encode());
                 break;
             case 24109:
-                Messaging.SendOfflineMessage(VisionUpdateMessage.GetMessageType(), VisionUpdateMessage.encode());
+                Messaging.sendOfflineMessage(VisionUpdateMessage.getMessageType(), VisionUpdateMessage.encode());
                 break;
             case 24112:
-                Messaging.SendOfflineMessage(UdpConnectionInfoMessage.GetMessageType(), UdpConnectionInfoMessage.encode());
+                Messaging.sendOfflineMessage(UdpConnectionInfoMessage.getMessageType(), UdpConnectionInfoMessage.encode());
                 break;
             case 10555:
                 const Interval = setInterval(() => {
@@ -73,7 +74,7 @@ class LogicLaserMessageFactory {
                         clearInterval(Interval);
                         return;
                     }
-                    LogicLaserMessageFactory.CreateMessageByType(VisionUpdateMessage.GetMessageType());
+                    LogicLaserMessageFactory.createMessageByType(VisionUpdateMessage.getMessageType());
                     LogicBattleModeServer.Ticks += 1;
                 }, 200);
                 break;

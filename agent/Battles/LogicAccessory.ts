@@ -108,7 +108,7 @@ class LogicAccessory {
         switch (LogicAccessory.Type)
         {
             case "i dont know":
-                
+                break;
         }
         
     }
@@ -121,12 +121,13 @@ class LogicAccessory {
     }
 
     static ActivateAccessory(a1: NativePointer) {
-        const LogicGameObjectServer_GetX = new NativeFunction(Environment.LaserBase.add(0x44E370), 'int', ['pointer']);
-        const LogicGameObjectServer_GetY = new NativeFunction(Environment.LaserBase.add(0x44E368), 'int', ['pointer']);
+        // const LogicGameObjectServer_GetX = new NativeFunction(Environment.LaserBase.add(0x44E370), 'int', ['pointer']);
+        // const LogicGameObjectServer_GetY = new NativeFunction(Environment.LaserBase.add(0x44E368), 'int', ['pointer']);
         switch(LogicAccessory.Type) 
         {
             case "dash":
-                LogicCharacterServer.TriggerPushback(a1, LogicGameObjectServer_GetX(a1), LogicMath.GetRotatedX(100, 0, LogicAccessory.GetActivationAngle(a1)), LogicGameObjectServer_GetY(a1) - LogicMath.GetRotatedY(1000, 0, LogicAccessory.GetActivationAngle(a1)), 6, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0)
+                //LogicCharacterServer.triggerPushback(a1, LogicGameObjectServer.getX(a1), LogicMath.getRotatedX(100, 0, LogicAccessory.getActivationAngle(a1)), LogicGameObjectServer.getY(a1) - LogicMath.getRotatedY(1000, 0, LogicAccessory.getActivationAngle(a1)), 6, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0)
+                break;
         }
     }
 

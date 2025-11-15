@@ -1,4 +1,4 @@
-import ByteStream from "../../DataStream/ByteStream.js"
+import ByteStream from "../../../DataStream/ByteStream.js"
 
 class LoginOkMessage {
     static encode(): number[] {
@@ -59,7 +59,7 @@ class LoginOkMessage {
         }
         return stream.Payload;
     }
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 20104;
     }
 }

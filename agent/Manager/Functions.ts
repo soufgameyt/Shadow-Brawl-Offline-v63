@@ -37,7 +37,7 @@ class Functions {
         static getTextFieldByName: any;
         static setText: any;
         static getMovieClipByName: any;
-        static GotoAndStopFrameIndex: any;
+        static gotoAndStopFrameIndex: any;
     }
 
     static GameButton = class {
@@ -87,11 +87,11 @@ class Functions {
     }
 
     static LogicLaserMessageFactory = class {
-        static CreateMessageByType: any;
+        static createMessageByType: any;
     }
 
     static Messaging = class {
-        static ReceiveMessage: any;
+        static receiveMessage: any;
         static Send: any;
     }
     
@@ -100,7 +100,7 @@ class Functions {
     }
 
     static LogicSkillServer = class {
-        static Constructor: any
+        static LogicSkillServer: any
         static Destructor: any
     }
 
@@ -150,7 +150,7 @@ class Functions {
         Functions.MovieClipHelper.setTextAndScaleIfNecessary = new NativeFunction(Addresses.MovieClipHelper_setTextAndScaleIfNecessary, 'void', ['pointer', 'pointer', 'int', 'int']);
         Functions.Application.openURL = new NativeFunction(Addresses.Application_openUrl, 'void', ['pointer']);
         Functions.MovieClip.getMovieClipByName = new NativeFunction(Addresses.MovieClip_getMovieClipByName, 'pointer', ['pointer', 'pointer']);
-        Functions.MovieClip.GotoAndStopFrameIndex = new NativeFunction(Addresses.MovieClip_gotoAndStopFrameIndex, 'void', ['pointer', 'int']),
+        Functions.MovieClip.gotoAndStopFrameIndex = new NativeFunction(Addresses.MovieClip_gotoAndStopFrameIndex, 'void', ['pointer', 'int']),
 
         Functions.GenericPopup.GenericPopup = new NativeFunction(Addresses.GenericPopup_GenericPopup, 'void', ['pointer', 'pointer', 'int', 'int', 'pointer', 'pointer', 'pointer', 'pointer']);
         Functions.GenericPopup.setTitleTid = new NativeFunction(Addresses.GenericPopup_setTitleTid, 'void', ['pointer', 'pointer']);
@@ -164,12 +164,12 @@ class Functions {
         Functions.Imports.Close = new NativeFunction(LibSystem.findExportByName("close")!, "int", ["int"]);
         Functions.Imports.Mkdir = new NativeFunction(LibSystem.findExportByName("mkdir")!, "int", ["pointer", "uint32"]);
 
-        Functions.LogicLaserMessageFactory.CreateMessageByType = new NativeFunction(Addresses.CreateMessageByType, "pointer", ["pointer", "int"]);
-        Functions.Messaging.ReceiveMessage = new NativeFunction(Addresses.MessageManagerReceiveMessage, "int", ["pointer", "pointer"]);
+        Functions.LogicLaserMessageFactory.createMessageByType = new NativeFunction(Addresses.createMessageByType, "pointer", ["pointer", "int"]);
+        Functions.Messaging.receiveMessage = new NativeFunction(Addresses.MessageManagerreceiveMessage, "int", ["pointer", "pointer"]);
         Functions.Messaging.Send = new NativeFunction(Addresses.MessagingSend, "int", ["pointer", "pointer"]);
         Functions.LogicGameModeUtil.GetPlayerCount = new NativeFunction(Addresses.LogicGameModeUtil_getPlayerCount, 'int', ['pointer']);
 
-        Functions.LogicSkillServer.Constructor = new NativeFunction(Addresses.LogicSkillServerCtor, 'pointer', ['pointer', 'pointer']);
+        Functions.LogicSkillServer.LogicSkillServer = new NativeFunction(Addresses.LogicSkillServerCtor, 'pointer', ['pointer', 'pointer']);
         Functions.LogicSkillServer.Destructor = new NativeFunction(Addresses.LogicSkillServerDtor, 'pointer', ['pointer']);
     }
 }

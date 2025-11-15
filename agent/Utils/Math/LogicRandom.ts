@@ -7,17 +7,17 @@ class LogicRandom {
 		this.Seed = Seed;
 	}
 
-	GetIteratedRandomSeed(): number {
+	getIteratedRandomSeed(): number {
 		return this.Seed;
 	}
 
-	SetIteratedRandomSeed(Value: number): void {
+	setIteratedRandomSeed(Value: number): void {
 		this.Seed = Value;
 	}
 
-	Rand(Max: number): number {
+	rand(Max: number): number {
 		if (Max > 0) {
-			this.Seed = this.IterateRandomSeed();
+			this.Seed = this.iterateRandomSeed();
 			let TmpVal = this.Seed;
 
 			if (TmpVal < 0) {
@@ -30,7 +30,7 @@ class LogicRandom {
 		return 0;
 	}
 
-	IterateRandomSeed(): number {
+	iterateRandomSeed(): number {
 		let Seed = this.Seed;
 
 		if (Seed === 0) {
@@ -43,7 +43,7 @@ class LogicRandom {
 		return Tmp2;
 	}
 
-	Decode(Stream: ByteStream): void {
+	decode(Stream: ByteStream): void {
 		this.Seed = Stream.ReadVInt();
 	}
 

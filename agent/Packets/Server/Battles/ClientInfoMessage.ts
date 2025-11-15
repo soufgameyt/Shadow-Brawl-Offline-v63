@@ -11,7 +11,7 @@ class ClientInfoMessage {
         return Stream.Payload
     }
     
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 10177
     }
 }

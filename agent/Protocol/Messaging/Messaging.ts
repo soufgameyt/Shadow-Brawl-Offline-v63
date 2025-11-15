@@ -9,37 +9,37 @@ import VisionUpdateMessage from "../../Packets/Server/Battles/VisionUpdateMessag
 
 const {GUI, ResourceManager, GUIContainer, DisplayObject, LogicDataTables, DecoratedTextField, MovieClip, GameButton, MovieClipHelper, Sprite, String, ResourceListenner, Stage, ScrollArea, Imports, LogicLaserMessageFactory, LogicGameModeUtil, LogicSkillServer, Application} = Functions;
 
-// Credit to nates for SendOfflineMessage
-class Messaging {
-    static SendOfflineMessage(Id: number, Payload: number[]): NativePointer {
+// thx nates for help when i didn't understood this, thx sb for making offline guide
+class Messaging 
+{
+    static sendOfflineMessage(Id: number, Payload: number[]): NativePointer 
+    {
         let Version = Id === 20104 ? 1 : 0;
         if (Id != 24109) {
             Debugger.Info(`Sending offline message with Packet ID ${Id}, Payload size ${Payload.length}, Version ${Version}`);
         }
 
         let Factory = Imports.Malloc(1024);
-        Factory.writePointer(Addresses.LogicLaserMessageFactory);
+        let Message = LogicLaserMessageFactory.createMessageByType(Factory, Id);
+        PiranhaMessage.setMessageVersion(Message, Version);
 
-        let Message = LogicLaserMessageFactory.CreateMessageByType(Factory, Id);
-        Message.add(136).writeS64(Version);
-
-        let PayloadLengthPtr = PiranhaMessage.GetByteStream(Message).add(24);
-        Memory.protect(PayloadLengthPtr, 4, 'rw-');
+        let PayloadLengthPtr = PiranhaMessage.getByteStream(Message).add(24);
         PayloadLengthPtr.writeS64(Payload.length);
 
         if (Payload.length > 0) {
             let PayloadPtr = Imports.Malloc(Payload.length).writeByteArray(Payload);
-            PiranhaMessage.GetByteStream(Message).add(56).writePointer(PayloadPtr);
+            PiranhaMessage.getByteStream(Message).add(56).writePointer(PayloadPtr);
         }
 
-        let DecodeFnPtr = Message.readPointer().add(24).readPointer();
-
-        let Decode = new NativeFunction(DecodeFnPtr, "void", ["pointer"]);
-        Decode(Message);
-
-        Functions.Messaging.ReceiveMessage(Addresses.MessageManagerInstance.readPointer(), Message);
+        PiranhaMessage.decode(Message);
+        Messaging.receiveMessageOfflineMessage(Message);
 
         return Message;
+    }
+
+    static receiveMessageOfflineMessage(Message: NativePointer) 
+    {
+        Functions.Messaging.receiveMessage(Addresses.MessageManagerInstance.readPointer(), Message);
     }
 }
 

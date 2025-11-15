@@ -1,13 +1,13 @@
 import ByteStream from "../../DataStream/ByteStream";
 
 class ClientInputMessage {
-    static Decode(): any {
+    static decode(): any {
         let Stream = new ByteStream([]);
 
         return Stream.Payload;
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 10555;
     }
 }

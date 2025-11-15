@@ -1,7 +1,7 @@
 import ByteStream from "../../DataStream/ByteStream";
 
 class GetPlayerProfileMessage {
-    static Decode(): any {
+    static decode(): any {
         let Stream = new ByteStream([]);
 
         console.log(Stream.ReadBoolean())
@@ -13,7 +13,7 @@ class GetPlayerProfileMessage {
         return Stream.Payload;
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 15081;
     }
 }

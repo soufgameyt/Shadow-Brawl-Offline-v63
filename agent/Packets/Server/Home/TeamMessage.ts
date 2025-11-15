@@ -1,78 +1,75 @@
 import ByteStream from "../../../DataStream/ByteStream.js"
+import PlayerDisplayData from "../../../Utils/PlayerDisplayData.js";
 
 class TeamMessage {
     static encode(): number[] {
-        let Stream = new ByteStream([]);
+        let stream = new ByteStream([]);
 
-        Stream.writeVInt(0); // Room Type
-        Stream.writeBoolean(false);
-        Stream.writeVInt(3);
-        Stream.WriteLong(0, 1); // Team ID
-        Stream.writeVInt(0);
-        Stream.writeBoolean(false);
-        Stream.writeBoolean(false);
-        Stream.writeVInt(0);
-        Stream.writeVInt(0);
-        Stream.writeVInt(0);
-        Stream.WriteDataReference(15, 7); // Map ID
-        Stream.writeBoolean(false); // Battle Player Map
+        stream.writeVInt(0); // Room Type
+        stream.writeBoolean(false);
+        stream.writeVInt(3);
+        stream.WriteLong(0, 0); // Team ID
+        stream.writeVInt(0);
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.writeVInt(0);
+        stream.WriteDataReference(15, 7); // Map ID
+        stream.writeBoolean(false); // Battle Player Map
 
-        Stream.writeVInt(1); // TeamMemberEntry::encode
+        stream.writeVInt(1); // TeamMemberEntry::encode
         {
-            Stream.writeBoolean(true); // Is Owner
-            Stream.WriteLong(0, 1); // Player ID
-            Stream.WriteDataReference(16, 0); // Selected Brawler
-            Stream.WriteDataReference(29, 0); // Selected Skin
-            Stream.writeVInt(0); // ?
-            Stream.writeVInt(1250); // Brawler Trophies
-            Stream.writeVInt(1250); // Brawler Highest Trophies
-            Stream.writeVInt(11); // Brawler Power Level
-            Stream.writeVInt(3); // Player State
-            Stream.writeVInt(0); // ?
-            Stream.writeBoolean(true); // Is Ready
-            Stream.writeVInt(0); // Team
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
+            stream.writeBoolean(true); // Is Owner
+            stream.WriteLong(0, 1); // Player ID
+            stream.WriteDataReference(16, 96); // Selected Brawler
+            stream.WriteDataReference(0); // Selected Skin
+            stream.writeVInt(0); // ?
+            stream.writeVInt(1235); // Brawler Trophies
+            stream.writeVInt(1235); // Brawler Highest Trophies
+            stream.writeVInt(1235); // Brawler Highest League Trophies
+            stream.writeVInt(11); // Brawler Power Level
+            stream.writeVInt(0); // ?
+            stream.writeBoolean(true); // Is Ready
+            stream.writeVInt(0); // Team
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
             
-            Stream.writeString("@soufgamev2"); // Player Name
-            Stream.writeVInt(100); // Player Experience
-            Stream.writeVInt(28000000); // Player Thumbnail
-            Stream.writeVInt(43000006); // Player Name Color
-            Stream.writeVInt(43000006); // Player BP Name Color
+            PlayerDisplayData.encode(stream, "@soufgamev3", 100, 58, 6, 6);
 
-            Stream.WriteDataReference(0); // Star Power
-            Stream.WriteDataReference(0); // Gadget
-            Stream.WriteDataReference(0); // Gear
-            Stream.WriteDataReference(0); // Gear
-            Stream.WriteDataReference(0);
-            Stream.WriteDataReference(0);
-            Stream.WriteDataReference(0);
-            Stream.WriteDataReference(0);
+            stream.WriteDataReference(0); // Star Power
+            stream.WriteDataReference(0); // Gadget
+            stream.WriteDataReference(0); // Gear
+            stream.WriteDataReference(0); // Gear
+            stream.WriteDataReference(0);
+            stream.WriteDataReference(0);
+            stream.WriteDataReference(0);
+            stream.WriteDataReference(0);
 
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
-            Stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
+            stream.writeVInt(0);
         }
 
-        Stream.writeVInt(0); // Player Invite Entry
-        Stream.writeVInt(0); // Team Join Request
-        Stream.writeVInt(0); // Bot Slots
-        Stream.writeVInt(0);
-        Stream.writeBoolean(true); // Text Chat Enabled
-        Stream.writeBoolean(false);
-        Stream.writeBoolean(false);
-        Stream.writeVInt(0); // Modifiers
+        stream.writeVInt(0); // Player Invite Entry
+        stream.writeVInt(0); // Team Join Request
+        stream.writeVInt(0); // Bot Slots
+        stream.writeVInt(0);
+        stream.writeBoolean(true); // Text Chat Enabled
+        stream.writeBoolean(false);
+        stream.writeBoolean(false);
+        stream.writeVInt(0); // Modifiers
 
-        return Stream.Payload;
+        return stream.Payload;
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 24124;
     }
 }

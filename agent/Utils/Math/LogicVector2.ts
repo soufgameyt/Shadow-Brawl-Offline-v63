@@ -10,7 +10,7 @@ class LogicVector2 {
 		this.Y = Y;
 	}
 
-	Destruct(): void {
+	destruct(): void {
 		this.X = 0;
 		this.Y = 0;
 	}
@@ -172,7 +172,7 @@ class LogicVector2 {
 		this.Y -= Vector2.Y;
 	}
 
-	Decode(Stream: ByteStream): void {
+	decode(Stream: ByteStream): void {
 		this.X = Stream.ReadVInt();
 		this.Y = Stream.ReadVInt();
 	}

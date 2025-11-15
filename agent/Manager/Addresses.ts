@@ -43,10 +43,10 @@ class Addresses {
     static State: NativePointer;
     static HasConnectFailed: NativePointer;
     static MessagingSend: NativePointer;
-    static MessageManagerReceiveMessage: NativePointer;
+    static MessageManagerreceiveMessage: NativePointer;
     static MessageManagerInstance: NativePointer;
-    static CreateMessageByType: NativePointer;
-    static GetMessageType: NativePointer;
+    static createMessageByType: NativePointer;
+    static getMessageType: NativePointer;
     static Destruct: NativePointer;
     static LogicLaserMessageFactory: NativePointer;
     static Decode: NativePointer;
@@ -122,10 +122,10 @@ class Addresses {
         Addresses.State = ptr(Process.pointerSize * 4);
         Addresses.HasConnectFailed = ptr(Process.pointerSize);
         Addresses.MessagingSend = Environment.LaserBase.add(0xB6193C);
-        Addresses.MessageManagerReceiveMessage = Environment.LaserBase.add(0x232704);
+        Addresses.MessageManagerreceiveMessage = Environment.LaserBase.add(0x232704);
         Addresses.MessageManagerInstance = Environment.LaserBase.add(0xEC2A58);
-        Addresses.CreateMessageByType = Environment.LaserBase.add(0x474204);
-        Addresses.GetMessageType = ptr(Process.pointerSize * 5);
+        Addresses.createMessageByType = Environment.LaserBase.add(0x474204);
+        Addresses.getMessageType = ptr(Process.pointerSize * 5);
         Addresses.Destruct = ptr(Process.pointerSize * 7);
         Addresses.LogicLaserMessageFactory = Environment.LaserBase.add(0xD93D16);
         Addresses.Decode = ptr(3 * Process.pointerSize);

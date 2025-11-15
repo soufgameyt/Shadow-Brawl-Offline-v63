@@ -6,18 +6,18 @@ class AvatarNameCheckRequestMessage {
     static PlayerName: any
     static stream: any
 
-    static Decode(stream: any) {
+    static decode(stream: any) {
         //console.log(stream.ReadString());
     }
 
     static Execute(stream: any) {
-        /*AvatarNameCheckRequestMessage.Decode(stream);
-        let PlayerName = PiranhaMessage.Decode(Message);
+        /*AvatarNameCheckRequestMessage.decode(stream);
+        let PlayerName = PiranhaMessage.decode(Message);
         console.log(AvatarNameCheckRequestMessage.PlayerName);
-        Messaging.SendOfflineMessage(20300, AvatarNameCheckResponseMessage.encode(player, name));*/
+        Messaging.sendOfflineMessage(20300, AvatarNameCheckResponseMessage.encode(player, name));*/
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 14600;
     }
 }

@@ -24,11 +24,11 @@ class Hooks {
             }
         });
 
-        Interceptor.attach(Addresses.MessageManagerReceiveMessage, {
+        Interceptor.attach(Addresses.MessageManagerreceiveMessage, {
             onEnter(args) {
                 let Message = args[1];
-                if (PiranhaMessage.GetMessageType(Message) != 24109) {
-                    Debugger.Info("Received " + PiranhaMessage.GetMessageType(Message));
+                if (PiranhaMessage.getMessageType(Message) != 24109) {
+                    Debugger.Info("Received " + PiranhaMessage.getMessageType(Message));
                 }
             },
             onLeave(retval) {
@@ -73,29 +73,30 @@ class Hooks {
         });*/
 
         Interceptor.replace(Addresses.MessagingSend, new NativeCallback(function (Self, Message) {
-            let MessageType = PiranhaMessage.GetMessageType(Message);
+            let MessageType = PiranhaMessage.getMessageType(Message);
 
             if (MessageType === 10108) {
                 return 0;
             }
                 
             if (MessageType != 24109) {
-                Debugger.Info("[Messaging::SendMessage] Type: " + MessageType);
+                Debugger.Info("[Messaging::sendMessage] Type: " + MessageType);
             }
 
             if (MessageType == 14600) {
-                let payloadPtr = PiranhaMessage.GetByteStream(Message).add(56).readPointer();
-                let payload = payloadPtr.readByteArray(PiranhaMessage.GetByteStream(Message).add(24).readS32());
+                let payloadPtr = PiranhaMessage.getByteStream(Message).add(56).readPointer();
+                let payload = payloadPtr.readByteArray(PiranhaMessage.getByteStream(Message).add(24).readS32());
                 let stream = new ByteStream(Array.from(new Uint8Array(payload!)));
                 AvatarNameCheckRequestMessage.Execute(stream);
             }
                 
-            let Result = LogicCommand.CreateCommandByType(MessageType);
-            if (!Result) {
-                LogicLaserMessageFactory.CreateMessageByType(MessageType);            
+            let Result = LogicCommand.createCommandByType(MessageType);
+            if (!Result) 
+            {
+                LogicLaserMessageFactory.createMessageByType(MessageType);            
             }
 
-            PiranhaMessage.Destruct(Message);
+            PiranhaMessage.destruct(Message);
 
             return 0;
         }, "int", ["pointer", "pointer"]));

@@ -4,22 +4,22 @@ import LogicClientAvatar from "./LogicClientAvatar/LogicClientAvatar.js";
 import player from "../../../../Configuration/LogicPlayerData.js";
 
 class OwnHomeDataMessage {
-    public static ClientHome: any
-    public static ClientAvatar: any
+    public static ClientHome: LogicClientHome
+    public static ClientAvatar: LogicClientAvatar
 
-    static encode(): number[] {
+    public static encode(): number[] {
         let stream = new ByteStream([]);
 
         stream.writeVInt(1757882887);
         stream.writeVInt(-1230828389);
 
-        OwnHomeDataMessage.ClientHome = new LogicClientHome(stream);
-        OwnHomeDataMessage.ClientAvatar = new LogicClientAvatar(stream);
+        new LogicClientHome(stream).encode();
+        new LogicClientAvatar(stream).encode();
         
         return stream.Payload;
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 24101;
     }
 }

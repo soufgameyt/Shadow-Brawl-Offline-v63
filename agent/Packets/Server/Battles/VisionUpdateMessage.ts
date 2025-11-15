@@ -36,7 +36,7 @@ class VisionUpdateMessage {
         return Stream.Payload
     }
 
-    static GetMessageType(): number {
+    static getMessageType(): number {
         return 24109
     }
 }
