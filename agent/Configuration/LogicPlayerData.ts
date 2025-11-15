@@ -210,7 +210,7 @@ class LogicPlayerData {
 	public static getCurrencys(): Currencys {
 		return this.Data.Currencys;
 	}
-	public static GetMiscData(): MiscData {
+	public static getMiscData(): MiscData {
 		return this.Data.MiscData;
 	}
 	public static getPlayerName(): string {

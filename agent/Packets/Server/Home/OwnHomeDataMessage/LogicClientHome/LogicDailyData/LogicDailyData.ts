@@ -15,13 +15,13 @@ class LogicDailyData {
         stream.writeVInt(2025257);
         stream.writeVInt(40312);
 
-        stream.writeVInt(LogicPlayerData.GetMiscData().Trophies);
-        stream.writeVInt(LogicPlayerData.GetMiscData().HighestTrophies);
-        stream.writeVInt(LogicPlayerData.GetMiscData().HighestTrophies);
-        stream.writeVInt(LogicPlayerData.GetMiscData().TrophyRoadTier);
-        stream.writeVInt(LogicPlayerData.GetMiscData().ExperienceLevel);
-        stream.WriteDataReference(28, LogicPlayerData.GetMiscData().Thumbnail);
-        stream.WriteDataReference(43, LogicPlayerData.GetMiscData().NameColor);
+        stream.writeVInt(LogicPlayerData.getMiscData().Trophies);
+        stream.writeVInt(LogicPlayerData.getMiscData().HighestTrophies);
+        stream.writeVInt(LogicPlayerData.getMiscData().HighestTrophies);
+        stream.writeVInt(LogicPlayerData.getMiscData().TrophyRoadTier);
+        stream.writeVInt(LogicPlayerData.getMiscData().ExperienceLevel);
+        stream.WriteDataReference(28, LogicPlayerData.getMiscData().Thumbnail);
+        stream.WriteDataReference(43, LogicPlayerData.getMiscData().NameColor);
 
         stream.writeVInt(26);
         for (let x = 0; x < 26; x++) {
@@ -44,11 +44,11 @@ class LogicDailyData {
         stream.writeVInt(0);
 
         stream.writeVInt(0);
-        stream.writeVInt(LogicPlayerData.GetMiscData().HighestTrophies); // Trophy Road Highest Trophies
+        stream.writeVInt(LogicPlayerData.getMiscData().HighestTrophies); // Trophy Road Highest Trophies
         stream.writeVInt(1337); // Tokens Used in Battles
         stream.writeVInt(LogicPlayer.ControlMode); // Control Mode
         stream.writeBoolean(true); // Battle Hints
-        stream.writeVInt(LogicPlayerData.GetMiscData().TokenDoubler); // Tokens Doubler
+        stream.writeVInt(LogicPlayerData.getMiscData().TokenDoubler); // Tokens Doubler
         stream.writeVInt(144); // Brawl Pass Season Timer
         stream.writeVInt(1509112); // Brawl Pass Season Timer
         stream.writeVInt(144); // Brawl Pass Season Timer
@@ -77,8 +77,8 @@ class LogicDailyData {
         stream.WriteByte(1); // Selected Brawler
         stream.WriteDataReference(16, 1);
 
-        stream.writeString(LogicPlayerData.GetMiscData().Region);
-        stream.writeString(LogicPlayerData.GetMiscData().CreatorCode);
+        stream.writeString(LogicPlayerData.getMiscData().Region);
+        stream.writeString(LogicPlayerData.getMiscData().CreatorCode);
 
         IntValueEntry.encode(stream);
         CooldownEntry.encode(stream);
