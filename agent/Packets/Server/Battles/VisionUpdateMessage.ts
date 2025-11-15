@@ -7,7 +7,7 @@ import LogicPlayer from "./LogicPlayer.js";
 class VisionUpdateMessage {
     static encode(): number[] {
         let Stream = new ByteStream([]);
-                
+
         Stream.writeVInt(LogicBattleModeServer.Ticks);
         Stream.writeVInt(LogicBattleModeServer.HandledInputs);
         Stream.writeVInt(LogicPlayer.ControlMode);

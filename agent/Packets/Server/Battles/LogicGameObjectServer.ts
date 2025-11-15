@@ -2,11 +2,11 @@ import LogicBattleModeServer from "./LogicBattleModeServer";
 
 class LogicGameObjectServer {
     static encode(Stream: any) {
-        Stream.WritePositiveVIntMax65535(2550); // Position X
-        Stream.WritePositiveVIntMax65535(8550); // Position Y
-        Stream.WritePositiveVIntMax65535(0); // RenderZ Z
-        Stream.WritePositiveVIntMax255(17 * LogicBattleModeServer.PlayerCount); // Object ID
-        Stream.WritePositiveIntMax3(0);
+        Stream.writePositiveVIntMax65535(2550); // Position X
+        Stream.writePositiveVIntMax65535(8550); // Position Y
+        Stream.writePositiveVIntMax65535(0); // RenderZ Z
+        Stream.writePositiveVIntMax255(17 * LogicBattleModeServer.PlayerCount); // Object ID
+        Stream.writePositiveIntMax3(0);
        
         LogicTraitController.encode(Stream);
     }

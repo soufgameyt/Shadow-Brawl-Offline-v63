@@ -146,7 +146,7 @@ class BitStream {
         }
     }
 
-    public WritePositiveInt(value: number, nbBits: number): void {
+    public writePositiveInt(value: number, nbBits: number): void {
         this.EnsureCapacity();
         const clampedValue = this.Clamp(value, 0, ~(-1 << (nbBits & 31)));
         this.WriteBits(clampedValue, nbBits);
@@ -165,7 +165,7 @@ class BitStream {
         this.WriteBits(clampedValue, nbBits);
     }
 
-    public WritePositiveVInt(value: number, nbBits: number): void {
+    public writePositiveVInt(value: number, nbBits: number): void {
         this.EnsureCapacity();
         let clampedValue = this.Clamp(value, 0, ~(-1 << (1 << (nbBits & 31) & 31)));
         let s: number;
@@ -207,11 +207,11 @@ class BitStream {
 
     public WriteDataReference(csvId: number, row: number): void {
         if (csvId !== 0) {
-            this.WritePositiveIntMax31(csvId);
-            this.WritePositiveIntMax1023(row);
+            this.writePositiveIntMax31(csvId);
+            this.writePositiveIntMax1023(row);
             return;
         }
-        this.WritePositiveIntMax31(0);
+        this.writePositiveIntMax31(0);
     }
 
     public ResetOffset(): void {
@@ -221,59 +221,59 @@ class BitStream {
 
     // --- Convenience Wrappers ---
 
-    public WritePositiveIntMax3(value: number): void { this.WritePositiveInt(value, 2); }
-    public WritePositiveIntMax7(value: number): void { this.WritePositiveInt(value, 3); }
-    public WritePositiveIntMax15(value: number): void { this.WritePositiveInt(value, 4); }
-    public WritePositiveIntMax31(value: number): void { this.WritePositiveInt(value, 5); }
-    public WritePositiveIntMax63(value: number): void { this.WritePositiveInt(value, 6); }
-    public WritePositiveIntMax127(value: number): void { this.WritePositiveInt(value, 7); }
-    public WritePositiveIntMax255(value: number): void { this.WritePositiveInt(value, 8); }
-    public WritePositiveIntMax511(value: number): void { this.WritePositiveInt(value, 9); }
-    public WritePositiveIntMax1023(value: number): void { this.WritePositiveInt(value, 10); }
-    public WritePositiveIntMax2047(value: number): void { this.WritePositiveInt(value, 11); }
-    public WritePositiveIntMax4095(value: number): void { this.WritePositiveInt(value, 12); }
-    public WritePositiveIntMax8191(value: number): void { this.WritePositiveInt(value, 13); }
-    public WritePositiveIntMax16383(value: number): void { this.WritePositiveInt(value, 14); }
-    public WritePositiveIntMax32767(value: number): void { this.WritePositiveInt(value, 15); }
-    public WritePositiveIntMax65535(value: number): void { this.WritePositiveInt(value, 16); }
-    public WritePositiveIntMax131071(value: number): void { this.WritePositiveInt(value, 17); }
-    public WritePositiveIntMax262143(value: number): void { this.WritePositiveInt(value, 18); }
-    public WritePositiveIntMax524287(value: number): void { this.WritePositiveInt(value, 19); }
-    public WritePositiveIntMax1048575(value: number): void { this.WritePositiveInt(value, 20); }
-    public WritePositiveIntMax2097151(value: number): void { this.WritePositiveInt(value, 21); }
-    public WritePositiveIntMax134217727(value: number): void { this.WritePositiveInt(value, 27); }
+    public writePositiveIntMax3(value: number): void { this.writePositiveInt(value, 2); }
+    public writePositiveIntMax7(value: number): void { this.writePositiveInt(value, 3); }
+    public writePositiveIntMax15(value: number): void { this.writePositiveInt(value, 4); }
+    public writePositiveIntMax31(value: number): void { this.writePositiveInt(value, 5); }
+    public writePositiveIntMax63(value: number): void { this.writePositiveInt(value, 6); }
+    public writePositiveIntMax127(value: number): void { this.writePositiveInt(value, 7); }
+    public writePositiveIntMax255(value: number): void { this.writePositiveInt(value, 8); }
+    public writePositiveIntMax511(value: number): void { this.writePositiveInt(value, 9); }
+    public writePositiveIntMax1023(value: number): void { this.writePositiveInt(value, 10); }
+    public writePositiveIntMax2047(value: number): void { this.writePositiveInt(value, 11); }
+    public writePositiveIntMax4095(value: number): void { this.writePositiveInt(value, 12); }
+    public writePositiveIntMax8191(value: number): void { this.writePositiveInt(value, 13); }
+    public writePositiveIntMax16383(value: number): void { this.writePositiveInt(value, 14); }
+    public writePositiveIntMax32767(value: number): void { this.writePositiveInt(value, 15); }
+    public writePositiveIntMax65535(value: number): void { this.writePositiveInt(value, 16); }
+    public writePositiveIntMax131071(value: number): void { this.writePositiveInt(value, 17); }
+    public writePositiveIntMax262143(value: number): void { this.writePositiveInt(value, 18); }
+    public writePositiveIntMax524287(value: number): void { this.writePositiveInt(value, 19); }
+    public writePositiveIntMax1048575(value: number): void { this.writePositiveInt(value, 20); }
+    public writePositiveIntMax2097151(value: number): void { this.writePositiveInt(value, 21); }
+    public writePositiveIntMax134217727(value: number): void { this.writePositiveInt(value, 27); }
 
-    public WritePositiveVIntMax255(value: number): void { this.WritePositiveVInt(value, 3); }
+    public writePositiveVIntMax255(value: number): void { this.writePositiveVInt(value, 3); }
 
-    public WritePositiveVIntMax255OftenZero(value: number): void {
+    public writePositiveVIntMax255OftenZero(value: number): void {
         if (value !== 0) {
-            this.WritePositiveInt(0, 1);
-            this.WritePositiveVInt(value, 3);
+            this.writePositiveInt(0, 1);
+            this.writePositiveVInt(value, 3);
             return;
         }
-        this.WritePositiveInt(1, 1);
+        this.writePositiveInt(1, 1);
     }
 
-    public WritePositiveVIntMax65535(value: number): void { this.WritePositiveVInt(value, 4); }
+    public writePositiveVIntMax65535(value: number): void { this.writePositiveVInt(value, 4); }
 
-    public WritePositiveVIntMax65535OftenZero(value: number): void {
+    public writePositiveVIntMax65535OftenZero(value: number): void {
         if (value !== 0) {
-            this.WritePositiveInt(0, 1);
-            this.WritePositiveVInt(value, 4);
+            this.writePositiveInt(0, 1);
+            this.writePositiveVInt(value, 4);
             return;
         }
-        this.WritePositiveInt(1, 1);
+        this.writePositiveInt(1, 1);
     }
 
-    public WritePositiveVIntMax2147483647(value: number): void { this.WritePositiveVInt(value, 5); }
+    public writePositiveVIntMax2147483647(value: number): void { this.writePositiveVInt(value, 5); }
 
-    public WritePositiveVIntMax2147483647OftenZero(value: number): void {
+    public writePositiveVIntMax2147483647OftenZero(value: number): void {
         if (value !== 0) {
-            this.WritePositiveInt(0, 1);
-            this.WritePositiveVInt(value, 5);
+            this.writePositiveInt(0, 1);
+            this.writePositiveVInt(value, 5);
             return;
         }
-        this.WritePositiveInt(1, 1);
+        this.writePositiveInt(1, 1);
     }
 
     public writeIntMax1(value: number): void { this.writeInt(value, 1); }
