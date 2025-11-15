@@ -10,16 +10,16 @@ class CompetitivePassSeasonData {
             stream.writeVInt(100000000)
 
             stream.writeBoolean(true)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
 
             stream.writeBoolean(true)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
         }
     }
 }

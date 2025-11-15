@@ -21,7 +21,7 @@ class LogicGameObjectManagerServer {
         }
 
         Stream.writeBoolean(false);
-        Stream.WriteIntMax15(-1); // GameState
+        Stream.writeIntMax15(-1); // GameState
         
         Stream.writeBoolean(false);
         Stream.writeBoolean(false);
@@ -68,7 +68,7 @@ class LogicGameObjectManagerServer {
         Stream.writeBoolean(false);
 
         Stream.writeBoolean(false);
-        Stream.WriteIntMax16383(0);
+        Stream.writeIntMax16383(0);
         Stream.WritePositiveIntMax1048575(0);
 
         Stream.WritePositiveVIntMax65535OftenZero(0);

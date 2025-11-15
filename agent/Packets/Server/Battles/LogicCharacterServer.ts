@@ -14,7 +14,7 @@ class LogicCharacterServer {
 
         Stream.WritePositiveIntMax7(1); // Walk Animation??
         Stream.writeBoolean(false); // Damage Boost
-        Stream.WriteIntMax63(63);
+        Stream.writeIntMax63(63);
 
         Stream.writeBoolean(false);
         Stream.writeBoolean(false);

@@ -21,9 +21,9 @@ class BaseNotification {
 
     public encode(): void {
         this.stream.writeVInt(this.NotificationID);
-        this.stream.WriteInt(this.NotificationIndex);
+        this.stream.writeInt(this.NotificationIndex);
         this.stream.writeBoolean(this.IsNotificationRead);
-        this.stream.WriteInt(this.NotificationTime);
+        this.stream.writeInt(this.NotificationTime);
         this.stream.writeString(this.NotificationText);
         this.stream.writeVInt(0);
     }

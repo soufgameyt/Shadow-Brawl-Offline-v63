@@ -27,9 +27,9 @@ class LogicPlayer {
         stream.writeVInt(0); // Team Index
         stream.writeVInt(0);
 
-        stream.WriteInt(1000000); // Global ID
+        stream.writeInt(1000000); // Global ID
 
-        stream.WriteByte(1); // Selected Brawlers Count
+        stream.writeByte(1); // Selected Brawlers Count
         {
             stream.WriteDataReference(16, 1); // Selected Brawler
             stream.writeBoolean(true); // LogicHeroUpgrades::encode
@@ -85,7 +85,7 @@ class LogicPlayer {
         stream.writeBoolean(false);
         stream.writeBoolean(false);
         
-        stream.WriteByte(0);
+        stream.writeByte(0);
         stream.writeVInt(0);
         stream.writeVInt(0);
         stream.writeVInt(0);

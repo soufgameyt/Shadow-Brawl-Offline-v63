@@ -35,8 +35,8 @@ class LogicLong {
 	}
 
 	encode(Stream: ByteStream): void {
-		Stream.WriteInt(this.MHighInteger);
-		Stream.WriteInt(this.MLowInteger);
+		Stream.writeInt(this.MHighInteger);
+		Stream.writeInt(this.MLowInteger);
 	}
 
 	HashCode(): number {

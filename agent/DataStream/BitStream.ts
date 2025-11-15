@@ -15,11 +15,11 @@ class BitStream {
         this.Length = messageBytes.length;
     }
 
-    public GetLength(): number {
+    public getLength(): number {
         return this.ByteOffset;
     }
 
-    public GetByteArray(): Uint8Array {
+    public getByteArray(): Uint8Array {
         return this.MessagePayload.slice(0, this.ByteOffset);
     }
 
@@ -152,7 +152,7 @@ class BitStream {
         this.WriteBits(clampedValue, nbBits);
     }
 
-    public WriteInt(value: number, nbBits: number): void {
+    public writeInt(value: number, nbBits: number): void {
         let clampedValue = -1 << (nbBits & 31);
         clampedValue = this.Clamp(value, clampedValue + 1, ~clampedValue);
         this.EnsureCapacity();
@@ -276,17 +276,17 @@ class BitStream {
         this.WritePositiveInt(1, 1);
     }
 
-    public WriteIntMax1(value: number): void { this.WriteInt(value, 1); }
-    public WriteIntMax3(value: number): void { this.WriteInt(value, 2); }
-    public WriteIntMax7(value: number): void { this.WriteInt(value, 3); }
-    public WriteIntMax15(value: number): void { this.WriteInt(value, 4); }
-    public WriteIntMax31(value: number): void { this.WriteInt(value, 4); }
-    public WriteIntMax63(value: number): void { this.WriteInt(value, 6); }
-    public WriteIntMax127(value: number): void { this.WriteInt(value, 7); }
-    public WriteIntMax1023(value: number): void { this.WriteInt(value, 10); }
-    public WriteIntMax16383(value: number): void { this.WriteInt(value, 14); }
-    public WriteIntMax2047(value: number): void { this.WriteInt(value, 11); }
-    public WriteIntMax255(value: number): void { this.WriteInt(value, 8); }
+    public writeIntMax1(value: number): void { this.writeInt(value, 1); }
+    public writeIntMax3(value: number): void { this.writeInt(value, 2); }
+    public writeIntMax7(value: number): void { this.writeInt(value, 3); }
+    public writeIntMax15(value: number): void { this.writeInt(value, 4); }
+    public writeIntMax31(value: number): void { this.writeInt(value, 4); }
+    public writeIntMax63(value: number): void { this.writeInt(value, 6); }
+    public writeIntMax127(value: number): void { this.writeInt(value, 7); }
+    public writeIntMax1023(value: number): void { this.writeInt(value, 10); }
+    public writeIntMax16383(value: number): void { this.writeInt(value, 14); }
+    public writeIntMax2047(value: number): void { this.writeInt(value, 11); }
+    public writeIntMax255(value: number): void { this.writeInt(value, 8); }
 }
 
 export default BitStream

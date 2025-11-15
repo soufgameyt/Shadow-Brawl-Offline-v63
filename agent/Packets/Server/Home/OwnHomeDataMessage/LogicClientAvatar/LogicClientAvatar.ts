@@ -60,7 +60,7 @@ class LogicClientAvatar {
 
 		this.stream.writeString(this.NameSetByUser);
 		this.stream.writeBoolean(this.IsNameSetByUser);
-		this.stream.WriteInt(-1);
+		this.stream.writeInt(-1);
 
 		this.stream.writeVInt(this.CommodityCount);
 		{

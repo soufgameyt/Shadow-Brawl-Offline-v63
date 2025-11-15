@@ -7,12 +7,12 @@ class MatchmakingStatusMessage {
 
         LogicBattleModeServer.CurrentPlayersInMM = LogicBattleModeServer.CurrentPlayersInMM + 1
         
-        Stream.WriteInt(LogicBattleModeServer.MMTimer);
-        Stream.WriteInt(LogicBattleModeServer.CurrentPlayersInMM);
-        Stream.WriteInt(LogicBattleModeServer.MaxPlayers);
-        Stream.WriteInt(0);
-        Stream.WriteInt(0);
-        Stream.WriteInt(0);
+        Stream.writeInt(LogicBattleModeServer.MMTimer);
+        Stream.writeInt(LogicBattleModeServer.CurrentPlayersInMM);
+        Stream.writeInt(LogicBattleModeServer.MaxPlayers);
+        Stream.writeInt(0);
+        Stream.writeInt(0);
+        Stream.writeInt(0);
 
         Stream.writeBoolean(true); // Show Timer
 

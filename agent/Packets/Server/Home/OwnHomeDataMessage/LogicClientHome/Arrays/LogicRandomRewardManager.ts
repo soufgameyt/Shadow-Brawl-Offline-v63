@@ -2,7 +2,7 @@ class LogicRandomRewardManager {
     static encode(stream: any): void {
         stream.writeVInt(0)
         stream.writeVInt(0)
-        stream.WriteInt(-1435281534)
+        stream.writeInt(-1435281534)
         stream.writeVInt(0)
         stream.writeVInt(0)
         stream.writeVInt(86400*24)

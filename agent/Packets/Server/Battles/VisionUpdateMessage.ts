@@ -25,12 +25,12 @@ class VisionUpdateMessage {
 
         let GameObjectManager = LogicGameObjectManagerServer.encode();
 
-        let ByteArray = GameObjectManager.GetByteArray()
-        let Length = GameObjectManager.GetLength();
+        let ByteArray = GameObjectManager.getByteArray()
+        let Length = GameObjectManager.getLength();
 
-        Stream.WriteInt(Length);
+        Stream.writeInt(Length);
         for (let i = 0; i < ByteArray.length; i++) {
-            Stream.WriteByte(ByteArray[i]);
+            Stream.writeByte(ByteArray[i]);
         }
 
         return Stream.Payload

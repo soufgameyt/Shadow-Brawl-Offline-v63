@@ -96,7 +96,7 @@ class LogicVector2 {
 		return Distance;
 	}
 
-	GetLength(): number {
+	getLength(): number {
 		let Length = 0x7FFFFFFF;
 
 		if ((46340 - this.X) >>> 0 <= 92680) {
@@ -113,7 +113,7 @@ class LogicVector2 {
 		return LogicMath.Sqrt(Length);
 	}
 
-	GetLengthSquared(): number {
+	getLengthSquared(): number {
 		let Length = 0x7FFFFFFF;
 
 		if ((46340 - this.X) >>> 0 <= 92680) {
@@ -144,7 +144,7 @@ class LogicVector2 {
 	}
 
 	Normalize(Value: number): number {
-		const Length = this.GetLength();
+		const Length = this.getLength();
 
 		if (Length !== 0) {
 			this.X = (this.X * Value) / Length;

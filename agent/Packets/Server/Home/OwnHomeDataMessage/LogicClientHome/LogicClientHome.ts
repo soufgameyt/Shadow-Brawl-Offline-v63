@@ -60,7 +60,7 @@ class LogicClientHome {
         {
             this.stream.WriteDataReference(0);
             this.stream.WriteDataReference(0);
-            this.stream.WriteByte(0);
+            this.stream.writeByte(0);
         }
         
         if (this.stream.writeBoolean(true)) {

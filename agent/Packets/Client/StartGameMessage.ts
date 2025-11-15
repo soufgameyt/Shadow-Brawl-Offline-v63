@@ -10,7 +10,7 @@ import UdpConnectionInfoMessage from "../Server/Battles/UdpConnectionInfoMessage
 class StartGameMessage {
     static encode(): number[] {
         let Stream = new ByteStream([]);
-        Stream.WriteInt(0);
+        Stream.writeInt(0);
 
         return Stream.Payload 
     }

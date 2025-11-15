@@ -176,23 +176,23 @@ export class ByteStream {
         return Number((BigInt(High) << 32n) | BigInt(Low & 0xFFFFFFFF));
     }
 
-    WriteByte(Value: number) { 
+    writeByte(Value: number) { 
         this.BitOffset = 0; 
         this.Payload.push(Value & 0xFF); 
         this.Offset++;
     }
 
-    WriteBytes(Value: number[] | null) {
+    writeBytes(Value: number[] | null) {
         if (Value != null) {
             const length = Value.length;
-            this.WriteInt(length);
+            this.writeInt(length);
 
             for (let i = 0; i < length; i++) {
                 this.Payload.push(Value[i] & 0xFF);
                 this.Offset++;
             }
         } else {
-            this.WriteInt(-1);
+            this.writeInt(-1);
         }
     }
 
@@ -204,7 +204,7 @@ export class ByteStream {
         this.Offset += 2;
     }
 
-    WriteInt(Value: number) {
+    writeInt(Value: number) {
         this.BitOffset = 0;
         this.Payload.push((Value >> 24) & 0xFF);
         this.Payload.push((Value >> 16) & 0xFF);
@@ -215,16 +215,16 @@ export class ByteStream {
 
     WriteLong(High: number, Low: number) {
         this.BitOffset = 0;
-        this.WriteInt(High);
-        this.WriteInt(Low);
+        this.writeInt(High);
+        this.writeInt(Low);
     }
 
     writeString(Str: string) {
         this.BitOffset = 0;
         let Bytes = ByteStreamHelper.StringToUtf8Array(Str);
-        this.WriteInt(Bytes.length);
+        this.writeInt(Bytes.length);
         for (let i = 0; i < Bytes.length; i++)
-            this.WriteByte(Bytes[i]);
+            this.writeByte(Bytes[i]);
     }
 
     writeStringReference(Str: string) {
@@ -233,13 +233,13 @@ export class ByteStream {
         const StrLength = Bytes.length;
 
         if (StrLength < 900001) {
-            this.WriteInt(StrLength);
+            this.writeInt(StrLength);
             for (let i = 0; i < StrLength; i++) {
-                this.WriteByte(Bytes[i]);
+                this.writeByte(Bytes[i]);
             }
         } else {
             console.warn(`ByteStream::writeString invalid string length ${StrLength}`);
-            this.WriteInt(-1);
+            this.writeInt(-1);
         }
     }
 

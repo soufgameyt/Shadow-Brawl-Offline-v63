@@ -9,23 +9,23 @@ class BrawlPassSeasonData {
             stream.writeBoolean(false)
 
             stream.writeBoolean(true)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
 
             stream.writeBoolean(true)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
 
             stream.writeBoolean(true) // Brawl Pass Plus State
             stream.writeBoolean(true)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
-            stream.WriteInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
+            stream.writeInt(0)
         }
     }
 }

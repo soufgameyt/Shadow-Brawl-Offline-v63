@@ -72,7 +72,7 @@ class OwnHomeDataMessage {
         stream.writeVInt(1);
         stream.writeVInt(30);
 
-        stream.WriteByte(1); // Selected Brawler
+        stream.writeByte(1); // Selected Brawler
         stream.WriteDataReference(16, 1);
 
         stream.writeString("EN"); // Location
@@ -121,7 +121,7 @@ class OwnHomeDataMessage {
         // LogicPlayerRankedSeasonData::encode
         stream.writeBoolean(false); // LogicPlayerRankedSeasonData::encode
 
-        stream.WriteInt(0);
+        stream.writeInt(0);
         stream.writeVInt(0);
         stream.WriteDataReference(16, 1); // Favorite Brawler
         stream.writeBoolean(false); // LogicRewards::encode
@@ -238,7 +238,7 @@ class OwnHomeDataMessage {
 
         stream.writeVInt(0)
         stream.writeVInt(0)
-        stream.WriteInt(-1435281534)
+        stream.writeInt(-1435281534)
         stream.writeVInt(0)
         stream.writeVInt(0)
         stream.writeVInt(86400*24)
@@ -278,7 +278,7 @@ class OwnHomeDataMessage {
 
         stream.writeString("@soufgamev2");
         stream.writeBoolean(true);
-        stream.WriteInt(-1);
+        stream.writeInt(-1);
 
         stream.writeVInt(28);
 

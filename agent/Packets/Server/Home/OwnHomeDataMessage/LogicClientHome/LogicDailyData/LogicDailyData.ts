@@ -74,7 +74,7 @@ class LogicDailyData {
         stream.writeVInt(1);
         stream.writeVInt(30);
 
-        stream.WriteByte(1); // Selected Brawler
+        stream.writeByte(1); // Selected Brawler
         stream.WriteDataReference(16, 1);
 
         stream.writeString(LogicPlayerData.getMiscData().Region);
@@ -95,7 +95,7 @@ class LogicDailyData {
             LogicPlayerRankedSeasonData.encode(stream);
         }
 
-        stream.WriteInt(0);
+        stream.writeInt(0);
         stream.writeVInt(1337);
         stream.WriteDataReference(16, 1); // Favorite Brawler
         stream.writeBoolean(false); // LogicRewards::encode

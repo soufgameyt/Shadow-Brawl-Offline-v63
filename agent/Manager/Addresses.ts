@@ -51,9 +51,9 @@ class Addresses {
     static LogicLaserMessageFactory: NativePointer;
     static Decode: NativePointer;
     static PiranhaMessage: NativePointer;
-    static GetLength: NativePointer;
+    static getLength: NativePointer;
     static IsServerShuttingDown: NativePointer;
-    static ByteStreamWriteIntToByteArray: NativePointer;
+    static ByteStreamwriteIntToByteArray: NativePointer;
     static LoginOkMessage: NativePointer;
     static HomePageButtonClicked: NativePointer;
     static LogicConfDataGetIntValue: NativePointer;
@@ -130,9 +130,9 @@ class Addresses {
         Addresses.LogicLaserMessageFactory = Environment.LaserBase.add(0xD93D16);
         Addresses.Decode = ptr(3 * Process.pointerSize);
         Addresses.PiranhaMessage = Environment.LaserBase.add(0x10D4A62);
-        Addresses.GetLength = Environment.LaserBase.add(0xa961f8);
+        Addresses.getLength = Environment.LaserBase.add(0xa961f8);
         Addresses.IsServerShuttingDown = Environment.LaserBase.add(0x7ae610);
-        Addresses.ByteStreamWriteIntToByteArray = Environment.LaserBase.add(0xc8dd20);
+        Addresses.ByteStreamwriteIntToByteArray = Environment.LaserBase.add(0xc8dd20);
         Addresses.LoginOkMessage = Environment.LaserBase.add(0x5514c4);
         Addresses.HomePageButtonClicked = Environment.LaserBase.add(0x3fca84);
         Addresses.LogicConfDataGetIntValue = Environment.LaserBase.add(0xc2fb88);
