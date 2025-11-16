@@ -8,7 +8,7 @@ class LobbyInfo {
     static CreateLobbyInfo(a1: NativePointer) {
         let HomePageInstance = a1.add(112).readPointer();
 
-        let TextPtr = Imports.Malloc(524);
+        let TextPtr = Imports.malloc(524);
         let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr("sc/debug.sc"), StringHelper.ptr("debug_menu_text"))
 
         GameButton.GameButton(TextPtr);

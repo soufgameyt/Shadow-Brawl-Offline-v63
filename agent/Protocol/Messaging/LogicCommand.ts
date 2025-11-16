@@ -13,9 +13,9 @@ class LogicCommand {
             case 24111:
                 Messaging.sendOfflineMessage(LogicChangeAvatarNameCommand.GetCommandType(), LogicChangeAvatarNameCommand.encode());
                 LogicChangeAvatarNameCommand.Execute();
-                return 1
+                return 1;
         }
-        return 0
+        return 0;
     }
 }
 

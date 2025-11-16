@@ -14,26 +14,17 @@ class Messaging
 {
     static sendOfflineMessage(Id: number, Payload: number[]): NativePointer 
     {
-        let Version = Id === 20104 ? 1 : 0;
-        if (Id != 24109) {
-            Debugger.Info(`Sending offline message with Packet ID ${Id}, Payload size ${Payload.length}, Version ${Version}`);
-        }
+        Id !== 24109 && Debugger.Info(`Sending offline message with Packet ID ${Id}, Payload size ${Payload.length}, Version ${Id === 20104 ? 1 : 0}`);
 
-        let Factory = Imports.Malloc(1024);
+        let Factory = Imports.malloc(1024);
         let Message = LogicLaserMessageFactory.createMessageByType(Factory, Id);
-        PiranhaMessage.setMessageVersion(Message, Version);
 
-        let PayloadLengthPtr = PiranhaMessage.getByteStream(Message).add(24);
-        PayloadLengthPtr.writeS64(Payload.length);
-
-        if (Payload.length > 0) {
-            let PayloadPtr = Imports.Malloc(Payload.length).writeByteArray(Payload);
-            PiranhaMessage.getByteStream(Message).add(56).writePointer(PayloadPtr);
-        }
+        PiranhaMessage.setMessageVersion(Message, Id === 20104 ? 1 : 0);
+        PiranhaMessage.setMessageLength(Message, Payload.length);
+        PiranhaMessage.setMessagePayload(Message, Payload);
 
         PiranhaMessage.decode(Message);
         Messaging.receiveMessageOfflineMessage(Message);
-
         return Message;
     }
 

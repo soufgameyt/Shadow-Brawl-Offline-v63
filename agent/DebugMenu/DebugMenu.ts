@@ -13,7 +13,7 @@ class DebugMenu {
     static DebugMenuInstance: NativePointer
 
     static NewDebugMenu() {
-        DebugMenu.DebugMenuInstance = Imports.Malloc(5200);
+        DebugMenu.DebugMenuInstance = Imports.malloc(5200);
 
         let SCFile = StringHelper.ptr("sc/debug.sc");
         let SCImport = StringHelper.ptr("debug_menu");

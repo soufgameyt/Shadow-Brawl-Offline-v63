@@ -19,7 +19,7 @@ class DebugButton {
     static DebugButtonMovieClip: NativePointer;
 
     static LoadDebugButton() {
-        DebugButton.DebugButtonInstance = Imports.Malloc(5200);
+        DebugButton.DebugButtonInstance = Imports.malloc(5200);
 
         GameButton.GameButton(DebugButton.DebugButtonInstance);
         DebugButton.DebugButtonMovieClip = ResourceManager.getMovieClip(StringHelper.ptr("sc/debug.sc"), StringHelper.ptr("debug_button"));

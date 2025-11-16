@@ -6,7 +6,7 @@ class StringHelper {
     }
 
     static scptr(Text: string) {
-        let scptrmem = Functions.Imports.Malloc(Text.length + 1);
+        let scptrmem = Functions.Imports.malloc(Text.length + 1);
         Functions.String.StringCtor(scptrmem, StringHelper.ptr(Text))
         return scptrmem
     }

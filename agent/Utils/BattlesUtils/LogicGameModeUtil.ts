@@ -71,7 +71,7 @@ class LogicGameModeUtil {
 		return Variation === 2 || Variation === 11;
 	}
 
-	static GetGameModeVariation(Mode: string): number {
+	static getGameModeVariation(Mode: string): number {
 		switch (Mode) {
 			case "CoinRush":
 			case "GemGrab":

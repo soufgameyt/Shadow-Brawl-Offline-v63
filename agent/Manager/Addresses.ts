@@ -2,7 +2,7 @@ import Environment from "../Environement/Environment";
 
 class Addresses {
     static Imports = class {
-        static Malloc: NativePointer;
+        static malloc: NativePointer;
     }
 
     static GUI_ShowFloaterTextAtDefaultPos: NativePointer;
@@ -79,7 +79,7 @@ class Addresses {
     static LogicSkillServerDtor: NativePointer;
 
     static Init() {
-        Addresses.Imports.Malloc = Process.getModuleByName("libSystem.B.dylib").findExportByName("malloc")!;
+        Addresses.Imports.malloc = Process.getModuleByName("libSystem.B.dylib").findExportByName("malloc")!;
         Addresses.GUI_ShowFloaterTextAtDefaultPos = Environment.LaserBase.add(0x0A4984);
         Addresses.GUI_showPopup = Environment.LaserBase.add(0x0A509C);
         Addresses.GUIInstance = Environment.LaserBase.add(0xEC2908);

@@ -128,7 +128,7 @@ class DebugMenuBase {
     }
 
     static createMiniCategory(Text: string, Callback: any) {
-        let ButtonInstance = Imports.Malloc(1000);
+        let ButtonInstance = Imports.malloc(1000);
         GameButton.GameButton(ButtonInstance);
         let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr('sc/debug.sc'), StringHelper.ptr('debug_menu_category_mini'));
         new NativeFunction(ButtonInstance.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(ButtonInstance, MovieClipInstance, 1);
@@ -151,7 +151,7 @@ class DebugMenuBase {
     }
 
     static createDebugMenuItem(Text: string, ColorGradient: string, Callback: any, CategoryName: any, CategoryButton: any = null) {
-        let ButtonInstance = Imports.Malloc(1000);
+        let ButtonInstance = Imports.malloc(1000);
         GameButton.GameButton(ButtonInstance);
         let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr('sc/debug.sc'), StringHelper.ptr('debug_menu_item'));
         new NativeFunction(ButtonInstance.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(ButtonInstance, MovieClipInstance, 1);
@@ -188,7 +188,7 @@ class DebugMenuBase {
     }
 
     static createDebugMenuCategory(Text: string, ColorGradient: string, Callback: any) {
-        let ButtonInstance = Imports.Malloc(1000);
+        let ButtonInstance = Imports.malloc(1000);
         GameButton.GameButton(ButtonInstance);
         let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr('sc/debug.sc'), StringHelper.ptr('debug_menu_category'));
         new NativeFunction(ButtonInstance.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(ButtonInstance, MovieClipInstance, 1);

@@ -2,7 +2,6 @@ import BitStream from "../../../DataStream/BitStream.js"
 import LogicBattleModeServer from "./LogicBattleModeServer.js";
 import StartLoadingMessage from "./StartLoadingMessage.js";
 import LogicGameModeUtil from "../../../Utils/BattlesUtils/LogicGameModeUtil.js";
-import LogicPlayer from "./LogicPlayer.js";
 import LogicCharacterServer from "./LogicCharacterServer.js";
 
 class LogicGameObjectManagerServer {
@@ -15,7 +14,7 @@ class LogicGameObjectManagerServer {
         Stream.writeBoolean(false);
         Stream.writeBoolean(false);
 
-        if (StartLoadingMessage.GameModeVariation == LogicGameModeUtil.GetGameModeVariation("GemGrab")) 
+        if (StartLoadingMessage.GameModeVariation == LogicGameModeUtil.getGameModeVariation("GemGrab")) 
         {
             Stream.writePositiveVIntMax65535(0);
         }
@@ -33,15 +32,15 @@ class LogicGameObjectManagerServer {
         Stream.writePositiveIntMax31(0); // 16
         Stream.writePositiveIntMax63(0); // 32
 
-        LogicGameObjectManagerServer.EncodeTiles(Stream, 0); // 0 = tiles count
-        LogicGameObjectManagerServer.EncodeDynamicTiles(Stream);
+        LogicGameObjectManagerServer.encodeTiles(Stream, 0); // 0 = tiles count
+        LogicGameObjectManagerServer.encodeDynamicTiles(Stream);
 
         Stream.writePositiveVIntMax65535OftenZero(0);
         Stream.writePositiveVIntMax65535OftenZero(0);
 
-        Stream.writePositiveIntMax4095(4000); // Super Charge - Max 4000
+        Stream.writePositiveIntMax4095(0); // Super Charge - Max 4000
         Stream.writePositiveIntMax3(0);
-        Stream.writePositiveIntMax4095(4000); // Hypercharge Charge - Max 4000
+        Stream.writePositiveIntMax4095(0); // Hypercharge Charge - Max 4000
         Stream.writeBoolean(false); // Damaged Enemy Ulti Full Flag
         Stream.writeBoolean(false);
         Stream.writePositiveVIntMax255OftenZero(0); // Kills Count ??
@@ -50,13 +49,12 @@ class LogicGameObjectManagerServer {
         Stream.writeBoolean(false);
         Stream.writePositiveIntMax15(0);
         Stream.writeBoolean(false);
-        Stream.writePositiveIntMax131071(0);
-        Stream.writeBoolean(false);
-        Stream.writeBoolean(false);
+        Stream.writePositiveIntMax2047(0);
 
+        Stream.writeBoolean(false);
+        Stream.writeBoolean(false);
         Stream.writeBoolean(false); // Has Ulti
         Stream.writeBoolean(false) // Has Bonus Skill
-
         Stream.writeBoolean(false); // TemporaryTeamOverride
         Stream.writeBoolean(false); // ControlledCharacterGID
 
@@ -73,31 +71,33 @@ class LogicGameObjectManagerServer {
 
         Stream.writePositiveVIntMax65535OftenZero(0);
         Stream.writePositiveVIntMax255OftenZero(0);
+        Stream.writePositiveVIntMax2147483647OftenZero(69);
 
         Stream.writePositiveIntMax127(0);
         Stream.writePositiveIntMax127(0);
+        Stream.writePositiveIntMax127(0);
 
-        Stream.writePositiveVIntMax65535(1); // GameObjects Count
+        Stream.writePositiveVIntMax65535(0); // GameObjects Count
         {
-            Stream.writePositiveIntMax127(16); // Type : Brawler
-            Stream.writePositiveVIntMax65535(1); // CSV ID : Colt
-            Stream.writeBoolean(true);
+            //Stream.writePositiveIntMax31(16); // Type : Brawler
+            //Stream.writePositiveIntMax1023(0); // CSV ID : Shelly
+            //Stream.writePositiveVIntMax65535(0);
+            //Stream.writeBoolean(false);
             
-            LogicCharacterServer.encode(Stream);
+            //LogicCharacterServer.encode(Stream);
         }
        
-
-        return Stream 
+        return Stream;
     }
 
-    static EncodeTiles(Stream: any, TilesCount: number) {
+    static encodeTiles(Stream: any, TilesCount: number) {
         for (let i = 0; i < TilesCount; i++) 
         {
             Stream.writeBoolean(false);
         }
     }
     
-    static EncodeDynamicTiles(Stream: any) {
+    static encodeDynamicTiles(Stream: any) {
         Stream.writePositiveVIntMax65535OftenZero(0);
     }
 }

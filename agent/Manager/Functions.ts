@@ -77,7 +77,7 @@ class Functions {
     }
 
     static Imports = class {
-        static Malloc: any;
+        static malloc: any;
         static Free: any;
         static Open: any;
         static Read: any;
@@ -156,7 +156,7 @@ class Functions {
         Functions.GenericPopup.setTitleTid = new NativeFunction(Addresses.GenericPopup_setTitleTid, 'void', ['pointer', 'pointer']);
         Functions.GenericPopup.addButton = new NativeFunction(Addresses.GenericPopup_addButton, 'pointer', ['pointer', 'pointer', 'bool']);
 
-        Functions.Imports.Malloc = new NativeFunction(Addresses.Imports.Malloc, 'pointer', ["uint"]);
+        Functions.Imports.malloc = new NativeFunction(Addresses.Imports.malloc, 'pointer', ["uint"]);
         Functions.Imports.Free = new NativeFunction(LibSystem.findExportByName("free")!, "int", ["pointer"]);
         Functions.Imports.Open = new NativeFunction(LibSystem.findExportByName("open")!, "int", ["pointer", "int", "int"]);
         Functions.Imports.Read = new NativeFunction(LibSystem.findExportByName("read")!, "int", ["int", "pointer", "int"]);

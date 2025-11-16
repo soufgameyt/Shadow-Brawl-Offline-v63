@@ -20,7 +20,7 @@ class LogicCharacterServer {
         if (![0, 1].includes(a2)) {
             return
         }
-        let NewSkill: NativePointer = Imports.Malloc(72)
+        let NewSkill: NativePointer = Imports.malloc(72)
         let result = LogicSkillServer.LogicSkillServer(NewSkill, a3);
 
         let SkillContainer = a1.add(424).readPointer()

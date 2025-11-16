@@ -31,28 +31,28 @@ class LogicPlayer {
 
         stream.writeByte(1); // Selected Brawlers Count
         {
-            stream.WriteDataReference(16, 1); // Selected Brawler
+            stream.WriteDataReference(16, 0); // Selected Brawler
             stream.writeBoolean(true); // LogicHeroUpgrades::encode
             {
                 stream.writeVInt(11);
                 {
-                    stream.WriteDataReference(0, 0);
-                    stream.WriteDataReference(0, 0);
-                    stream.WriteDataReference(0, 0);
-                    stream.WriteDataReference(0, 0);
-                    stream.WriteDataReference(0, 0);
-                    stream.WriteDataReference(0, 0);
-                    stream.WriteDataReference(0, 0);
+                    stream.WriteDataReference(0);
+                    stream.WriteDataReference(0);
+                    stream.WriteDataReference(0);
+                    stream.WriteDataReference(0);
+                    stream.WriteDataReference(0);
+                    stream.WriteDataReference(0);
+                    stream.WriteDataReference(0);
                 }
                 
                 stream.writeVInt(0);
                 stream.writeVInt(0);
 
-                stream.WriteDataReference(0, 0);
+                stream.WriteDataReference(0);
                 
             }
             
-            stream.writeBoolean(true); // LogicBattleEmotes::encode
+            if(stream.writeBoolean(false)) // LogicBattleEmotes::encode
             {
                 stream.writeVInt(5);
                 {
@@ -65,7 +65,7 @@ class LogicPlayer {
                 stream.writeVInt(0);
             }
 
-            stream.writeBoolean(true); // LogicBattleSprays::encode
+            if (stream.writeBoolean(false)) // LogicBattleSprays::encode
             {
                 stream.writeVInt(5);
                 {
@@ -77,9 +77,9 @@ class LogicPlayer {
                 }
             }
 
-            stream.WriteDataReference(29, 0); // Selected Skin
-            stream.WriteDataReference(0, 0); // Unknown
-            stream.WriteDataReference(0, 0); // Unknown
+            stream.WriteDataReference(0); // Selected Skin
+            stream.WriteDataReference(0); // Unknown
+            stream.WriteDataReference(0); // Unknown
         }
 
         stream.writeBoolean(false);

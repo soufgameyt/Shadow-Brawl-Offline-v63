@@ -16,7 +16,7 @@ class ModMenu {
         let HomePageMovieClip = HomePage.add(112).readPointer();
         let ddd = new NativeFunction(Environment.LaserBase.add(0x9A6A30), 'pointer', ['pointer', 'pointer'])(HomePage, StringHelper.ptr("mainscreen_hud_left"))
 
-        let TextPtr = Imports.Malloc(524);
+        let TextPtr = Imports.malloc(524);
         let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr("sc/ui.sc"), StringHelper.ptr("button_navi_news_custom")); // battle_card_titles_config_item
 
         GameButton.GameButton(TextPtr);
@@ -42,14 +42,13 @@ class ModMenu {
     }
     
     static ModMenuButtonClicked() {
-        let ModMenuPopupInstance = Imports.Malloc(4096);
+        let ModMenuPopupInstance = Imports.malloc(4096);
         ModMenu.ModMenuPopup(ModMenuPopupInstance);
 
         GUI.ShowPopup(Environment.LaserBase.add(0xEC2908).readPointer(), ModMenuPopupInstance, 1, 0, 1);
     }
 
-    static ModMenuPopup(ModMenuPopupInstance: NativePointer) {
-
+    static ModMenuPopup(ModMenuPopupInstance: NativePointer) {        
         let s1 = StringHelper.scptr("login_calendar_notifications_popup");
         let s2 = StringHelper.scptr("");
 		let s3 = StringHelper.scptr("------------ Mod Menu ------------");
@@ -88,7 +87,7 @@ class ModMenu {
     }
 
     static CreateModMenuItem(ModMenuPopupInstance: NativePointer, Text: string) {
-        let TextPtr = Imports.Malloc(524);
+        let TextPtr = Imports.malloc(524);
         let MovieClipInstance = ResourceManager.getMovieClip(StringHelper.ptr("sc/ui.sc"), StringHelper.ptr("battle_card_titles_config_item"));
 
         GameButton.GameButton(TextPtr);

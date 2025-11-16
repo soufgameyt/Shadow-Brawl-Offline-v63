@@ -1,3 +1,4 @@
+import Functions from "../../Manager/Functions";
 import LogicMath from "../../Utils/Math/LogicMath";
 
 class PiranhaMessage {
@@ -36,6 +37,17 @@ class PiranhaMessage {
     static setMessageVersion(Message: NativePointer, version: number): void 
     {
         Message.add(136).writeS64(version);
+    }
+
+    static setMessageLength(Message: NativePointer, length: number): void 
+    {
+        PiranhaMessage.getByteStream(Message).add(24).writeU32(length);
+    }
+
+    static setMessagePayload(Message: NativePointer, Payload: number[]): void 
+    {
+        let PayloadPtr = Functions.Imports.malloc(Payload.length).writeByteArray(Payload);
+        PiranhaMessage.getByteStream(Message).add(56).writePointer(PayloadPtr);
     }
 
     static getByteStream(Message: NativePointer): NativePointer { 

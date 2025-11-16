@@ -24,6 +24,41 @@ class Hooks {
             }
         });
 
+
+        function DumpStructure() {
+        Interceptor.attach(Environment.LaserBase.add(0x4DD1B4), {
+            onEnter: function(args) {
+                console.log("self.writeInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
+            },
+        });
+
+        Interceptor.attach(Environment.LaserBase.add(0x4DD444), {
+            onEnter: function(args) {
+                console.log("self.writePositiveVInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
+            }
+        });
+
+        Interceptor.attach(Environment.LaserBase.add(0x4DD66C), {
+            onEnter: function(args) {
+                console.log("self.writePositiveInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
+            }
+        });
+        }
+
+        Interceptor.attach(Environment.LaserBase.add(0x450668), {
+            onEnter: function(args) {
+                console.log("start");
+                DumpStructure();
+            }
+        });
+
+        Interceptor.attach(Environment.LaserBase.add(0x4522B0), {
+            onEnter: function(args) {
+                console.log("end");
+                Interceptor.detachAll();
+            }
+        });
+
         Interceptor.attach(Addresses.MessageManagerreceiveMessage, {
             onEnter(args) {
                 let Message = args[1];
@@ -111,14 +146,13 @@ class Hooks {
 
         // Misc Hooks
 
-        /*Interceptor.attach(Environment.LaserBase.add(0x325900), {
+        Interceptor.attach(Environment.LaserBase.add(0x325900), {
             onEnter: function (args) {
-                // Hooks.messstate.add(24).writeInt(2);
                 args[3] = ptr(3); // Offline Battles
                 // args[6] = ptr(1); // Maxed Brawlers
-                args[8] = ptr(1); // Accessorys enabled/disabled
+                args[8] = ptr(0); // Accessorys enabled/disabled
             }
-        });*/
+        });
 
         /*Interceptor.attach(Environment.LaserBase.add(0x496B1C), {
             onEnter: function(args) {
