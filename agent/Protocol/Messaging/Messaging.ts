@@ -10,7 +10,7 @@ import VisionUpdateMessage from "../../Packets/Server/Battles/VisionUpdateMessag
 const {GUI, ResourceManager, GUIContainer, DisplayObject, LogicDataTables, DecoratedTextField, MovieClip, GameButton, MovieClipHelper, Sprite, String, ResourceListenner, Stage, ScrollArea, Imports, LogicLaserMessageFactory, LogicGameModeUtil, LogicSkillServer, Application} = Functions;
 
 // thx nates for help when i didn't understood this, thx sb for making offline guide
-class Messaging 
+class Messaging     
 {
     static sendOfflineMessage(Id: number, Payload: number[]): NativePointer 
     {

@@ -21,8 +21,8 @@ class Functions {
     static DisplayObject = class {
         static setPixelSnappedXY: any;
         static setXY: any;
-        static SetHeight: any
-        static SetWidth: any
+        static setHeight: any
+        static setWidth: any
     }
 
     static LogicDataTables = class {
@@ -127,8 +127,8 @@ class Functions {
         Functions.GUIContainer.createScrollArea = new NativeFunction(Addresses.GUIContainer_createScrollArea, 'pointer', ['pointer', 'pointer', 'int']);
         Functions.DisplayObject.setPixelSnappedXY = new NativeFunction(Addresses.DisplayObject_setPixelSnappedXY, 'float', ['pointer', 'float', 'float']);
         Functions.DisplayObject.setXY = new NativeFunction(Addresses.DisplayObject_setXY, 'float', ['pointer', 'float', 'float']);
-        Functions.DisplayObject.SetHeight = new NativeFunction(Addresses.DisplayObject_setHeight, 'float', ['pointer', 'float']);
-        Functions.DisplayObject.SetWidth = new NativeFunction(Addresses.DisplayObject_setWidth, 'float', ['pointer', 'float']);
+        Functions.DisplayObject.setHeight = new NativeFunction(Addresses.DisplayObject_setHeight, 'float', ['pointer', 'float']);
+        Functions.DisplayObject.setWidth = new NativeFunction(Addresses.DisplayObject_setWidth, 'float', ['pointer', 'float']);
         Functions.LogicDataTables.getColorGradientByName = new NativeFunction(Addresses.LogicDataTables_getColorGradientByName, 'pointer', ['pointer', 'int']);
         Functions.DecoratedTextField.setupDecoratedText = new NativeFunction(Addresses.DecoratedTextField_setupDecoratedText, 'void', ['pointer', 'pointer', 'pointer']);
         Functions.MovieClip.getTextFieldByName = new NativeFunction(Addresses.MovieClip_getTextFieldByName, 'pointer', ['pointer', 'pointer']);

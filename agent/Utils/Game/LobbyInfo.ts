@@ -14,12 +14,12 @@ class LobbyInfo {
         GameButton.GameButton(TextPtr);
         new NativeFunction(TextPtr.readPointer().add(352).readPointer(), 'void', ['pointer', 'pointer', 'bool'])(TextPtr, MovieClipInstance, 1);
 
+        DisplayObject.setHeight(TextPtr, 1.65); 
+        DisplayObject.setWidth(TextPtr, 1.65);
         DisplayObject.setXY(TextPtr, 140, 90);
+
         TextPtr.add(16).writeFloat(1.65);
         TextPtr.add(28).writeFloat(1.65);
-
-        // DisplayObject.SetHeight(TextPtr, 1.65); 
-        // DisplayObject.SetWidth(TextPtr, 1.65);
 
         let ColorGradientByName2 = LogicDataTables.getColorGradientByName(StringHelper.scptr("Name6"), 1);
         let version = MovieClip.getTextFieldByName(MovieClipInstance, StringHelper.ptr("Text"));

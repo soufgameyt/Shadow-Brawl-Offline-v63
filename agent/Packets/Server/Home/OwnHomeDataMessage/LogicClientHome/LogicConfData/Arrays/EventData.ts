@@ -87,8 +87,8 @@ class EventData {
         stream.writeVInt(-1)
         stream.writeBoolean(true)
         {
-            stream.writeString("4db05b9a886581e81fb981a8e68482a9e521cb36");
-            stream.writeString("daaa0d43-d80a-47a0-9842-581fc84f1585_8c904385_20ce_4435_b84c_0b1eb9d33d6d_collab_subway_surfers__1_.sc");
+            stream.writeString("51bedbef4ca4b3d8595a9027ccda03c9e9248c37");
+            stream.writeString("67a430fd-f323-4883-a228-849cf1913533_collab_demons.sc");
         }
         stream.writeBoolean(false)
         stream.writeVInt(-1)

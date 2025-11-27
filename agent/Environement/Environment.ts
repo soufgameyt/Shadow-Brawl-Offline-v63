@@ -3,7 +3,7 @@ import ObjC from "frida-objc-bridge";
 import Debugger from "../Utils/Debugger";
 
 class Environment {
-    static script_version: string = "1.1.0";
+    static script_version: string = "1.1.6";
     static script_branch: string = "dev";
     static process_name: string = "Nulls Brawl"
     static platform: string = "iOS"

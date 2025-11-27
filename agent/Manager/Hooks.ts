@@ -1,5 +1,5 @@
 import Addresses from "./Addresses.js";
-import Functions from "./Functions.js";
+import Functions, { Imports } from "./Functions.js";
 import PiranhaMessage from "../Protocol/PiranhaMessage/PiranhaMessage.js";
 import Debugger from "../Utils/Debugger.js";
 import LogicLaserMessageFactory from "../Protocol/Messaging/LogicLaserMessageFactory.js";
@@ -25,10 +25,9 @@ class Hooks {
         });
 
 
-        function DumpStructure() {
         Interceptor.attach(Environment.LaserBase.add(0x4DD1B4), {
             onEnter: function(args) {
-                console.log("self.writeInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
+                console.log("self.writePositiveInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
             },
         });
 
@@ -40,12 +39,11 @@ class Hooks {
 
         Interceptor.attach(Environment.LaserBase.add(0x4DD66C), {
             onEnter: function(args) {
-                console.log("self.writePositiveInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
+                console.log("self.writeInt(" + args[1].toInt32() + "," + args[2].toInt32() + ")")
             }
         });
-        }
 
-        Interceptor.attach(Environment.LaserBase.add(0x450668), {
+        /*Interceptor.attach(Environment.LaserBase.add(0x450668), {
             onEnter: function(args) {
                 console.log("start");
                 DumpStructure();
@@ -57,7 +55,7 @@ class Hooks {
                 console.log("end");
                 Interceptor.detachAll();
             }
-        });
+        });*/
 
         Interceptor.attach(Addresses.MessageManagerreceiveMessage, {
             onEnter(args) {
