@@ -79,7 +79,7 @@ class Addresses {
     static LogicSkillServerDtor: NativePointer;
 
     static Init() {
-        Addresses.Imports.malloc = Process.getModuleByName("libSystem.B.dylib").findExportByName("malloc")!;
+        Addresses.Imports.malloc = Process.getModuleByName((Environment.platform == "Android" ? "libc.so" : "libSystem.B.dylib")).findExportByName("malloc")!;
         Addresses.GUI_ShowFloaterTextAtDefaultPos = Environment.LaserBase.add(0x0A4984);
         Addresses.GUI_showPopup = Environment.LaserBase.add(0x0A509C);
         Addresses.GUIInstance = Environment.LaserBase.add(0xEC2908);
