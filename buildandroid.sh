@@ -7,7 +7,8 @@ set -eo pipefail
 REMOTE_RAW_URL="https://raw.githubusercontent.com/soufgameyt/Shadow-Brawl-Offline-v63/main/version.json"
 ZIP_URL="https://github.com/soufgameyt/Shadow-Brawl-Offline-v63/archive/refs/heads/main.zip"
 LOCAL_FILE="./version.json"
-APP_PATH="daniillnull.nulls.brawlstars/com.supercell.brawlstars.GameApp"
+APP_PATH="daniillnull.nulls.brawlstars"
+ACTIVITY="com.supercell.brawlstars.GameApp"
 FRIDA_TARGET="Null’s Brawl"
 AGENT_FILE="_agent.js"
 
@@ -116,9 +117,9 @@ else
   log "⚠️ npm not found — skipping build."
 fi
 
-if [[ true ]]; then
+if adb shell pm list packages | grep -q $APP_PATH >/dev/null 2>&1; then
   log "Opening Brawl Stars..."
-  adb shell am start -n "$APP_PATH" || log "⚠️ Failed to open app."
+  adb shell am start -n "$APP_PATH/$ACTIVITY" || log "⚠️ Failed to open app."
 else
   log "⚠️ App not found at $APP_PATH"
 fi
