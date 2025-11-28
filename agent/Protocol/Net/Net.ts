@@ -1,12 +1,16 @@
+import Environment from "../../Environement/Environment";
+
 class Socket {
-    static SocketFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("socket")!, 'int', ['int', 'int', 'int']);
-    static ConnectFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("connect")!, 'int', ['int', 'pointer', 'int']);
-    static SendFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("send")!, 'int', ['int', 'pointer', 'int', 'int']);
-    static RecvFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("recv")!, 'int', ['int', 'pointer', 'int', 'int']);
-    static CloseFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("close")!, 'int', ['int']);
-    static FcntlFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("fcntl")!, 'int', ['int', 'int', 'int']);
-    static PollFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("poll")!, 'int', ['pointer', 'int', 'int']);
-    static GetSockOptFn = new NativeFunction(Process.getModuleByName("libSystem.B.dylib").findExportByName("getsockopt")!, 'int', ['int', 'int', 'int', 'pointer', 'pointer']);
+    static LibSystem = Process.getModuleByName((Environment.platform == "Android" ? "libc.so" : "libSystem.B.dylib"));
+
+    static SocketFn = new NativeFunction(Socket.LibSystem.findExportByName("socket")!, 'int', ['int', 'int', 'int']);
+    static ConnectFn = new NativeFunction(Socket.LibSystem.findExportByName("connect")!, 'int', ['int', 'pointer', 'int']);
+    static SendFn = new NativeFunction(Socket.LibSystem.findExportByName("send")!, 'int', ['int', 'pointer', 'int', 'int']);
+    static RecvFn = new NativeFunction(Socket.LibSystem.findExportByName("recv")!, 'int', ['int', 'pointer', 'int', 'int']);
+    static CloseFn = new NativeFunction(Socket.LibSystem.findExportByName("close")!, 'int', ['int']);
+    static FcntlFn = new NativeFunction(Socket.LibSystem.findExportByName("fcntl")!, 'int', ['int', 'int', 'int']);
+    static PollFn = new NativeFunction(Socket.LibSystem.findExportByName("poll")!, 'int', ['pointer', 'int', 'int']);
+    static GetSockOptFn = new NativeFunction(Socket.LibSystem.findExportByName("getsockopt")!, 'int', ['int', 'int', 'int', 'pointer', 'pointer']);
 
     static AF_INET = 2;
     static SOCK_STREAM = 1;

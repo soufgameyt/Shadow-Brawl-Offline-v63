@@ -116,7 +116,7 @@ class Functions {
     }
 
     static Init() {
-        const LibSystem = Process.getModuleByName("libSystem.B.dylib");
+        const LibSystem = Process.getModuleByName((Environment.platform == "Android" ? "libc.so" : "libSystem.B.dylib"));
 
         Functions.GUI.ShowFloaterTextAtDefaultPos = new NativeFunction(Addresses.GUI_ShowFloaterTextAtDefaultPos, 'void', ['pointer', 'pointer', 'float', 'int']);
         Functions.GUI.ShowPopup = new NativeFunction(Addresses.GUI_showPopup, 'void', ['pointer', 'pointer', 'int', 'int', 'int']);
